@@ -1,0 +1,73 @@
+
+.loginFooter-normal{
+    -fx-font: 'Kanit';
+    -fx-font-size: 20;
+    -fx-text-fill: #000000;
+}
+.bold{
+    -fx-font-weight: 700;
+    -fx-font-size: 30;
+}
+.textBox{
+    -fx-background-color: #EEEFF3;
+    -fx-pref-height: 36.64;
+    -fx-pref-width: 417.33;
+    -fx-border-radius: 40;
+    -fx-background-radius: 40;
+}
+.otpBox{
+    -fx-pref-width: 231;
+}
+.loginbtn{
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+    -fx-border-color: #B1F041;
+    -fx-border-width: 3;
+    -fx-border-style: solid;
+    -fx-text-fill: #EEEFF3;
+    -fx-text-alignment: center;
+    -fx-font-family: Kanit;
+    -fx-font-size: 15;
+    -fx-font-weight: 700;
+
+}
+
+.loginbtn:hover{
+    -fx-text-fill: #000000;
+    -fx-background-color: #B1F041;
+}
+.labelfooter{
+    -fx-text-alignment: center;
+    -fx-font-family: Raleway;
+    -fx-font-size: 15;
+}
+.lblwelcome{
+    -fx-text-fill: #FFF;
+    -fx-text-alignment: center;
+    -fx-font-family: Raleway;
+    -fx-font-size: 15;
+    -fx-font-style: normal;
+    -fx-font-weight: 700;
+}
+.lblSellingLk{
+    -fx-text-fill: #D7D8DC;
+    -fx-text-alignment: center;
+    -fx-font-family: Kanit;
+    -fx-font-size: 25;
+    -fx-font-style: italic;
+    -fx-font-weight: 800;
+}
+.signUpAndSignIn{
+    -fx-text-fill: #000;
+    -fx-text-alignment: center;
+    -fx-font-family: Kanit;
+    -fx-font-style: normal;
+    -fx-font-size: 15;
+    -fx-font-weight: 700;
+}
+.active{
+
+}
+.active:hover{
+    -fx-text-fill: #B1F041;
+}
