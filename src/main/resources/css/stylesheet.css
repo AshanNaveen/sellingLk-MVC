@@ -65,9 +65,7 @@
     -fx-font-size: 15;
     -fx-font-weight: 700;
 }
-.active{
 
-}
 .active:hover{
     -fx-text-fill: #B1F041;
 }

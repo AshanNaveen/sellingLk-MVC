@@ -1,14 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.sellingLk.controller.LoginFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #D7D8DC;" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.LoginFormController">
+   <children>
+      <Pane layoutX="647.0" layoutY="50.0" prefHeight="622.0" prefWidth="584.0" style="-fx-background-color: #262626; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="171.0" layoutY="104.0" styleClass="lblwelcome" text="Welcome to Forefront of the world" />
+            <Pane layoutX="220.0" layoutY="125.0">
+               <children>
+                  <Label layoutX="-1.0" layoutY="1.0" styleClass="lblSellingLk" text="S" />
+                  <Label layoutX="14.0" layoutY="1.0" styleClass="lblSellingLk" text="e" />
+                  <Label layoutX="30.0" layoutY="1.0" styleClass="lblSellingLk" text="l" />
+                  <Label layoutX="44.0" layoutY="1.0" styleClass="lblSellingLk" text="l" />
+                  <Label layoutX="56.0" layoutY="1.0" styleClass="lblSellingLk" text="i" />
+                  <Label layoutX="69.0" layoutY="1.0" styleClass="lblSellingLk" text="n" />
+                  <Label layoutX="87.0" layoutY="1.0" styleClass="lblSellingLk" text="g" />
+                  <Label layoutX="112.0" layoutY="1.0" styleClass="lblSellingLk" text="L" />
+                  <Label layoutX="126.0" layoutY="1.0" styleClass="lblSellingLk" text="K" />
+               </children>
+            </Pane>
+            <Pane layoutX="170.0" layoutY="37.0" prefHeight="37.67" prefWidth="255.04" style="-fx-background-color: #EEEFF3; -fx-background-radius: 50;" />
+            <Pane fx:id="greenPane" layoutX="176.0" layoutY="41.0" prefHeight="30.0" prefWidth="117.54" style="-fx-background-color: #B1F041; -fx-background-radius: 50;" />
+            <Label fx:id="txtSignIn" accessibleRole="BUTTON" layoutX="209.0" layoutY="45.0" onMouseClicked="#txtSignInOnMouseClicked" text="Sign IN">
+               <styleClass>
+                  <String fx:value="signUpAndSignIn" />
+                  <String fx:value="active" />
+               </styleClass>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label fx:id="txtSignUp" layoutX="335.0" layoutY="45.0" onMouseClicked="#txtSignUpOnMouseClicked" styleClass="signUpAndSignIn" text="Sign UP" />
+            <Pane fx:id="lodingPane" layoutX="20.0" layoutY="162.0" prefHeight="348.0" prefWidth="544.0" />
+            <Line endX="316.0" layoutX="183.0" layoutY="529.0" startX="-100.0" stroke="#edeef2ce" />
+            <Label fx:id="lblFooterOne" layoutX="177.0" layoutY="559.0" styleClass="labelfooter" text="Do you haven't Account?" textFill="#eeeff3" />
+            <Label fx:id="lblFooterTwo" accessibleRole="BUTTON" layoutX="357.0" layoutY="559.0" onMouseClicked="#txtSignInOnMouseClicked" styleClass="labelfooter" text="Sign UP" textFill="#b1f041">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </children></Pane>
+      <ImageView fitHeight="92.0" fitWidth="391.0" layoutX="143.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/image/logo.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="82.0" layoutY="587.0" prefHeight="66.0" prefWidth="459.0">
+         <children>
+            <Label layoutX="21.0" layoutY="10.0" styleClass="loginFooter-normal" stylesheets="@../css/stylesheet.css" text="&quot;The best " />
+            <Label layoutX="111.0" stylesheets="@../css/stylesheet.css" text="investment ">
+               <styleClass>
+                  <String fx:value="loginFooter-normal" />
+                  <String fx:value="bold" />
+               </styleClass>
+            </Label>
+            <Label layoutX="279.0" layoutY="6.0" prefHeight="36.0" prefWidth="151.0" styleClass="loginFooter-normal" stylesheets="@../css/stylesheet.css" text="you can" />
+            <Label layoutX="182.0" layoutY="41.0" styleClass="loginFooter-normal" stylesheets="@../css/stylesheet.css" text="make is in " />
+         </children>
+      </Pane>
+      <Pane layoutX="308.0" layoutY="638.0">
+         <children>
+            <Label layoutX="51.0" layoutY="-21.0" stylesheets="@../css/stylesheet.css" text="yourself.&quot; ">
+               <styleClass>
+                  <String fx:value="loginFooter-normal" />
+                  <String fx:value="bold" />
+               </styleClass>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fx:id="imgCarousel" fitHeight="460.67" fitWidth="640.0" layoutX="19.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" y="123.0">
+         <image>
+            <Image url="@../assets/image/carousel/image1.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>
