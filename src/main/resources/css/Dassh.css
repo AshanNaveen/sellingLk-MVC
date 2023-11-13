@@ -1,0 +1,75 @@
+.round-greed{
+    -fx-background-color: #20C997;
+    -fx-background-radius: 10 10 10 10;
+    /*-fx-effect: dropshadow( three-pass-box ,  #04D98B, 20, 0.0 , 0 , 1 );*/
+    -fx-border-color: #24735C;
+    -fx-border-width: 1;
+    -fx-border-radius: 10 10 10 10;
+}
+.round-greed:hover{
+    -fx-background-color: #04D98B;
+    -fx-border-radius: 10 10 10 10;
+    -fx-background-radius: 10 10 10 10;
+    -fx-effect: dropshadow( three-pass-box ,  #04D98B, 2.5, 0.0 , 0.0 , 1.0 );
+}
+.text-field-search{
+    -fx-background-color: #FFF;
+    -fx-background-radius: 10 5 5 10;
+    -fx-text-fill: #303833;
+    -fx-font-size: 17;
+}
+
+.text-field-normal{
+
+    -fx-background-color: #FFF;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-font-size: 15;
+    -fx-border-color: #747373;
+    -fx-border-width: 1;
+    -fx-prompt-text-fill: #727272;
+    -fx-text-fill: #534D59;
+    -fx-font-family: Inter;
+
+
+}
+
+.title-green{
+    -fx-background-radius: 5;
+    -fx-background-color:#04D98B ;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+}
+.title-txt{
+    -fx-font-size: 70;
+    -fx-font-family: "Bauhaus 93";
+
+
+}
+.details-box{
+    -fx-background-color: #475467;
+    -fx-background-radius: 10;
+    -fx-font-family: "Lucida Sans Unicode";
+    -fx-font-size: 15 ;
+    -fx-effect: dropshadow( three-pass-box , rgba(4, 217, 139, 0.28), 50, 0.0 , 0 , 0 );
+}
+.details-box:hover{
+    -fx-background-color: #04D98B;
+    -fx-text-fill: white;
+}
+.txt-12{
+    -fx-font-size: 12;
+}
+.txt-20{
+    -fx-font-size: 40;
+    -fx-text-fill: #04D98B;
+}
+.txt-30{
+    -fx-font-size: 30;
+    -fx-font-family: "Lucida Sans Unicode";
+}
+
+.box{
+    -fx-background-color: rgba(31, 36, 40, 0.19);
+}

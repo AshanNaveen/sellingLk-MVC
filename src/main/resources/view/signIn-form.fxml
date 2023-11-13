@@ -16,9 +16,9 @@
          <children>
             <Pane layoutX="63.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" styleClass="textBox">
                <children>
-                  <JFXTextField fx:id="txtUsername" alignment="CENTER" focusColor="#ffffff00" layoutX="26.0" layoutY="-2.0" prefHeight="40.0" prefWidth="372.0" promptText="Enter Your Username here" unFocusColor="#4d4d4d00">
+                  <JFXTextField fx:id="txtUsername" alignment="CENTER" focusColor="#ffffff00" labelFloat="true" layoutX="26.0" layoutY="-2.0" prefHeight="40.0" prefWidth="372.0" promptText="Enter Your Username here" unFocusColor="#4d4d4d00">
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="TEXT" />
                      </cursor>
                   </JFXTextField>
                   <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="6.5" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
@@ -35,12 +35,12 @@
                         <Image url="@../assets/icons/icons8-lock-96.png" />
                      </image>
                   </ImageView>
-                  <JFXPasswordField fx:id="txtPassword" alignment="CENTER" focusColor="#ffffff00" layoutX="24.0" layoutY="-1.0" prefHeight="38.0" prefWidth="372.0" promptText="Enter Your Password here" unFocusColor="#ffffff00">
+                  <JFXPasswordField fx:id="txtPassword" alignment="CENTER" focusColor="#ffffff00" labelFloat="true" layoutX="24.0" layoutY="-1.0" prefHeight="38.0" prefWidth="372.0" promptText="Enter Your Password here" unFocusColor="#ffffff00">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </JFXPasswordField>
-                  <ImageView accessibleRole="BUTTON" fitHeight="30.0" fitWidth="30.0" layoutX="379.0" layoutY="3.0" onMouseClicked="#imgPasswordEye" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgEye" accessibleRole="BUTTON" fitHeight="30.0" fitWidth="30.0" layoutX="379.0" layoutY="3.0" onMouseClicked="#imgPasswordEye" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/icons/closedEye.png" />
                      </image>
@@ -48,6 +48,10 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
+                  <JFXTextField fx:id="txtUnHidePassword" alignment="CENTER" focusColor="#ffffff00" labelFloat="true" layoutX="23.0" layoutY="-1.0" prefHeight="38.0" prefWidth="372.0" promptText="Enter Your Password here" unFocusColor="#4d4d4d00" visible="false">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor></JFXTextField>
                </children>
             </Pane>
             <Pane layoutX="63.0" layoutY="179.0" prefHeight="200.0" prefWidth="200.0">
@@ -56,9 +60,9 @@
                   <String fx:value="otpBox" />
                </styleClass>
                <children>
-                  <JFXTextField fx:id="txtOtp" alignment="CENTER" focusColor="#ffffff00" layoutX="23.0" prefHeight="37.0" prefWidth="187.0" promptText="Enter OTP" unFocusColor="#4d4d4d00">
+                  <JFXTextField fx:id="txtOtp" alignment="CENTER" focusColor="#ffffff00" labelFloat="true" layoutX="23.0" prefHeight="37.0" prefWidth="187.0" promptText="Enter OTP" unFocusColor="#4d4d4d00">
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="TEXT" />
                      </cursor>
                   </JFXTextField>
                   <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="6.5" layoutY="3.0" pickOnBounds="true" preserveRatio="true">

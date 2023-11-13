@@ -21,6 +21,7 @@ import java.sql.SQLException;
 import java.util.Objects;
 
 public class LoginFormController {
+    public static Thread t;
     @FXML
     private Pane greenPane;
 
@@ -112,7 +113,7 @@ public class LoginFormController {
         txtSignIn.setMouseTransparent(true);
         txtSignUp.getStyleClass().add("active");
 
-        Thread t = new Thread(() -> {
+        t = new Thread(() -> {
             while (true) {
                 System.out.println("I am in carousel");
                 try {

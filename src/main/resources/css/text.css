@@ -1,0 +1,13 @@
+.Poppins{
+    -fx-text-fill: #534D59;
+    /* H1 */
+    -fx-font-family: Inter;
+    -fx-font-size: 17;
+    -fx-font-weight:bold;
+}
+
+.Poppins-14{
+    -fx-text-fill: #534D59;
+    -fx-font-family: Inter;
+    -fx-font-size: 15;
+}

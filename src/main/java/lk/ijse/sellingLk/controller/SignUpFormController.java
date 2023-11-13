@@ -4,14 +4,10 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import lk.ijse.sellingLk.dto.UserDto;
-import lk.ijse.sellingLk.model.UserModel;
-
-import java.sql.SQLException;
 
 public class SignUpFormController {
 
@@ -25,7 +21,19 @@ public class SignUpFormController {
     private JFXPasswordField txtPassword;
 
     @FXML
+    private ImageView imgEye;
+
+    @FXML
+    private JFXTextField txtUnHidePw;
+
+    @FXML
     private JFXPasswordField txtConfirmPassword;
+
+    @FXML
+    private ImageView imgConfirmEye;
+
+    @FXML
+    private JFXTextField txtUnHideConfirmPw;
 
     @FXML
     private JFXTextField txtEmail;
@@ -33,8 +41,9 @@ public class SignUpFormController {
     @FXML
     private JFXTextField txtOtp;
 
-    @FXML
-    private Label txtSignInFooter;
+    private boolean hide = true;
+
+    private boolean cHide=true;
 
     @FXML
     void btnSendOtpOnAction(ActionEvent event) {
@@ -42,37 +51,49 @@ public class SignUpFormController {
     }
 
     @FXML
-    public void btnSignUpOnAction(ActionEvent actionEvent) {
-        String username = txtUsername.getText();
-        String password = txtPassword.getText();
-        String email = txtEmail.getText();
+    void btnSignUpOnAction(ActionEvent event) {
 
-        if (password.equals(txtConfirmPassword.getText())) {
-            UserDto dto = new UserDto(null, null, null, email, password, username);
-            UserModel model = new UserModel();
-            try {
-                boolean isSaved = model.saveUser(dto);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        } else {
-            new Alert(Alert.AlertType.ERROR, "User Saved Successfully").show();
+    }
+
+    @FXML
+    void imgCPasswordEyeOnClicked(MouseEvent event) {
+
+        if (cHide) {
+            imgConfirmEye.setImage(new Image("/assets/icons/openEye.png"));
+            txtUnHideConfirmPw.setText(txtConfirmPassword.getText());
+            txtConfirmPassword.setVisible(false);
+            txtUnHideConfirmPw.setVisible(true);
+            cHide = false;
+            return;
         }
-
+        else{
+            imgConfirmEye.setImage(new Image("/assets/icons/closedEye.png"));
+            txtConfirmPassword.setText(txtUnHideConfirmPw.getText());
+            txtConfirmPassword.setVisible(true);
+            txtUnHideConfirmPw.setVisible(false);
+            cHide = true;
+            return;
+        }
     }
 
     @FXML
-    void imgCPasswordEye(MouseEvent event) {
-
+    void imgPasswordEyeOnClicked(MouseEvent event) {
+        if (hide) {
+            imgEye.setImage(new Image("/assets/icons/openEye.png"));
+            txtUnHidePw.setText(txtPassword.getText());
+            txtPassword.setVisible(false);
+            txtUnHidePw.setVisible(true);
+            hide = false;
+            return;
+        }
+        else{
+            imgEye.setImage(new Image("/assets/icons/closedEye.png"));
+            txtPassword.setText(txtUnHidePw.getText());
+            txtPassword.setVisible(true);
+            txtUnHidePw.setVisible(false);
+            hide = true;
+            return;
+        }
     }
 
-    @FXML
-    void imgPasswordEye(MouseEvent event) {
-
-    }
-
-    @FXML
-    void txtSignInOnMouseClicked(MouseEvent event) {
-        
-    }
 }

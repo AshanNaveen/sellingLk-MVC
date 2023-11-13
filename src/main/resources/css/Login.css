@@ -1,0 +1,6 @@
+.bg{
+    -fx-background-color: rgba(32, 201, 151, 0.11);
+}
+.img-shadow{
+    -fx-effect: dropshadow( three-pass-box , rgba(28, 49, 41, 0.28), 3, 0.0 , 0 , 1.0 );
+}

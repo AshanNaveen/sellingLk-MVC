@@ -69,3 +69,20 @@
 .active:hover{
     -fx-text-fill: #B1F041;
 }
+
+.title{
+    -fx-text-fill: #D7D8DC;
+    -fx-font-family: Kanit;
+    -fx-font-size: 50;
+    -fx-font-style: Normal;
+    -fx-font-weight: 600;
+}
+.textBoxInManage{
+    -fx-text-fill: #B1F041;
+    -fx-font-family: Kanit;
+    -fx-font-size: 20;
+    -fx-font-style: Normal;
+    -fx-font-weight: 600;
+}
+
+.da
