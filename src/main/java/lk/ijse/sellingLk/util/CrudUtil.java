@@ -2,6 +2,7 @@ package lk.ijse.sellingLk.util;
 
 import lk.ijse.sellingLk.db.DbConnection;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -16,5 +17,9 @@ public class CrudUtil {
         } else {
             return (T) (Boolean) (statement.executeUpdate() > 0);
         }
+    }
+    public static void setAutoCommit(boolean value) throws SQLException {
+        Connection connection=DbConnection.getInstance().getConnection();
+        connection.setAutoCommit(value);
     }
 }
