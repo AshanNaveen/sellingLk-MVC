@@ -11,3 +11,12 @@
     -fx-font-family: Inter;
     -fx-font-size: 15;
 }
+
+.Kanit-16{
+    -fx-font-family: Kanit;
+    -fx-font-size: 17;
+    -fx-text-fill: #B1F041;
+    -fx-font-style: Normal;
+    -fx-font-weight: 600;
+
+}

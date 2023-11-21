@@ -20,6 +20,7 @@ create table staff
 (
     id      varchar(10) primary key,
     name    text        not null,
+    email   varchar(20) not null,
     address text        not null,
     phone   varchar(15) not null,
     role    varchar(20) not null,
@@ -41,6 +42,7 @@ create table salary
 create table seller
 (
     id      varchar(10) primary key,
+    name    varchar(25) not null,
     email   varchar(20) not null,
     address text        not null,
     phone   varchar(15) not null,
@@ -58,11 +60,12 @@ create table loyalId
 create table buyer
 (
     id      varchar(10) primary key,
-    email   varchar(20),
-    address text,
-    phone   varchar(15),
-    uId     varchar(10),
-    loyalId varchar(10),
+    name   varchar(25) not null,
+    email   varchar(20) not null,
+    address text       not null,
+    phone   varchar(15) not null,
+    uId     varchar(10) not null,
+    loyalId varchar(10) not null,
     constraint foreign key (uId) references user (id)
         on delete cascade on update cascade,
     constraint foreign key (loyalId) references loyalId (id)
@@ -95,10 +98,18 @@ create table payment
         on delete cascade on update cascade
 );
 
-create table item
+create table vehicle
 (
     id          varchar(10) primary key,
-    description text not null
+    description text not null,
+    brand varchar(50) not null,
+    model varchar(50) not null,
+    year int(4) not null,
+    fuelType varchar(20) not null,
+    engineCapacity varchar(10) not null,
+    mileage varchar(20) not null,
+    price decimal not null,
+    contact varchar(20) not null
 );
 
 create table sellOrder
@@ -114,10 +125,10 @@ create table sellOrderDetail
     date    date        not null,
     qty     int         not null,
     orderId varchar(10) not null,
-    itemId  varchar(10) not null,
+    vehicleId  varchar(10) not null,
     constraint foreign key (orderId) references sellOrder (id)
         on update cascade on delete cascade,
-    constraint foreign key (itemId) references item (id)
+    constraint foreign key (vehicleId) references vehicle (id)
         on update cascade on delete cascade
 );
 
@@ -134,9 +145,9 @@ create table buyOrderDetail
     date    date        not null,
     qty     int         not null,
     orderId varchar(10) not null,
-    itemId  varchar(10) not null,
+    vehicleId  varchar(10) not null,
     constraint foreign key (orderId) references buyOrder (id)
         on update cascade on delete cascade,
-    constraint foreign key (itemId) references item (id)
+    constraint foreign key (vehicleId) references vehicle (id)
         on update cascade on delete cascade
 );

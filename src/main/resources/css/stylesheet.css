@@ -1,8 +1,12 @@
+.title{
+    -fx-font-family: 'Kanit';
 
+}
 .loginFooter-normal{
     -fx-font: 'Kanit';
     -fx-font-size: 20;
     -fx-text-fill: #000000;
+
 }
 .bold{
     -fx-font-weight: 700;
@@ -85,4 +89,36 @@
     -fx-font-weight: 600;
 }
 
-.da
+.toggle-btn{
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-background-color: white;
+}
+
+.iconTags{
+
+}
+
+.iconTags:hover{
+    -fx-background-color: #262626;
+    -fx-effect: dropshadow( three-pass-box , rgba(120, 128, 120, 0.28), 3, 1 , 1 , 1.0 );
+}
+
+.iconTagsTwo{
+     -fx-background-color: #262626;
+     -fx-effect: dropshadow( three-pass-box , rgba(120, 128, 120, 0.28), 3, 1 , 1 , 1.0 );
+ }
+
+.tag-name{
+    -fx-text-fill: #262626;
+    -fx-font-family: Raleway;
+    -fx-font-size: 15;
+    -fx-pref-width: 88;
+    -fx-pref-height: 25;
+}
+.tag-name-long{
+    -fx-text-fill: #262626;
+    -fx-font-family: Raleway;
+    -fx-font-size: 15;
+    -fx-pref-height: 25;
+}
