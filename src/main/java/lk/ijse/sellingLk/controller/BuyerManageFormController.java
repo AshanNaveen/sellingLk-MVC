@@ -20,6 +20,7 @@ import lk.ijse.sellingLk.model.UserModel;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class BuyerManageFormController {
     @FXML
@@ -44,6 +45,10 @@ public class BuyerManageFormController {
     private JFXTextField txtName;
 
     private BuyerModel model = new BuyerModel();
+
+    private boolean validateName() {
+        return Pattern.matches("^([a-zA-Z0-9]+|[a-zA-Z0-9]+\\s{1}[a-zA-Z0-9]{1,}|[a-zA-Z0-9]+\\s{1}[a-zA-Z0-9]{3,}\\s{1}[a-zA-Z0-9]{1,})$", txtName.getText());
+    }
 
     public void initialize() {
         ObservableList<String> idList = FXCollections.observableArrayList();
@@ -76,30 +81,32 @@ public class BuyerManageFormController {
         String email = txtEmail.getText();
         String phone = txtPhone.getText();
         String loyalId = cmbLoyalId.getValue();
-
-        try {
-            String id = model.generateNextBuyerId();
-            String uId = new UserModel().getUserId(SignInFormController.uname, SignInFormController.pword);
-            System.out.println(uId);
-            if (model.saveBuyer(new BuyerDto(
-                    id,
-                    name,
-                    email,
-                    address,
-                    phone,
-                    uId,
-                    loyalId
-            ))) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Saved").show();
-                loadData();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Try Again").show();
+        if (validateName()) {
+            try {
+                String id = model.generateNextBuyerId();
+                String uId = new UserModel().getUserId(SignInFormController.uname, SignInFormController.pword);
+                System.out.println(uId);
+                if (model.saveBuyer(new BuyerDto(
+                        id,
+                        name,
+                        email,
+                        address,
+                        phone,
+                        uId,
+                        loyalId
+                ))) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Saved").show();
+                    loadData();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Try Again").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Invalid Name").show();
         }
-
-
     }
 
     @FXML

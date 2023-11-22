@@ -15,6 +15,7 @@ import lk.ijse.sellingLk.model.UserModel;
 
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class BuyerbarController {
     @FXML
@@ -52,12 +53,14 @@ public class BuyerbarController {
 
     private BuyerModel model = new BuyerModel();
 
+    private List<BuyerbarController> list= null;
+
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
         try {
             Alert alert=new Alert(Alert.AlertType.CONFIRMATION, "Are Your Sure ? ", ButtonType.OK,ButtonType.NO);
             alert.showAndWait();
-            if (alert.getButtonTypes().equals(ButtonType.OK)){
+            if (alert.getResult()==ButtonType.YES){
                 if (model.deleteBuyer(txtId.getText())){
                     new Alert(Alert.AlertType.CONFIRMATION,"ok").show();
                 }

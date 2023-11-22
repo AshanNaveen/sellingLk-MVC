@@ -36,7 +36,7 @@ public class BuyerModel {
     }
 
     public boolean deleteBuyer(final String id) throws SQLException {
-        return CrudUtil.crudUtil("DELETE FROM buyer WHERE id=?",id);
+        return CrudUtil.crudUtil("DELETE FROM buyer WHERE id=?", id);
     }
 
 
@@ -77,10 +77,26 @@ public class BuyerModel {
             String[] split = current.split("B");
             int id = Integer.parseInt(split[1]);
             id++;
-            if (id > 0) return "B00" + id;
-            else if (id > 9) return "B0" + id;
+            if (9 >= id && id > 0) return "B00" + id;
+            else if (99 >= id && id > 9) return "B0" + id;
             else if (id > 99) return String.valueOf(id);
         }
         return "B001";
+    }
+
+    public String getBuyerName(String value) throws SQLException {
+        ResultSet resultSet = CrudUtil.crudUtil("SELECT * FROM buyer WHERE id=?", value);
+        while (resultSet.next()) {
+            return resultSet.getString(2);
+        }
+        return null;
+    }
+
+    public String getEmail(String cusId) throws SQLException {
+        ResultSet resultSet = CrudUtil.crudUtil("SELECT * FROM buyer WHERE id=?", cusId);
+        while (resultSet.next()) {
+            return resultSet.getString(3);
+        }
+        return null;
     }
 }
