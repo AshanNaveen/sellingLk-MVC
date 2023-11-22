@@ -33,4 +33,10 @@ public class UserModel {
         if (resultSet.next())return resultSet.getString(1);
         return null;
     }
+
+    public String getUserName(String uname, String pword) throws SQLException {
+        ResultSet resultSet=CrudUtil.crudUtil("SELECT * FROM user WHERE username=? AND password=?", uname,pword);
+        if (resultSet.next())return resultSet.getString(1);
+        return null;
+    }
 }
