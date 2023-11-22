@@ -4,14 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@Data
+import java.sql.Date;
+
 @AllArgsConstructor
+@Data
+@NoArgsConstructor
 
 public class PaymentDto {
     private String id;
-    private String amount;
-    private String date;
+    private int amount;
+    private Date date;
     private String sellerId;
     private String buyerId;
     private String uId;
