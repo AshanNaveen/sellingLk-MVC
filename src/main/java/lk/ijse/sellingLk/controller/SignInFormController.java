@@ -14,24 +14,29 @@ import javafx.util.Duration;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import lk.ijse.sellingLk.model.UserModel;
+import lk.ijse.sellingLk.util.Navigation;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class SignInFormController {
     @FXML
+    private Pane usernamePane;
+
+    @FXML
     private JFXTextField txtUsername;
 
     @FXML
+    private Pane passwordPane;
+
+    @FXML
     private JFXPasswordField txtPassword;
-    @FXML
-    private JFXTextField txtOtp;
-    @FXML
-    private JFXTextField txtUnHidePassword;
-    @FXML
-    private Label txtSignUpFooter;
 
     @FXML
     private ImageView imgEye;
+
+    @FXML
+    private JFXTextField txtUnHidePassword;
 
     private boolean hide = true;
 
@@ -56,9 +61,10 @@ public class SignInFormController {
                 try {
                     this.uname=username;
                     this.pword=username;
-                    LoginFormController.t.stop();
-                    Pane root = FXMLLoader.load(this.getClass().getResource("/view/dashboard-form.fxml"));
-                    txtUsername.getScene().setRoot(root);
+
+                    LoginFormController.t.stop(); //to stop thread using carousal
+
+                    Navigation.switchNavigation("dashboard-form.fxml",event);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -45,7 +45,7 @@
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </JFXTextField>
-                  <ImageView fx:id="imgEye" accessibleRole="BUTTON" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#imgPasswordEyeOnClicked" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgEye" accessibleRole="BUTTON" fitHeight="30.0" fitWidth="30.0" layoutX="379.0" layoutY="2.0" onMouseClicked="#imgPasswordEyeOnClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/icons/closedEye.png" />
                      </image>

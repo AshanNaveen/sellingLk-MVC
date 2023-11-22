@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #D7D8DC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.DashboardFormController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #D7D8DC;" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.DashboardFormController">
    <children>
-      <Pane fx:id="loadingPane" layoutX="30.0" layoutY="134.0" prefHeight="567.03" prefWidth="1228.0" style="-fx-background-color: #262626; -fx-background-radius: 20; -fx-border-radius: 20;" />
+      <Pane fx:id="backPane" accessibleRole="BUTTON" layoutX="185.0" layoutY="37.0" prefHeight="66.0" prefWidth="66.0" style="-fx-background-radius: 100; -fx-background-color: #262626; -fx-border-radius: 100; -fx-border-width: 2;" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
       <ImageView accessibleRole="BUTTON" fitHeight="66.5" fitWidth="98.0" layoutX="43.0" layoutY="35.0" onMouseClicked="#btnLogoOnMouseClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/image/logoWithoutName.png" />
@@ -22,9 +27,9 @@
             <Image url="@../assets/icons/LogoName.png" />
          </image>
       </ImageView>
-      <Pane fx:id="btnSearch" accessibleRole="BUTTON" layoutX="185.0" layoutY="37.0" onMouseClicked="#btnSearchOnMouseClicked" prefHeight="66.0" prefWidth="66.0" style="-fx-background-radius: 100; -fx-border-radius: 100; -fx-border-width: 2;">
+      <Pane fx:id="btnSearch" accessibleRole="BUTTON" layoutX="185.0" layoutY="37.0" onMouseClicked="#btnSearchOnMouseClicked" onMouseEntered="#btnSearchOnMouseIn" onMouseExited="#btnSearchOnMouseOut" prefHeight="66.0" prefWidth="66.0" style="-fx-background-radius: 100; -fx-border-radius: 100; -fx-border-width: 2;" styleClass="iconTags">
          <children>
-            <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgSearch" fitHeight="34.0" fitWidth="34.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icons/icons8-search.png" />
                </image>
@@ -34,9 +39,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
-      <Pane fx:id="btnPreOrder" layoutX="265.0" layoutY="38.0" onMouseClicked="#btnPreOrderOnMouseClicked" prefHeight="66.0" prefWidth="66.0" style="-fx-background-radius: 100; -fx-border-radius: 100; -fx-border-width: 2;">
+      <Pane fx:id="btnPreOrder" layoutX="265.0" layoutY="38.0" onMouseClicked="#btnPreOrderOnMouseClicked" onMouseEntered="#btnPreOrderOnMouseIn" onMouseExited="#btnPreOrderOnMouseOut" prefHeight="66.0" prefWidth="66.0" style="-fx-background-radius: 100; -fx-border-radius: 100; -fx-border-width: 2;" styleClass="iconTags">
          <children>
-            <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgPreOrders" fitHeight="34.0" fitWidth="34.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icons/icons8-purchase-order.png" />
                </image>
@@ -46,9 +51,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
-      <Pane fx:id="btnStock" layoutX="346.0" layoutY="37.0" onMouseClicked="#btnStockOnMouseClicked" prefHeight="66.0" prefWidth="66.0" style="-fx-background-radius: 100; -fx-border-radius: 100; -fx-border-width: 2;">
+      <Pane fx:id="btnStock" layoutX="346.0" layoutY="37.0" onMouseClicked="#btnStockOnMouseClicked" onMouseEntered="#btnStockOnMouseIn" onMouseExited="#btnStockOnMouseOut" prefHeight="66.0" prefWidth="66.0" style="-fx-background-radius: 100; -fx-border-radius: 100; -fx-border-width: 2;" styleClass="iconTags">
          <children>
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgStock" fitHeight="40.0" fitWidth="40.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icons/icons8-store-50.png" />
                </image>
@@ -58,9 +63,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
-      <Pane fx:id="btnBAndS" layoutX="426.0" layoutY="37.0" onMouseClicked="#btnBAndSOnMouseClicked" prefHeight="66.0" prefWidth="66.0" style="-fx-background-radius: 100; -fx-border-radius: 100; -fx-border-width: 2;">
+      <Pane fx:id="btnBAndS" layoutX="426.0" layoutY="37.0" onMouseClicked="#btnBAndSOnMouseClicked" onMouseEntered="#btnBAndSOnMouseIn" onMouseExited="#btnBAndSOnMouseOut" prefHeight="66.0" prefWidth="66.0" style="-fx-background-radius: 100; -fx-border-radius: 100; -fx-border-width: 2;" styleClass="iconTags">
          <children>
-            <ImageView fitHeight="40.0" fitWidth="51.0" layoutX="12.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgCustomers" fitHeight="40.0" fitWidth="51.0" layoutX="12.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icons/ashan.png" />
                </image>
@@ -70,9 +75,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
-      <Pane fx:id="btnPayment" layoutX="507.0" layoutY="38.0" onMouseClicked="#btnPaymentOnMouseClicked" prefHeight="66.0" prefWidth="66.0" style="-fx-background-radius: 100; -fx-border-radius: 100; -fx-border-width: 2;">
+      <Pane fx:id="btnPayment" layoutX="507.0" layoutY="38.0" onMouseClicked="#btnPaymentOnMouseClicked" onMouseEntered="#btnPaymentOnMouseIn" onMouseExited="#btnPaymentOnMouseOut" prefHeight="66.0" prefWidth="66.0" style="-fx-background-radius: 100; -fx-border-radius: 100; -fx-border-width: 2;" styleClass="iconTags">
          <children>
-            <ImageView fitHeight="40.0" fitWidth="42.0" layoutX="13.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgPayment" fitHeight="40.0" fitWidth="42.0" layoutX="13.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icons/icons8-bank-cards.png" />
                </image>
@@ -82,9 +87,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
-      <Pane fx:id="btnEmployee" layoutX="587.0" layoutY="38.0" onMouseClicked="#btnEmployeeOnMouseClicked" prefHeight="66.0" prefWidth="66.0" style="-fx-background-radius: 100; -fx-border-radius: 100; -fx-border-width: 2;">
+      <Pane fx:id="btnEmployee" layoutX="587.0" layoutY="38.0" onMouseClicked="#btnEmployeeOnMouseClicked" onMouseEntered="#btnEmployeeOnMouseIn" onMouseExited="#btnEmployeeOnMouseOut" prefHeight="66.0" prefWidth="66.0" style="-fx-background-radius: 100; -fx-border-radius: 100; -fx-border-width: 2;" styleClass="iconTags">
          <children>
-            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgEmployees" fitHeight="40.0" fitWidth="40.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icons/icons8-employees.png" />
                </image>
@@ -94,5 +99,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Pane>
+      <Label fx:id="lblSearch" alignment="CENTER" layoutX="174.0" layoutY="101.0" styleClass="tag-name" text="Search" visible="false" />
+      <Label fx:id="lblPreOrders" alignment="CENTER" layoutX="254.0" layoutY="101.0" styleClass="tag-name" text="Pre Orders" visible="false" />
+      <Label fx:id="lblStock" alignment="CENTER" layoutX="335.0" layoutY="101.0" styleClass="tag-name" text="Stock" visible="false" />
+      <Label fx:id="lblSeller" alignment="CENTER" layoutX="382.0" layoutY="103.0" prefHeight="21.0" prefWidth="153.0" styleClass="tag-name-long" text="Sellers &amp; Buyers" visible="false" />
+      <Label fx:id="lblPayment" alignment="CENTER" layoutX="496.0" layoutY="101.0" styleClass="tag-name" text="Payment" visible="false" />
+      <Label fx:id="lblEmployee" alignment="CENTER" layoutX="576.0" layoutY="101.0" styleClass="tag-name" text="Employees" visible="false" />
+      <Pane fx:id="loadingPane" layoutX="30.0" layoutY="134.0" prefHeight="567.03" prefWidth="1228.0" style="-fx-background-color: #262626; -fx-background-radius: 20; -fx-border-radius: 20;" />
    </children>
 </AnchorPane>

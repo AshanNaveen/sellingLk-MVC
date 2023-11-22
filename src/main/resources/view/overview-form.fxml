@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import java.lang.String?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -17,7 +19,7 @@
       </Pane>
       <Pane layoutX="693.0" layoutY="79.0" prefHeight="216.6" prefWidth="503.0" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #B1F041; -fx-border-width: 4;">
          <children>
-            <LineChart horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutY="24.0" prefHeight="193.0" prefWidth="488.0" style="-fx-background-color: transparent;" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+            <LineChart fx:id="grpSelling" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutY="2.0" prefHeight="193.0" prefWidth="488.0" style="-fx-background-color: transparent;" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -29,19 +31,25 @@
       </Pane>
       <Pane layoutX="693.0" layoutY="318.0" prefHeight="216.6" prefWidth="238.6" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #B1F041; -fx-border-width: 4;">
          <children>
-            <Pane layoutX="74.0" layoutY="68.0">
-               <children>
-                  <Label layoutX="7.0" prefHeight="42.0" prefWidth="96.0" styleClass="bold" text="To Do" />
-                  <Label layoutY="36.0" prefHeight="42.0" prefWidth="96.0" styleClass="bold" text="Orders" />
-               </children>
-            </Pane>
+            <JFXSpinner fx:id="loader" layoutX="20.0" layoutY="12.0" prefHeight="193.0" prefWidth="199.0" progress="0.62" />
+            <Label alignment="CENTER" layoutX="60.0" layoutY="50.0" prefHeight="45.0" prefWidth="118.0" style="-fx-background-color: #E2E3E7;" styleClass="bold" text="To Do" />
+            <Label alignment="CENTER" layoutX="60.0" layoutY="86.0" prefHeight="45.0" prefWidth="118.0" style="-fx-background-color: #E2E3E7;" styleClass="bold" text="Orders" />
+            <Label alignment="CENTER" layoutX="61.0" layoutY="123.0" prefHeight="45.0" prefWidth="118.0" style="-fx-background-color: #E2E3E7;" styleClass="bold" text="90%" />
          </children>
       </Pane>
       <Pane layoutX="957.0" layoutY="318.0" prefHeight="216.6" prefWidth="238.6" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #B1F041; -fx-border-width: 4;">
          <children>
-            <Label alignment="CENTER" layoutY="48.0" prefHeight="45.0" prefWidth="239.0" styleClass="bold" text="Total Vehicals" />
-            <Label alignment="CENTER" layoutY="80.0" prefHeight="45.0" prefWidth="239.0" styleClass="bold" text="In Stock" />
-            <Label alignment="CENTER" layoutY="118.0" prefHeight="45.0" prefWidth="239.0" style="-fx-font-size: 50;" styleClass="bold" text="96" />
+            <Label alignment="CENTER" layoutY="48.0" prefHeight="45.0" prefWidth="239.0" text="Total Vehicals">
+               <styleClass>
+                  <String fx:value="iconTags" />
+                  <String fx:value="bold" />
+               </styleClass></Label>
+            <Label alignment="CENTER" layoutY="80.0" prefHeight="45.0" prefWidth="239.0" text="In Stock">
+               <styleClass>
+                  <String fx:value="iconTags" />
+                  <String fx:value="bold" />
+               </styleClass></Label>
+            <Label fx:id="lblCount" alignment="CENTER" layoutY="118.0" prefHeight="45.0" prefWidth="239.0" style="-fx-font-size: 50;" styleClass="bold" text="96" />
          </children>
       </Pane>
       <Label layoutX="27.0" styleClass="title" text="Dashboard" />

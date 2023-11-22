@@ -8,6 +8,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import lk.ijse.sellingLk.util.EmailUtil;
+
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+import java.util.regex.Pattern;
 
 public class SignUpFormController {
 
@@ -48,11 +53,27 @@ public class SignUpFormController {
     @FXML
     void btnSendOtpOnAction(ActionEvent event) {
 
+        try {
+            EmailUtil email = new EmailUtil();
+            int random= (int) Math.floor(Math.random()*100000);
+
+        } catch (GeneralSecurityException | IOException e ) {
+            e.printStackTrace();
+        }
+
+
     }
 
     @FXML
     void btnSignUpOnAction(ActionEvent event) {
+        boolean isSuccess=validateUser();
+    }
 
+    private boolean validateUser() {
+        String name = txtUsername.getText();
+        String password= txtPassword.getText();
+        Pattern.matches("[A-Za-z]", "abcd");
+    return true;
     }
 
     @FXML

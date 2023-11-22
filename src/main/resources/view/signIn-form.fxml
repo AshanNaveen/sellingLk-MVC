@@ -3,7 +3,6 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import java.lang.String?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,7 +13,7 @@
    <children>
       <Pane layoutY="1.0" prefHeight="348.0" prefWidth="544.0">
          <children>
-            <Pane layoutX="63.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" styleClass="textBox">
+            <Pane fx:id="usernamePane" layoutX="64.0" layoutY="77.0" prefHeight="200.0" prefWidth="200.0" styleClass="textBox">
                <children>
                   <JFXTextField fx:id="txtUsername" alignment="CENTER" focusColor="#ffffff00" labelFloat="true" layoutX="26.0" layoutY="-2.0" prefHeight="40.0" prefWidth="372.0" promptText="Enter Your Username here" unFocusColor="#4d4d4d00">
                      <cursor>
@@ -28,7 +27,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="63.0" layoutY="116.0" prefHeight="200.0" prefWidth="200.0" styleClass="textBox">
+            <Pane fx:id="passwordPane" layoutX="63.0" layoutY="162.0" prefHeight="200.0" prefWidth="200.0" styleClass="textBox">
                <children>
                   <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="6.5" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -54,25 +53,6 @@
                      </cursor></JFXTextField>
                </children>
             </Pane>
-            <Pane layoutX="63.0" layoutY="179.0" prefHeight="200.0" prefWidth="200.0">
-               <styleClass>
-                  <String fx:value="textBox" />
-                  <String fx:value="otpBox" />
-               </styleClass>
-               <children>
-                  <JFXTextField fx:id="txtOtp" alignment="CENTER" focusColor="#ffffff00" labelFloat="true" layoutX="23.0" prefHeight="37.0" prefWidth="187.0" promptText="Enter OTP" unFocusColor="#4d4d4d00">
-                     <cursor>
-                        <Cursor fx:constant="TEXT" />
-                     </cursor>
-                  </JFXTextField>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="6.5" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/icons/icons8-key-96.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <JFXButton layoutX="314.0" layoutY="179.0" onAction="#btnSendOtpOnAction" prefHeight="37.0" prefWidth="166.0" styleClass="loginbtn" text="Send OTP" />
             <JFXButton layoutX="63.0" layoutY="257.0" onAction="#btnSignInOnAction" prefHeight="37.0" prefWidth="418.0" styleClass="loginbtn" text="Sign IN" />
          </children>
       </Pane>
