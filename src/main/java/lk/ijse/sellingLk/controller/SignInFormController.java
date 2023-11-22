@@ -1,5 +1,6 @@
 package lk.ijse.sellingLk.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.animation.TranslateTransition;
@@ -36,7 +37,13 @@ public class SignInFormController {
     private ImageView imgEye;
 
     @FXML
+    private Label lblwarning;
+
+    @FXML
     private JFXTextField txtUnHidePassword;
+
+    @FXML
+    private JFXButton btnSignIn;
 
     private boolean hide = true;
 
@@ -69,10 +76,12 @@ public class SignInFormController {
                     e.printStackTrace();
                 }
             }else{
-                new Alert(Alert.AlertType.WARNING, "Try Again").show();
+                usernamePane.setStyle("-fx-border-color: #FA5252");
+                passwordPane.setStyle("-fx-border-color: #FA5252");
+                lblwarning.setVisible(true);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
     }
