@@ -14,9 +14,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="buyerPane" prefHeight="567.03" prefWidth="1228.0" style="-fx-background-color: #262626;" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.BuyerManageFormController">
+<AnchorPane prefHeight="567.03" prefWidth="1228.0" style="-fx-background-color: #262626;" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.EmployeeManageFormController">
    <children>
-      <Label layoutX="20.0" layoutY="8.0" styleClass="title" text="Employee" />
+      <Label layoutX="46.0" layoutY="13.0" styleClass="title" text="Employee" />
+      <JFXTextField fx:id="txtName" focusColor="#b1f041" labelFloat="true" layoutX="57.0" layoutY="132.0" prefHeight="44.0" prefWidth="200.0" promptText="Name" styleClass="textBoxInManage" unFocusColor="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXTextField>
       <JFXTextField fx:id="txtEmail" focusColor="#b1f041" labelFloat="true" layoutX="279.0" layoutY="132.0" prefHeight="44.0" prefWidth="181.0" promptText="Email" styleClass="textBoxInManage" unFocusColor="WHITE">
          <font>
             <Font size="19.0" />
@@ -27,7 +32,7 @@
             <Font size="19.0" />
          </font>
       </JFXTextField>
-      <JFXComboBox fx:id="cmbLoyalId" focusColor="#b1f041" labelFloat="true" layoutX="895.0" layoutY="132.0" prefHeight="44.0" prefWidth="181.0" promptText="Loyal Id" styleClass="textBoxInManage" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="cmbRoleId" focusColor="#b1f041" labelFloat="true" layoutX="895.0" layoutY="132.0" prefHeight="44.0" prefWidth="181.0" promptText="Role" styleClass="textBoxInManage" unFocusColor="WHITE" />
       <JFXButton layoutX="1101.0" layoutY="140.0" onAction="#btnSaveOnAction" prefHeight="37.0" prefWidth="85.0" styleClass="loginbtn" text="Save" textFill="#b1f041" />
       <JFXTextField fx:id="txtPhone" focusColor="#b1f041" labelFloat="true" layoutX="691.0" layoutY="132.0" prefHeight="44.0" prefWidth="181.0" promptText="Phone" styleClass="textBoxInManage" unFocusColor="WHITE">
          <font>
@@ -36,14 +41,14 @@
       </JFXTextField>
       <Pane layoutX="41.0" layoutY="224.0" prefHeight="322.0" prefWidth="1152.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
          <children>
-            <Text fill="#534d59" layoutX="37.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Buyer ID" wrappingWidth="109.50004425844395" />
+            <Text fill="#534d59" layoutX="23.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Employee ID" wrappingWidth="109.50004425844395" />
             <ScrollPane layoutX="10.0" layoutY="53.0" prefHeight="223.0" prefWidth="1134.0">
                <content>
                   <VBox fx:id="vBox" prefHeight="221.0" prefWidth="1134.0" style="-fx-background-color: #ffff;">
                      <children>
-                        <Pane prefHeight="56.0" prefWidth="1377.0" styleClass="bar">
+                        <Pane prefHeight="56.0" prefWidth="1142.0" styleClass="bar">
                            <children>
-                              <Text fill="#545454" layoutX="30.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="B001" wrappingWidth="53.50004327297211" />
+                              <Text fill="#545454" layoutX="31.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="B001" wrappingWidth="53.50004327297211" />
                               <Text fill="#545454" layoutX="300.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="ashannvn@gmail.com" wrappingWidth="191.00000172108412" />
                               <Text fill="#545454" layoutX="498.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="199/D,Yakkalamulla,Galle" wrappingWidth="205.50004328228533" />
                               <Text fill="#545454" layoutX="710.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="0764004056" wrappingWidth="101.00000628702765" />
@@ -94,7 +99,7 @@
                                  </graphic>
                               </JFXButton>
                               <Text fill="#545454" layoutX="130.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Naveen Theekshana" wrappingWidth="154.5000432729721" />
-                              <Text fill="#545454" layoutX="850.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Security 1st Officer" wrappingWidth="136.00000628702765" />
+                              <Text fill="#545454" layoutX="855.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Security 1st Officer" wrappingWidth="136.00000628702765" />
                            </children>
                         </Pane>
                         <Pane prefHeight="56.0" prefWidth="1377.0" styleClass="bar">
@@ -140,10 +145,5 @@
             <URL value="@../css/Scrool.css" />
          </stylesheets>
       </Pane>
-      <JFXTextField fx:id="txtName" focusColor="#b1f041" labelFloat="true" layoutX="57.0" layoutY="132.0" prefHeight="44.0" prefWidth="200.0" promptText="Name" styleClass="textBoxInManage" unFocusColor="WHITE">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </JFXTextField>
    </children>
 </AnchorPane>
