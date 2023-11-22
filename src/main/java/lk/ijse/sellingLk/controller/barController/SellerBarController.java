@@ -53,7 +53,7 @@ public class SellerBarController {
         try {
             Alert alert=new Alert(Alert.AlertType.CONFIRMATION, "Are Your Sure ? ", ButtonType.NO,ButtonType.YES);
             alert.showAndWait();
-            if (alert.getButtonTypes().equals(ButtonType.OK)){
+            if (alert.getResult()==ButtonType.YES){
                 if (model.deleteSeller(txtId.getText())){
                     new Alert(Alert.AlertType.CONFIRMATION,"ok").show();
 

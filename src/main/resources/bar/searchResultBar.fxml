@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.barController.SearchResultBarController">
+   <children>
+      <Pane prefHeight="56.0" prefWidth="658.0" style="-fx-background-color: white;" styleClass="bar">
+         <children>
+            <Text fx:id="txtDescription" fill="#545454" layoutX="18.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="BMW I8 2020" wrappingWidth="162.5000432729721" />
+            <Text fx:id="txtYear" fill="#545454" layoutX="193.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="2007" textAlignment="CENTER" wrappingWidth="105.5000432729721" />
+            <Text fx:id="txtPrice" fill="#545454" layoutX="475.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Rs.25,845,785" textAlignment="RIGHT" wrappingWidth="138.5000432729721" />
+            <Text fx:id="txtMileage" fill="#545454" layoutX="333.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="18500 km" textAlignment="CENTER" wrappingWidth="138.5000432729721" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
