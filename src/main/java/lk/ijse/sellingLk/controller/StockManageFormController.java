@@ -36,8 +36,6 @@ public class StockManageFormController {
     @FXML
     private JFXTextField txtPrice;
 
-    @FXML
-    private JFXTextField txtContact;
 
     @FXML
     private JFXTextField txtEngineCapacity;
@@ -90,11 +88,10 @@ public class StockManageFormController {
             String brand = txtBrand.getText();
             String mileage = txtMileage.getText();
             String price = txtPrice.getText();
-            String contact = txtContact.getText();
             String engineCapacity = txtEngineCapacity.getText();
             String description = txtDescription.getText();
 
-            VehicleDto vehicle = new VehicleDto(id,description,brand,vehicleModel,year,fuelType,engineCapacity,mileage,price,contact);
+            VehicleDto vehicle = new VehicleDto(id,description,brand,vehicleModel,year,fuelType,engineCapacity,mileage,price);
 
             boolean isSaved=model.saveVehicle(vehicle);
             if (isSaved) {

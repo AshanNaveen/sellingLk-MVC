@@ -77,4 +77,9 @@ public class SellerModel {
         return "S001";
     }
 
+    public String getSellerName(String value) throws SQLException {
+        ResultSet resultSet = CrudUtil.crudUtil("SELECT * FROM seller WHERE id=?", value);
+        if (resultSet.next())return resultSet.getString(2);
+        return null;
+    }
 }
