@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,9 +10,18 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.barController.VehicleBarController">
    <children>
-      <Pane prefHeight="56.0" prefWidth="658.0" styleClass="bar">
+      <Pane layoutX="-1.0" prefHeight="56.0" prefWidth="778.0" styleClass="bar">
          <children>
-            <JFXButton fx:id="btnUpdateSave" layoutX="554.0" layoutY="10.0" minWidth="46.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../css/button.css" visible="false">
+            <JFXButton fx:id="btnEdit" layoutX="658.0" layoutY="12.0" minWidth="46.0" onAction="#btnEditOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../css/button.css" text=" ">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/icons8-edit-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnUpdate" layoutX="658.0" layoutY="12.0" minWidth="46.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../css/button.css" visible="false">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -21,7 +31,7 @@
                </graphic>
             </JFXButton>
             <Text fx:id="txtId" fill="#545454" layoutX="17.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="V0001" wrappingWidth="53.50004327297211" />
-            <JFXButton layoutX="606.0" layoutY="11.0" minWidth="46.0" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
+            <JFXButton layoutX="704.0" layoutY="11.0" minWidth="46.0" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -30,18 +40,19 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <Text fx:id="txtName" fill="#545454" layoutX="94.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="BMW I8 2020" wrappingWidth="138.5000432729721" />
-            <Text fx:id="txtFuelType" fill="#545454" layoutX="272.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Petrol" wrappingWidth="138.5000432729721" />
-            <Text fx:id="txtPrice" fill="#545454" layoutX="411.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Rs.25,845,785" wrappingWidth="138.5000432729721" />
-            <JFXButton layoutX="553.0" layoutY="10.0" minWidth="46.0" onAction="#btnEditOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../css/button.css" text=" ">
-               <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/icons/icons8-edit-64.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
+            <Text fx:id="txtDescription" fill="#545454" layoutX="86.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="BMW I8 2020" wrappingWidth="138.5000432729721" />
+            <Text fx:id="txtFuelType" fill="#545454" layoutX="238.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Petrol" wrappingWidth="89.50004126876593" />
+            <Text fx:id="txtPrice" fill="#545454" layoutX="342.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Rs.25,845,785" wrappingWidth="102.5000432729721" />
+            <Text fx:id="txtMileage" fill="#545454" layoutX="461.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="25000km" wrappingWidth="95.5000432729721" />
+            <Text fx:id="txtEngineCapacity" fill="#545454" layoutX="557.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="10000cc" wrappingWidth="95.5000432729721" />
+            <JFXTextField fx:id="txtEBrand" focusColor="#f7f7f700" layoutX="66.0" layoutY="11.0" prefHeight="31.0" prefWidth="66.0" unFocusColor="#ffffff00" />
+            <JFXTextField fx:id="txtEYear" focusColor="#f7f7f700" layoutX="132.0" layoutY="14.0" prefHeight="31.0" prefWidth="54.0" unFocusColor="#ffffff00" />
+            <JFXTextField fx:id="txtEModel" focusColor="#f7f7f700" layoutX="186.0" layoutY="13.0" prefHeight="31.0" prefWidth="54.0" unFocusColor="#ffffff00" />
+            <JFXTextField fx:id="txtEFuelType" focusColor="#f7f7f700" layoutX="244.0" layoutY="14.0" prefHeight="31.0" prefWidth="79.0" unFocusColor="#ffffff00" />
+            <JFXTextField fx:id="txtEFEngineCapacity" focusColor="#f7f7f700" layoutX="328.0" layoutY="13.0" prefHeight="31.0" prefWidth="79.0" unFocusColor="#ffffff00" />
+            <JFXTextField fx:id="txtEMileage" focusColor="#f7f7f700" layoutX="415.0" layoutY="11.0" prefHeight="31.0" prefWidth="79.0" unFocusColor="#ffffff00" />
+            <JFXTextField fx:id="txtEPrice" focusColor="#f7f7f700" layoutX="495.0" layoutY="11.0" prefHeight="31.0" prefWidth="79.0" unFocusColor="#ffffff00" />
+            <JFXTextField fx:id="txtEDescription" focusColor="#f7f7f700" layoutX="573.0" layoutY="11.0" prefHeight="31.0" prefWidth="79.0" unFocusColor="#ffffff00" />
          </children>
       </Pane>
    </children>
