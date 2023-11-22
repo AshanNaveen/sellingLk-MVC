@@ -58,7 +58,10 @@ public class SignInFormController {
     @FXML
     void btnSignInOnAction(ActionEvent event) {
         String username = txtUsername.getText();
-        String password = txtPassword.getText();
+        String password=null;
+        if(txtPassword.isVisible()) password = txtPassword.getText();
+        else password = txtUnHidePassword.getText();
+
 
         UserModel model = new UserModel();
 
