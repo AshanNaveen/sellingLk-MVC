@@ -10,10 +10,10 @@ create table user
 (
     id       varchar(10) primary key,
     role     varchar(20) not null,
-    address  text        not null,
-    email    varchar(20) not null,
-    password varchar(20) not null,
-    username varchar(20) not null
+    email    varchar(30) not null,
+    password varchar(30) not null,
+    username varchar(30) not null,
+    name varchar(30) not null
 );
 
 create table staff

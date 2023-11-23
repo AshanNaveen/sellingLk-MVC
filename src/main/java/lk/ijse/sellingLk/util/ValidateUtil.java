@@ -1,21 +1,17 @@
 package lk.ijse.sellingLk.util;
 
+import javafx.scene.layout.Pane;
+
 import java.util.regex.Pattern;
 
-public class ValidateUtil {
-
-    public  String nameValidate(String name){
-        if(Pattern.matches("\\b([A-Z]{1}[a-z]{1,30}[- ]{0,1}|[A-Z]{1}[- \\']{1}[A-Z]{0,1}      [a-z]{1,30}[- ]{0,1}|[a-z]{1,2}[ -\\']{1}[A-Z]{1}[a-z]{1,30}){2,5}",name))return name;
-        else return null;
-    }
-
-    public  String addressValidate(String address){
-        if( Pattern.matches("^\\d+\\/[A-Za-z\\d\\s,']+",address))return address;
-        else return null;
-    }
-
-    public String emailValidate(String email){
-        if (Pattern.matches("\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b",email))return email;
-        else return null;
+public  class ValidateUtil {
+    public static boolean validateMail(String mail, Pane pane) {
+        if (Pattern.matches("\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b",mail)){
+            pane.setStyle("-fx-border-color: #00ff00");
+            return true;
+        }else {
+            pane.setStyle("-fx-border-color: #FA5252");
+            return false;
+        }
     }
 }

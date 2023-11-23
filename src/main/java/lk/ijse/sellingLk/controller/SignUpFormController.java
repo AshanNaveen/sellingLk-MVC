@@ -1,120 +1,106 @@
 package lk.ijse.sellingLk.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import lk.ijse.sellingLk.controller.barController.EmployeeBarController;
 import lk.ijse.sellingLk.util.EmailUtil;
+import lk.ijse.sellingLk.util.ValidateUtil;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.regex.Pattern;
 
 public class SignUpFormController {
-
     @FXML
     private Pane signUpPane;
+
+    @FXML
+    private Label lblWarning;
+
+    @FXML
+    private Pane usernamePane;
 
     @FXML
     private JFXTextField txtUsername;
 
     @FXML
-    private JFXPasswordField txtPassword;
-
-    @FXML
-    private ImageView imgEye;
-
-    @FXML
-    private JFXTextField txtUnHidePw;
-
-    @FXML
-    private JFXPasswordField txtConfirmPassword;
-
-    @FXML
-    private ImageView imgConfirmEye;
-
-    @FXML
-    private JFXTextField txtUnHideConfirmPw;
+    private Pane emailPane;
 
     @FXML
     private JFXTextField txtEmail;
 
     @FXML
+    private Pane otpPane;
+
+    @FXML
     private JFXTextField txtOtp;
 
-    private boolean hide = true;
+    @FXML
+    private JFXButton btnSendOtp;
 
-    private boolean cHide=true;
+    private String random;
+
+
+    @FXML
+    void btnNextOnAction(ActionEvent event) {
+        if (ValidateUtil.validateMail(txtEmail.getText(), emailPane) && checkOtp() && !txtUsername.getText().equals(" ")) {
+            try {
+                String username = txtUsername.getText();
+                String email=txtEmail.getText();
+                FXMLLoader loader = new FXMLLoader(SignUpSecondFormController.class.getResource("/view/signUpSecond-form.fxml"));
+                Parent root= loader.load();
+                SignUpSecondFormController controller = loader.getController();
+                controller.setData(username,email);
+                signUpPane.getChildren().clear();
+                signUpPane.getChildren().add(root);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private boolean checkOtp() {
+        if (random.equals(txtOtp.getText())) {
+            otpPane.setStyle("-fx-border-color: #00ff00");
+            return true;
+        } else {
+            otpPane.setStyle("-fx-border-color: #FA5252");
+            return false;
+        }
+    }
+
 
     @FXML
     void btnSendOtpOnAction(ActionEvent event) {
-
-        try {
-            EmailUtil email = new EmailUtil();
-            int random= (int) Math.floor(Math.random()*100000);
-
-        } catch (GeneralSecurityException | IOException e ) {
-            e.printStackTrace();
-        }
-
-
-    }
-
-    @FXML
-    void btnSignUpOnAction(ActionEvent event) {
-        boolean isSuccess=validateUser();
-    }
-
-    private boolean validateUser() {
-        String name = txtUsername.getText();
-        String password= txtPassword.getText();
-        Pattern.matches("[A-Za-z]", "abcd");
-    return true;
-    }
-
-    @FXML
-    void imgCPasswordEyeOnClicked(MouseEvent event) {
-
-        if (cHide) {
-            imgConfirmEye.setImage(new Image("/assets/icons/openEye.png"));
-            txtUnHideConfirmPw.setText(txtConfirmPassword.getText());
-            txtConfirmPassword.setVisible(false);
-            txtUnHideConfirmPw.setVisible(true);
-            cHide = false;
-            return;
-        }
-        else{
-            imgConfirmEye.setImage(new Image("/assets/icons/closedEye.png"));
-            txtConfirmPassword.setText(txtUnHideConfirmPw.getText());
-            txtConfirmPassword.setVisible(true);
-            txtUnHideConfirmPw.setVisible(false);
-            cHide = true;
-            return;
+        if (ValidateUtil.validateMail(txtEmail.getText(), emailPane)) {
+            try {
+                EmailUtil email = new EmailUtil();
+                random = String.valueOf((int)Math.floor(Math.random() * 100000));
+                System.out.println(random);
+                String usermail = txtEmail.getText();
+                btnSendOtp.setText("Resend OTP");
+                email.sendMail("Selling LK Verification", "Please use this code to reset the password for the account " + usermail + "." +
+                        "\n\nHere is your code : " + random +
+                        "\n\nThanks,\nSellingLK IT Team", usermail);
+            } catch (GeneralSecurityException | IOException | MessagingException e) {
+                e.printStackTrace();
+            }
+        } else {
+            lblWarning.setVisible(true);
         }
     }
 
-    @FXML
-    void imgPasswordEyeOnClicked(MouseEvent event) {
-        if (hide) {
-            imgEye.setImage(new Image("/assets/icons/openEye.png"));
-            txtUnHidePw.setText(txtPassword.getText());
-            txtPassword.setVisible(false);
-            txtUnHidePw.setVisible(true);
-            hide = false;
-            return;
-        }
-        else{
-            imgEye.setImage(new Image("/assets/icons/closedEye.png"));
-            txtPassword.setText(txtUnHidePw.getText());
-            txtPassword.setVisible(true);
-            txtUnHidePw.setVisible(false);
-            hide = true;
-            return;
-        }
-    }
 
 }

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="348.0" prefWidth="544.0" style="-fx-background-color: #262626;" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.SignUpSecondFormController">
+   <children>
+      <Pane fx:id="signUpPane" layoutY="-1.0" prefHeight="348.0" prefWidth="544.0">
+         <children>
+            <Pane fx:id="rolePane" layoutX="63.0" layoutY="213.0" prefHeight="200.0" prefWidth="200.0" styleClass="textBox">
+               <children>
+                  <JFXTextField fx:id="txtRole" alignment="CENTER" focusColor="#ffffff00" labelFloat="true" layoutX="26.0" layoutY="-2.0" onKeyPressed="#roleKeyPressed" prefHeight="40.0" prefWidth="372.0" promptText="Enter Your Role here" unFocusColor="#4d4d4d00">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXTextField>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="6.5" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/icons8-user-96.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="namePane" layoutX="63.0" layoutY="155.0" prefHeight="200.0" prefWidth="200.0" styleClass="textBox">
+               <children>
+                  <JFXTextField fx:id="txtName" alignment="CENTER" focusColor="#ffffff00" labelFloat="true" layoutX="23.0" layoutY="-1.0" onKeyPressed="#nameKeyPressed" prefHeight="40.0" prefWidth="372.0" promptText="Enter Your Name here" unFocusColor="#4d4d4d00">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXTextField>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="6.5" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/icons8-user-96.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <JFXButton layoutX="63.0" layoutY="269.0" onAction="#btnSignUpOnAction" prefHeight="37.0" prefWidth="418.0" styleClass="loginbtn" text="Sign UP" />
+            <Pane fx:id="passwordPane" layoutX="63.0" layoutY="37.0" prefHeight="200.0" prefWidth="200.0" styleClass="textBox">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="6.5" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/icons8-lock-96.png" />
+                     </image>
+                  </ImageView>
+                  <JFXPasswordField fx:id="txtPassword" alignment="CENTER" focusColor="#ffffff00" labelFloat="true" layoutX="22.0" layoutY="-1.0" onKeyPressed="#passwordKeyPressed" prefHeight="38.0" prefWidth="372.0" promptText="Enter Your Password here" unFocusColor="#ffffff00">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </JFXPasswordField>
+                  <JFXTextField fx:id="txtUnHidePw" alignment="CENTER" disable="true" focusColor="#ffffff00" labelFloat="true" prefHeight="38.0" prefWidth="372.0" promptText="Enter Your Password here" unFocusColor="#4d4d4d00" visible="false">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </JFXTextField>
+                  <ImageView fx:id="imgEye" accessibleRole="BUTTON" fitHeight="30.0" fitWidth="30.0" layoutX="379.0" layoutY="2.0" onMouseClicked="#imgPasswordEyeOnClicked" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/closedEye.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="cPasswordPane" layoutX="63.0" layoutY="98.0" prefHeight="200.0" prefWidth="200.0" styleClass="textBox">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="6.5" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/icons8-lock-96.png" />
+                     </image>
+                  </ImageView>
+                  <JFXPasswordField fx:id="txtConfirmPassword" alignment="CENTER" focusColor="#ffffff00" labelFloat="true" layoutX="23.0" layoutY="-1.0" onKeyPressed="#confirmPasswordKeyPressed" prefHeight="38.0" prefWidth="372.0" promptText="Confirm Your Password here" unFocusColor="#ffffff00">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </JFXPasswordField>
+                  <JFXTextField fx:id="txtUnHideConfirmPw" alignment="CENTER" disable="true" focusColor="#ffffff00" labelFloat="true" layoutX="23.0" layoutY="-1.0" prefHeight="38.0" prefWidth="372.0" promptText="Enter Your Password here" unFocusColor="#4d4d4d00" visible="false">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </JFXTextField>
+                  <ImageView fx:id="imgConfirmEye" accessibleRole="BUTTON" fitHeight="30.0" fitWidth="30.0" layoutX="379.0" layoutY="3.0" onMouseClicked="#imgCPasswordEyeOnClicked" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/closedEye.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Label fx:id="lblWarning" layoutX="73.0" layoutY="69.0" prefHeight="21.0" prefWidth="396.0" text="Password Must Contain Minimum 8 characters, at least one letter," textFill="#fa5252" visible="false">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblWarning1" layoutX="73.0" layoutY="79.0" prefHeight="21.0" prefWidth="396.0" text="one number and one special character" textFill="#fa5252" visible="false">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
