@@ -19,6 +19,6 @@ public class SellOrderDetailModel {
     }
 
     private boolean saveOrderDetail(String orderId, String[] cart,Date date) throws SQLException {
-       return CrudUtil.crudUtil("INSERT INTO buyorderdetail Values (?,?,?,?)",date,cart[1],orderId,cart[0]);
+       return CrudUtil.crudUtil("INSERT INTO sellOrderDetail Values (?,?,?,?)",date,cart[1],orderId,cart[0]);
     }
 }

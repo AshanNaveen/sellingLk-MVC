@@ -219,11 +219,11 @@ public class BuyOrderFormController {
     @FXML
     void btnSellOrderOnAction(ActionEvent event) {
         try {
-            Pane root = FXMLLoader.load(this.getClass().getResource("/view/buyOrder-form.fxml"));
+            Pane root = FXMLLoader.load(this.getClass().getResource("/view/sellOrder-form.fxml"));
             mainPane.getChildren().clear();
             mainPane.getChildren().add(root);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
@@ -247,7 +247,7 @@ public class BuyOrderFormController {
             if (isSaved) {
                 generateReport(pdto);
                 String email = new BuyerModel().getEmail(pdto.getCusId());
-                sendMail("Thank you for choosing our service !", "Your Order Is Successfully .. ", email);
+                sendMail("Thank you for choosing our service !", " ", email);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

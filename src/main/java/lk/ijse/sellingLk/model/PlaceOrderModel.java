@@ -29,7 +29,7 @@ public class PlaceOrderModel {
     private SellOrderDetailModel sellOrderDetailModel = new SellOrderDetailModel();
     private BuyOrderDetailModel buyOrderDetailModel = new BuyOrderDetailModel();
 
-    public boolean saveBuyOrder(PlaceOrderDto placeOrderDto) throws SQLException {
+  public boolean saveBuyOrder(PlaceOrderDto placeOrderDto) throws SQLException {
         boolean result = false;
         Connection connection = null;
         try {
@@ -52,14 +52,13 @@ public class PlaceOrderModel {
             }
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
             connection.rollback();
         } finally {
             connection.setAutoCommit(true);
         }
         return result;
     }
-
 
     public boolean saveSellOrder(PlaceOrderDto placeOrderDto) throws SQLException {
         boolean result = false;
@@ -70,6 +69,7 @@ public class PlaceOrderModel {
             boolean isSaved = sellOrderModel.saveOrder(new SellOrderDto(placeOrderDto.getOrderId(), placeOrderDto.getCusId()));
             if (isSaved) {
                 boolean isDeleted = vehicleModel.deleteVehicle(placeOrderDto.getItems());
+
                 if (isDeleted) {
                     String id = paymentModel.generateNextId();
                     String uId = new UserModel().getUserId(SignInFormController.uname, SignInFormController.pword);
@@ -88,12 +88,14 @@ public class PlaceOrderModel {
             }
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
             connection.rollback();
         } finally {
             connection.setAutoCommit(true);
         }
         return result;
     }
+
+
 }
 

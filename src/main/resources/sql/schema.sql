@@ -87,8 +87,8 @@ create table payment
     id       varchar(10) primary key,
     amount   double(10, 2) not null,
     date     date          not null,
-    sellerId varchar(10)   not null,
-    buyerId  varchar(10)   not null,
+    sellerId varchar(10)   ,
+    buyerId  varchar(10)   ,
     uId      varchar(10)   not null,
     constraint foreign key (sellerId) references seller (id)
         on delete cascade on update cascade,
@@ -109,7 +109,7 @@ create table vehicle
     engineCapacity varchar(10) not null,
     mileage varchar(20) not null,
     price decimal not null,
-    contact varchar(20) not null
+    status varchar(30)
 );
 
 create table sellOrder

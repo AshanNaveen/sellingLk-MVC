@@ -46,6 +46,7 @@ public class Navigation {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.centerOnScreen();
+        close(event);
         stage.show();
     }
 

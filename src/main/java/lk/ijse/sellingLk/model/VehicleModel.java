@@ -14,7 +14,7 @@ import java.util.List;
 public class VehicleModel {
     public boolean saveVehicle(final VehicleDto dto) throws SQLException {
         return CrudUtil.crudUtil("INSERT into vehicle(" +
-                "id,description,brand,model,year,fuelType,engineCapacity,mileage,price) VALUES (?,?,?,?,?,?,?,?,?)",
+                        "id,description,brand,model,year,fuelType,engineCapacity,mileage,price,status) VALUES (?,?,?,?,?,?,?,?,?,?)",
                 dto.getId(),
                 dto.getDescription(),
                 dto.getBrand(),
@@ -23,11 +23,13 @@ public class VehicleModel {
                 dto.getFuelType(),
                 dto.getEnginCapacity(),
                 dto.getMileage(),
-                dto.getPrice());
+                dto.getPrice(),
+                dto.getStatus());
     }
+
     public boolean updateVehicle(final VehicleDto dto) throws SQLException {
         return CrudUtil.crudUtil("UPDATE vehicle SET " +
-                "description=?,brand=?,model=?,year=?,fuelType=?,engineCapacity=?,mileage=?,price=? WHERE id=?",
+                        "description=?,brand=?,model=?,year=?,fuelType=?,engineCapacity=?,mileage=?,price=? WHERE id=?",
                 dto.getDescription(),
                 dto.getBrand(),
                 dto.getModel(),
@@ -39,22 +41,24 @@ public class VehicleModel {
     }
 
     public boolean deleteVehicle(final String id) throws SQLException {
-        return CrudUtil.crudUtil("DELETE FROM vehicle WHERE id=?",id);
+        return CrudUtil.crudUtil("DELETE FROM vehicle WHERE id=?", id);
     }
+
     public boolean deleteVehicle(ArrayList<String[]> list) throws SQLException {
         for (String[] array : list) {
-            if(!deleteVehicle(array)) {
+            if (!updateStatus(array)) {
                 return false;
             }
         }
         return true;
     }
-    public boolean deleteVehicle(String[] list) throws SQLException {
-        return CrudUtil.crudUtil("DELETE FROM vehicle WHERE id=?",list[0]);
+
+    public boolean updateStatus(String[] list) throws SQLException {
+        return CrudUtil.crudUtil("UPDATE vehicle SET status='Sold' WHERE id=?", list[0]);
     }
 
 
-    public List<VehicleDto> getAllVehile()throws SQLException {
+    public List<VehicleDto> getAllVehile() throws SQLException {
         ResultSet resultSet = CrudUtil.crudUtil("SELECT * FROM vehicle");
 
         List<VehicleDto> dtoList = new ArrayList<>();
@@ -69,7 +73,8 @@ public class VehicleModel {
                     resultSet.getString(6),
                     resultSet.getString(7),
                     resultSet.getString(8),
-                    resultSet.getString(9)
+                    resultSet.getString(9),
+                    resultSet.getString(10)
             ));
         }
         return dtoList;
@@ -93,88 +98,97 @@ public class VehicleModel {
             String[] split = current.split("V");
             int id = Integer.parseInt(split[1]);
             id++;
-            if (9>= id && id > 0) return "V00" + id;
-            else if (99>=id && id > 9) return "V0" + id;
-            else if (id > 99) return "V"+id;
+            if (9 >= id && id > 0) return "V00" + id;
+            else if (99 >= id && id > 9) return "V0" + id;
+            else if (id > 99) return "V" + id;
         }
         return "V001";
     }
 
 
     public int getMinumunYear() throws SQLException {
-        ResultSet resultSet =CrudUtil.crudUtil("SELECT *  FROM vehicle ORDER BY year LIMIT 1");
-        while (resultSet.next()){
+        ResultSet resultSet = CrudUtil.crudUtil("SELECT *  FROM vehicle ORDER BY year LIMIT 1");
+        while (resultSet.next()) {
             return resultSet.getInt(5);
         }
         return 2000;
     }
+
     public int getMaximumYear() throws SQLException {
-        ResultSet resultSet =CrudUtil.crudUtil("SELECT *  FROM vehicle ORDER BY year DESC LIMIT 1");
-        while (resultSet.next()){
+        ResultSet resultSet = CrudUtil.crudUtil("SELECT *  FROM vehicle ORDER BY year DESC LIMIT 1");
+        while (resultSet.next()) {
             return resultSet.getInt(5);
         }
         return 2000;
     }
 
     public List<VehicleDto> search(SearchDto searchDto) throws SQLException {
-        List<VehicleDto> list= new LinkedList<>();
-        String current=searchDto.getDescription();
+        List<VehicleDto> list = new LinkedList<>();
+        String current = searchDto.getDescription();
         String[] temp = current.split(" ");
         System.out.println("Regex pahu kara");
-        ResultSet resultSet = CrudUtil.crudUtil("SELECT * FROM vehicle WHERE description LIKE \'%"+current+"%\'");
-        while (resultSet.next()){
-            list.add(new VehicleDto(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getString(4),
-                    resultSet.getInt(5),
-                    resultSet.getString(6),
-                    resultSet.getString(7),
-                    resultSet.getString(8),
-                    resultSet.getString(9)
-            ));
+        ResultSet resultSet = CrudUtil.crudUtil("SELECT * FROM vehicle WHERE description LIKE \'%" + current + "%\'");
+        while (resultSet.next()) {
+            if (resultSet.getString(10).equals("On Hand")) {
+                list.add(new VehicleDto(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getInt(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7),
+                        resultSet.getString(8),
+                        resultSet.getString(9),
+                        resultSet.getString(10)
+                ));
+            }
         }
-        if (list.size()!=0) {
+        if (list.size() != 0) {
             return list;
         }
         System.out.println("Palaweni query eka iwrai");
 
-        String description="description LIKE \'%"+current+"%\' OR description LIKE ";
+        String description = "description LIKE \'%" + current + "%\' OR description LIKE ";
         for (int i = 0; i < temp.length; i++) {
-            description = description + "\'%" + temp[i]+"%\'";
-            if (i==temp.length-1){
+            description = description + "\'%" + temp[i] + "%\'";
+            if (i == temp.length - 1) {
                 break;
             }
-            description = description +  " OR description LIKE ";
+            description = description + " OR description LIKE ";
         }
 
-        resultSet = CrudUtil.crudUtil("SELECT * FROM vehicle WHERE "+description);
-       l1: while (resultSet.next()){
-            for (VehicleDto dto : list){
-                if (dto.getId().equals(resultSet.getString(1))){
-                    continue l1;
+        resultSet = CrudUtil.crudUtil("SELECT * FROM vehicle WHERE " + description);
+        l1:
+        while (resultSet.next()) {
+            if (resultSet.getString(10).equals("On Hand")) {
+                for (VehicleDto dto : list) {
+                    if (dto.getId().equals(resultSet.getString(1))) {
+                        continue l1;
+                    }
                 }
+
+                list.add(new VehicleDto(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getInt(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7),
+                        resultSet.getString(8),
+                        resultSet.getString(9),
+                        resultSet.getString(10)
+                ));
             }
-            list.add(new VehicleDto(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getString(4),
-                    resultSet.getInt(5),
-                    resultSet.getString(6),
-                    resultSet.getString(7),
-                    resultSet.getString(8),
-                    resultSet.getString(9)
-            ));
         }
         return list;
     }
 
     public VehicleDto getVehicleInfo(String value) throws SQLException {
-        ResultSet resultSet=CrudUtil.crudUtil("SELECT * FROM vehicle WHERE id=?",value);
+        ResultSet resultSet = CrudUtil.crudUtil("SELECT * FROM vehicle WHERE id=?", value);
 
-        while (resultSet.next()){
+        while (resultSet.next()) {
             return new VehicleDto(
                     resultSet.getString(1),
                     resultSet.getString(2),
@@ -184,7 +198,8 @@ public class VehicleModel {
                     resultSet.getString(6),
                     resultSet.getString(7),
                     resultSet.getString(8),
-                    resultSet.getString(9)
+                    resultSet.getString(9),
+                    resultSet.getString(10)
             );
         }
         return null;

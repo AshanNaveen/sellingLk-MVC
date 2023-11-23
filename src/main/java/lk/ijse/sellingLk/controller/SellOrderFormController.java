@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -227,6 +228,7 @@ public class SellOrderFormController {
         Time time = Time.valueOf(LocalTime.now());
         try {
             id = new SellOrderModel().generateNextOrderId();
+            System.out.println("Sell order ID : "+id);
             var placeOrderModel = new PlaceOrderModel();
             var pdto = new PlaceOrderDto(
                     id,
@@ -238,9 +240,11 @@ public class SellOrderFormController {
             );
             boolean isSaved = placeOrderModel.saveSellOrder(pdto);
             if (isSaved) {
-                generateReport(pdto);
+                new Alert(Alert.AlertType.CONFIRMATION,"Order Placed Successfully");
+                vBox.getChildren().clear();
+                //generateReport(pdto);
                 String email=new BuyerModel().getEmail(pdto.getCusId());
-                sendMail("Thank you for choosing our service !","Your Order Is Successfully .. ",email);
+                //sendMail("Thank you for choosing our service !","Your Order Is Successfully .. ",email);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -281,7 +285,7 @@ public class SellOrderFormController {
             JasperPrint print = JasperFillManager.fillReport(report, map, new JREmptyDataSource());
             JasperViewer.viewReport(print, false);
         } catch (JRException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

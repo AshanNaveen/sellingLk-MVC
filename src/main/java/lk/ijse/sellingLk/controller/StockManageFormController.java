@@ -90,8 +90,9 @@ public class StockManageFormController {
             String price = txtPrice.getText();
             String engineCapacity = txtEngineCapacity.getText();
             String description = txtDescription.getText();
+            String status = "On Hand";
 
-            VehicleDto vehicle = new VehicleDto(id,description,brand,vehicleModel,year,fuelType,engineCapacity,mileage,price);
+            VehicleDto vehicle = new VehicleDto(id,description,brand,vehicleModel,year,fuelType,engineCapacity,mileage,price,status);
 
             boolean isSaved=model.saveVehicle(vehicle);
             if (isSaved) {

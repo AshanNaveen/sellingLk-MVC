@@ -18,4 +18,5 @@ public class VehicleDto {
     private String enginCapacity;
     private String mileage;
     private String price;
+    private String status;
 }
