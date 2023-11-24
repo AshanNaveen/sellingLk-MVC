@@ -15,7 +15,5 @@ public class SearchDto {
     private String priceMax;
     private String yearMin;
     private String yearMax;
-    private String millageMin;
-    private String millageMax;
 
 }

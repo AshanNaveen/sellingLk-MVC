@@ -17,17 +17,11 @@
    <children>
       <Label layoutX="46.0" layoutY="11.0" styleClass="title" text="Search" />
       <JFXTextField fx:id="txtDescription" focusColor="#b1f041" labelFloat="true" layoutX="58.0" layoutY="125.0" prefHeight="38.0" prefWidth="367.0" promptText="Write About Your Vehicle" style="-jfx-focus-color: #B1F041\;" styleClass="Kanit-16" stylesheets="@../css/text.css" unFocusColor="WHITE" />
-      <JFXTextField fx:id="txtFuelType" focusColor="#b1f041" labelFloat="true" layoutX="58.0" layoutY="190.0" prefHeight="38.0" prefWidth="367.0" promptText="Fuel Type" style="-jfx-focus-color: #B1F041\;" styleClass="Kanit-16" stylesheets="@../css/text.css" unFocusColor="WHITE" />
-      <JFXTextField fx:id="txtPriceMin" alignment="CENTER_RIGHT" focusColor="#b1f041" layoutX="60.0" layoutY="337.0" prefHeight="38.0" prefWidth="143.0" promptText=" min  " style="-jfx-focus-color: #B1F041\;" styleClass="Kanit-16" stylesheets="@../css/text.css" unFocusColor="WHITE" />
-      <JFXComboBox fx:id="txtYearMin" focusColor="#b1f041" labelFloat="true" layoutX="61.0" layoutY="403.0" prefHeight="38.0" prefWidth="144.0" promptText="year from" styleClass="Kanit-16" stylesheets="@../css/text.css" unFocusColor="WHITE" />
-      <JFXTextField fx:id="txtPriceMax" focusColor="#b1f041" layoutX="282.0" layoutY="333.0" prefHeight="38.0" prefWidth="143.0" promptText="max" style="-jfx-focus-color: #B1F041\;" styleClass="Kanit-16" stylesheets="@../css/text.css" unFocusColor="WHITE" />
-      <JFXComboBox fx:id="txtYearMax" focusColor="#b1f041" labelFloat="true" layoutX="282.0" layoutY="403.0" prefHeight="38.0" prefWidth="143.0" promptText="year to" styleClass="Kanit-16" stylesheets="@../css/text.css" unFocusColor="WHITE" />
-      <JFXTextField fx:id="txtMillageMin" alignment="CENTER_RIGHT" focusColor="#b1f041" layoutX="58.0" layoutY="263.0" prefHeight="38.0" prefWidth="143.0" promptText=" min  " style="-jfx-focus-color: #B1F041\;" styleClass="Kanit-16" stylesheets="@../css/text.css" unFocusColor="WHITE" />
-      <Label layoutX="231.0" layoutY="262.0" style="-fx-text-fill: #B1F041;" text="&lt;">
-         <font>
-            <Font size="25.0" />
-         </font></Label>
-      <JFXTextField fx:id="txtMilageMax" focusColor="#b1f041" layoutX="282.0" layoutY="263.0" prefHeight="38.0" prefWidth="143.0" promptText="max" style="-jfx-focus-color: #B1F041\;" styleClass="Kanit-16" stylesheets="@../css/text.css" unFocusColor="WHITE" />
+      <JFXTextField fx:id="txtFuelType" focusColor="#b1f041" labelFloat="true" layoutX="58.0" layoutY="198.0" prefHeight="38.0" prefWidth="367.0" promptText="Fuel Type" style="-jfx-focus-color: #B1F041\;" styleClass="Kanit-16" stylesheets="@../css/text.css" unFocusColor="WHITE" />
+      <JFXTextField fx:id="txtPriceMin" alignment="CENTER_RIGHT" focusColor="#b1f041" layoutX="60.0" layoutY="279.0" prefHeight="38.0" prefWidth="143.0" promptText=" min  " style="-jfx-focus-color: #B1F041\;" styleClass="Kanit-16" stylesheets="@../css/text.css" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="txtYearMin" focusColor="#b1f041" layoutX="61.0" layoutY="358.0" prefHeight="38.0" prefWidth="144.0" promptText="year from" styleClass="Kanit-16" stylesheets="@../css/text.css" unFocusColor="WHITE" />
+      <JFXTextField fx:id="txtPriceMax" focusColor="#b1f041" layoutX="282.0" layoutY="275.0" prefHeight="38.0" prefWidth="143.0" promptText="max" style="-jfx-focus-color: #B1F041\;" styleClass="Kanit-16" stylesheets="@../css/text.css" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="txtYearMax" focusColor="#b1f041" layoutX="282.0" layoutY="358.0" prefHeight="38.0" prefWidth="143.0" promptText="year to" styleClass="Kanit-16" stylesheets="@../css/text.css" unFocusColor="WHITE" />
       <JFXButton layoutX="69.0" layoutY="482.0" onAction="#btnSearchOnAction" prefHeight="37.0" prefWidth="151.0" styleClass="loginbtn" text="Search" />
       <Pane fx:id="dbResultPane" layoutX="509.0" layoutY="27.0" prefHeight="515.0" prefWidth="705.0" style="-fx-background-color: white; -fx-background-radius: 20;">
          <children>
@@ -97,22 +91,22 @@
             <URL value="@../css/Scrool.css" />
          </stylesheets>
       </Pane>
-      <Label layoutX="231.0" layoutY="337.0" style="-fx-text-fill: #B1F041;" text="&lt;">
+      <Label layoutX="231.0" layoutY="279.0" style="-fx-text-fill: #B1F041;" text="&lt;">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="231.0" layoutY="401.0" style="-fx-text-fill: #B1F041;" text="&lt;">
+      <Label layoutX="231.0" layoutY="356.0" style="-fx-text-fill: #B1F041;" text="&lt;">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="58.0" layoutY="245.0" prefHeight="21.0" prefWidth="97.0" text="Mileage" textFill="#b1f041" />
-      <Label layoutX="59.0" layoutY="319.0" prefHeight="21.0" prefWidth="97.0" text="Price" textFill="#b1f041" />
+      <Label layoutX="59.0" layoutY="261.0" prefHeight="21.0" prefWidth="97.0" text="Price" textFill="#b1f041" />
       <JFXToggleButton fx:id="tglWeb" layoutX="249.0" layoutY="467.0" text="WEB Search" textFill="#b1f041" toggleColor="#b1f041" toggleLineColor="#b1f041">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXToggleButton>
+      <Label layoutX="59.0" layoutY="329.0" prefHeight="21.0" prefWidth="97.0" text="Year" textFill="#b1f041" />
    </children>
 </AnchorPane>

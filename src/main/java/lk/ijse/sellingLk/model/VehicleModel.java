@@ -123,11 +123,11 @@ public class VehicleModel {
     }
 
     public List<VehicleDto> search(SearchDto searchDto) throws SQLException {
-        List<VehicleDto> list = new LinkedList<>();
+        List<VehicleDto> list = new ArrayList<>();
         String current = searchDto.getDescription();
         String[] temp = current.split(" ");
         System.out.println("Regex pahu kara");
-        ResultSet resultSet = CrudUtil.crudUtil("SELECT * FROM vehicle WHERE description LIKE \'%" + current + "%\'");
+        ResultSet resultSet = CrudUtil.crudUtil("SELECT * FROM vehicle WHERE description LIKE \'%"+current+"%\' OR brand LIKE \'%"+current+"%\' OR model LIKE \'%"+current+"%\' AND ?>year AND year>? AND fuelType LIKE \'%"+searchDto.getFuelType()+"%\' AND ?>price AND price>?",searchDto.getYearMax(),searchDto.getYearMin(),searchDto.getPriceMax(),searchDto.getPriceMin());
         while (resultSet.next()) {
             if (resultSet.getString(10).equals("On Hand")) {
                 list.add(new VehicleDto(
@@ -144,18 +144,52 @@ public class VehicleModel {
                 ));
             }
         }
-        if (list.size() != 0) {
+        if (list.size()>1) {
             return list;
         }
         System.out.println("Palaweni query eka iwrai");
 
-        String description = "description LIKE \'%" + current + "%\' OR description LIKE ";
+        String description = "brand LIKE \'%" + current + "%\' OR brand LIKE ";
         for (int i = 0; i < temp.length; i++) {
             description = description + "\'%" + temp[i] + "%\'";
             if (i == temp.length - 1) {
                 break;
             }
-            description = description + " OR description LIKE ";
+            description = description + " OR brand LIKE ";
+        }
+
+        resultSet = CrudUtil.crudUtil("SELECT * FROM vehicle WHERE " + description);
+        l1:
+        while (resultSet.next()) {
+            if (resultSet.getString(10).equals("On Hand")) {
+                for (VehicleDto dto : list) {
+                    if (dto.getId().equals(resultSet.getString(1))) {
+                        continue l1;
+                    }
+                }
+
+                list.add(new VehicleDto(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getInt(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7),
+                        resultSet.getString(8),
+                        resultSet.getString(9),
+                        resultSet.getString(10)
+                ));
+            }
+        }
+        description=null;
+        description = "model LIKE \'%" + current + "%\' OR model LIKE ";
+        for (int i = 0; i < temp.length; i++) {
+            description = description + "\'%" + temp[i] + "%\'";
+            if (i == temp.length - 1) {
+                break;
+            }
+            description = description + " OR model LIKE ";
         }
 
         resultSet = CrudUtil.crudUtil("SELECT * FROM vehicle WHERE " + description);

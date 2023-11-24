@@ -92,12 +92,10 @@ public class SearchFormController {
         String priceMax = txtPriceMax.getText();
         String yearMin = txtYearMin.getSelectionModel().getSelectedItem();
         String yearMax = txtYearMax.getSelectionModel().getSelectedItem();
-        String millageMin = txtMillageMin.getText();
-        String millageMax = txtMilageMax.getText();
-
+        vBox.getChildren().clear();
         try {
-            List<VehicleDto> result=model.search(new SearchDto(description,fuelType,priceMin,priceMax,yearMin,yearMax,millageMin,millageMax));
-            vBox.getChildren().clear();
+            List<VehicleDto> result=model.search(new SearchDto(description,fuelType,priceMin,priceMax,yearMin,yearMax));
+
             for (int i = 0; i < result.size(); i++) {
                 setData(result.get(i));
             }

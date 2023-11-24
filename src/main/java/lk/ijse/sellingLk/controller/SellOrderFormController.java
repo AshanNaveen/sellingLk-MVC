@@ -19,6 +19,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import lk.ijse.sellingLk.controller.barController.BuyerbarController;
 import lk.ijse.sellingLk.controller.barController.CartBarController;
+import lk.ijse.sellingLk.db.DbConnection;
 import lk.ijse.sellingLk.dto.BuyerDto;
 import lk.ijse.sellingLk.dto.PlaceOrderDto;
 import lk.ijse.sellingLk.dto.VehicleDto;
@@ -31,6 +32,8 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 import javax.mail.MessagingException;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.GeneralSecurityException;
@@ -228,7 +231,7 @@ public class SellOrderFormController {
         Time time = Time.valueOf(LocalTime.now());
         try {
             id = new SellOrderModel().generateNextOrderId();
-            System.out.println("Sell order ID : "+id);
+            System.out.println("Sell order ID : " + id);
             var placeOrderModel = new PlaceOrderModel();
             var pdto = new PlaceOrderDto(
                     id,
@@ -240,10 +243,11 @@ public class SellOrderFormController {
             );
             boolean isSaved = placeOrderModel.saveSellOrder(pdto);
             if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION,"Order Placed Successfully");
+                new Alert(Alert.AlertType.CONFIRMATION, "Order Placed Successfully");
+                cart.clear();
                 vBox.getChildren().clear();
-                //generateReport(pdto);
-                String email=new BuyerModel().getEmail(pdto.getCusId());
+                generateReport(pdto);
+                String email = new BuyerModel().getEmail(pdto.getCusId());
                 //sendMail("Thank you for choosing our service !","Your Order Is Successfully .. ",email);
             }
         } catch (SQLException e) {
@@ -263,27 +267,24 @@ public class SellOrderFormController {
     }
 
     private void generateReport(PlaceOrderDto placeOrderDto) throws SQLException {
-        String description = dto.getBrand() + " " + dto.getModel() + " " + dto.getYear();
-        String[] list = placeOrderDto.getItems().get(0);
-        String custName=new BuyerModel().getBuyerName(placeOrderDto.getCusId());
-        String userName=new UserModel().getUserName(SignInFormController.uname,SignInFormController.pword);
+        String tot = String.valueOf(netTotal);
+        String userName = new UserModel().getUserName(SignInFormController.uname, SignInFormController.pword);
+
         HashMap map = new HashMap();
-        map.put("code", placeOrderDto.getOrderId());
-        map.put("description", description);
-        map.put("rate", dto.getPrice());
-        map.put("qty","1");
-        String tot= String.valueOf(netTotal);
-        map.put("amount", tot);
-        map.put("custName", custName);
-        map.put("invoiceNum", placeOrderDto.getOrderId());
-        map.put("username", userName);
-        map.put("total", netTotal);
+        map.put("id", placeOrderDto.getOrderId());
+        map.put("Total", tot);
+        map.put("discount", "1000");
+        map.put("invoiceNo", "1000");
+        map.put("user", userName);
+
         try {
-            InputStream stream = getClass().getResourceAsStream("/reports/Invoice.jrxml");
+            InputStream stream = getClass().getResourceAsStream("/reports/buyerInvoice.jrxml");
             JasperDesign load = JRXmlLoader.load(stream);
             JasperReport report = JasperCompileManager.compileReport(load);
-            JasperPrint print = JasperFillManager.fillReport(report, map, new JREmptyDataSource());
+            JasperPrint print = JasperFillManager.fillReport(report, map, DbConnection.getInstance().getConnection());
             JasperViewer.viewReport(print, false);
+            /*File pdf = File.createTempFile("output.", ".pdf");
+            JasperExportManager.exportReportToPdfStream(print, new FileOutputStream(pdf));*/
         } catch (JRException e) {
             e.printStackTrace();
         }
