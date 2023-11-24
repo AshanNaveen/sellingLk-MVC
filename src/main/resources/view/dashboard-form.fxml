@@ -105,6 +105,6 @@
       <Label fx:id="lblSeller" alignment="CENTER" layoutX="382.0" layoutY="103.0" prefHeight="21.0" prefWidth="153.0" styleClass="tag-name-long" text="Sellers &amp; Buyers" visible="false" />
       <Label fx:id="lblPayment" alignment="CENTER" layoutX="496.0" layoutY="101.0" styleClass="tag-name" text="Payment" visible="false" />
       <Label fx:id="lblEmployee" alignment="CENTER" layoutX="576.0" layoutY="101.0" styleClass="tag-name" text="Employees" visible="false" />
-      <Pane fx:id="loadingPane" layoutX="30.0" layoutY="134.0" prefHeight="567.03" prefWidth="1228.0" style="-fx-background-color: #262626; -fx-background-radius: 20; -fx-border-radius: 20;" />
+      <Pane fx:id="loadingPane" layoutX="30.0" layoutY="134.0" prefHeight="567.03" prefWidth="1228.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" />
    </children>
 </AnchorPane>

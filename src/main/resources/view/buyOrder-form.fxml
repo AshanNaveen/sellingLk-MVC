@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainPane" prefHeight="567.03" prefWidth="1228.0" style="-fx-background-color: #262626;" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.BuyOrderFormController">
+<AnchorPane fx:id="mainPane" prefHeight="567.03" prefWidth="1228.0" style="-fx-background-color: #262626; -fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.BuyOrderFormController">
    <children>
       <Label layoutX="49.0" layoutY="8.0" styleClass="title" text="Buy Order" />
       <JFXTextField fx:id="txtCount" focusColor="#b1f041" labelFloat="true" layoutX="600.0" layoutY="203.0" onAction="#txtCountOnAction" prefHeight="44.0" prefWidth="181.0" promptText="Count" styleClass="textBoxInManage" unFocusColor="WHITE">

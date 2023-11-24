@@ -2,24 +2,67 @@
 
 <?import com.jfoenix.controls.JFXSpinner?>
 <?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="567.03" prefWidth="1228.0" style="-fx-background-color: #262626;" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.OverviewFormController">
+<AnchorPane prefHeight="567.03" prefWidth="1228.0" style="-fx-background-color: #262626; -fx-background-radius: 20; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.OverviewFormController">
    <children>
-      <Pane layoutX="32.0" layoutY="79.0" prefHeight="456.0" prefWidth="627.3333" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #B1F041; -fx-border-width: 4;">
+      <Pane layoutX="32.0" layoutY="318.0" prefHeight="217.0" prefWidth="628.0" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #B1F041; -fx-border-width: 4;">
          <children>
-            <HBox layoutX="13.0" layoutY="12.0" prefHeight="427.0" prefWidth="603.0" />
+            <ScrollPane layoutX="12.0" layoutY="54.0" prefHeight="150.0" prefWidth="605.0" style="-fx-background-color: #E2E3E7;">
+               <content>
+                  <VBox fx:id="vBox" prefHeight="144.0" prefWidth="608.0" style="-fx-background-color: #E2E3E7;">
+                     <children>
+                        <Pane prefHeight="45.0" prefWidth="608.0" styleClass="bar">
+                           <children>
+                              <Label layoutX="26.0" layoutY="10.0" prefHeight="21.0" prefWidth="170.0" style="-fx-text-fill: #262626; -fx-font-weight: 700;" styleClass="Kanit-16" text="Toyota Prius 2008" />
+                              <Label alignment="CENTER_RIGHT" layoutX="393.0" layoutY="10.0" prefHeight="21.0" prefWidth="170.0" style="-fx-text-fill: #262626; -fx-font-weight: 700;" styleClass="Kanit-16" text="2023/11/25">
+                                 <stylesheets>
+                                    <URL value="@../css/tbl.css" />
+                                    <URL value="@../css/text.css" />
+                                 </stylesheets>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="45.0" prefWidth="608.0" styleClass="bar">
+                           <children>
+                              <Label layoutX="26.0" layoutY="10.0" prefHeight="21.0" prefWidth="170.0" style="-fx-text-fill: #262626; -fx-font-weight: 700;" styleClass="Kanit-16" text="Toyota Prius 2008" />
+                              <Label alignment="CENTER_RIGHT" layoutX="393.0" layoutY="10.0" prefHeight="21.0" prefWidth="170.0" style="-fx-text-fill: #262626; -fx-font-weight: 700;" styleClass="Kanit-16" text="2023/11/25">
+                                 <stylesheets>
+                                    <URL value="@../css/tbl.css" />
+                                    <URL value="@../css/text.css" />
+                                 </stylesheets>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="45.0" prefWidth="608.0" styleClass="bar">
+                           <children>
+                              <Label layoutX="26.0" layoutY="10.0" prefHeight="21.0" prefWidth="170.0" style="-fx-text-fill: #262626; -fx-font-weight: 700;" styleClass="Kanit-16" text="Toyota Prius 2008" />
+                              <Label alignment="CENTER_RIGHT" layoutX="393.0" layoutY="10.0" prefHeight="21.0" prefWidth="170.0" style="-fx-text-fill: #262626; -fx-font-weight: 700;" styleClass="Kanit-16" text="2023/11/25">
+                                 <stylesheets>
+                                    <URL value="@../css/tbl.css" />
+                                    <URL value="@../css/text.css" />
+                                 </stylesheets>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <Label layoutX="15.0" layoutY="7.0" style="-fx-font: 'Kanit';" styleClass="bold" text="Pre Orders " />
          </children>
       </Pane>
-      <Pane layoutX="693.0" layoutY="79.0" prefHeight="216.6" prefWidth="503.0" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #B1F041; -fx-border-width: 4;">
+      <Pane layoutX="693.0" layoutY="109.0" prefHeight="169.0" prefWidth="503.0" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #B1F041; -fx-border-width: 4;">
          <children>
-            <LineChart fx:id="grpSelling" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutY="2.0" prefHeight="193.0" prefWidth="488.0" style="-fx-background-color: transparent;" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+            <LineChart fx:id="grpSelling" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutY="2.0" prefHeight="131.0" prefWidth="489.0" style="-fx-background-color: transparetn;" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -53,5 +96,43 @@
          </children>
       </Pane>
       <Label layoutX="27.0" styleClass="title" text="Dashboard" />
+      <Pane layoutX="32.0" layoutY="110.0" prefHeight="169.0" prefWidth="195.0" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 4; -fx-border-color: #8371fd;">
+         <children>
+            <Label alignment="CENTER" layoutX="3.0" layoutY="20.0" prefHeight="45.0" prefWidth="188.0" text="Total ">
+               <styleClass>
+                  <String fx:value="iconTags" />
+                  <String fx:value="bold" />
+               </styleClass>
+            </Label>
+            <Label alignment="CENTER" layoutX="3.0" layoutY="50.0" prefHeight="45.0" prefWidth="188.0" text="Buyers">
+               <styleClass>
+                  <String fx:value="iconTags" />
+                  <String fx:value="bold" />
+               </styleClass>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="249.0" layoutY="110.0" prefHeight="169.0" prefWidth="195.0" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 4; -fx-border-color: #0dddb3;">
+         <children>
+            <Label alignment="CENTER" layoutX="4.0" layoutY="21.0" prefHeight="45.0" prefWidth="188.0" text="Total ">
+               <styleClass>
+                  <String fx:value="iconTags" />
+                  <String fx:value="bold" />
+               </styleClass>
+            </Label>
+            <Label alignment="CENTER" layoutX="4.0" layoutY="52.0" prefHeight="45.0" prefWidth="188.0" text="Sellers">
+               <styleClass>
+                  <String fx:value="iconTags" />
+                  <String fx:value="bold" />
+               </styleClass>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="465.0" layoutY="110.0" prefHeight="169.0" prefWidth="195.0" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #B1F041; -fx-border-width: 4;" />
    </children>
+   <stylesheets>
+      <URL value="@../css/stylesheet.css" />
+      <URL value="@../css/Scrool.css" />
+      <URL value="@../css/text.css" />
+   </stylesheets>
 </AnchorPane>
