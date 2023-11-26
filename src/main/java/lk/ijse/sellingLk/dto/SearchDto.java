@@ -13,7 +13,7 @@ public class SearchDto {
     private String fuelType;
     private String priceMin;
     private String priceMax;
-    private String yearMin;
-    private String yearMax;
+    private int yearMin;
+    private int yearMax;
 
 }

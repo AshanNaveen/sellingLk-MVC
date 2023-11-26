@@ -31,19 +31,13 @@ public class SearchFormController {
     private JFXTextField txtPriceMin;
 
     @FXML
-    private JFXComboBox<String> txtYearMin;
+    private JFXComboBox<Integer> txtYearMin;
 
     @FXML
     private JFXTextField txtPriceMax;
 
     @FXML
-    private JFXComboBox<String> txtYearMax;
-
-    @FXML
-    private JFXTextField txtMillageMin;
-
-    @FXML
-    private JFXTextField txtMilageMax;
+    private JFXComboBox<Integer> txtYearMax;
 
     @FXML
     private Pane dbResultPane;
@@ -52,13 +46,9 @@ public class SearchFormController {
     private VBox vBox;
 
     @FXML
-    private Pane webResultPane;
-
-    @FXML
-    private VBox vBoxWeb;
-
-    @FXML
     private JFXToggleButton tglWeb;
+
+
 
     private VehicleModel model = new VehicleModel();
     public void initialize() {
@@ -73,9 +63,9 @@ public class SearchFormController {
             int maxYear=model.getMaximumYear();
 
 
-            ObservableList<String> yearList = FXCollections.observableArrayList();
+            ObservableList<Integer> yearList = FXCollections.observableArrayList();
             for (int i = minYear; i <= maxYear; i++) {
-                yearList.add(String.valueOf(i));
+                yearList.add(i);
             }
             txtYearMax.setItems(yearList);
             txtYearMin.setItems(yearList);
@@ -90,8 +80,8 @@ public class SearchFormController {
         String fuelType = txtFuelType.getText();
         String priceMin = txtPriceMin.getText();
         String priceMax = txtPriceMax.getText();
-        String yearMin = txtYearMin.getSelectionModel().getSelectedItem();
-        String yearMax = txtYearMax.getSelectionModel().getSelectedItem();
+        int yearMin = txtYearMin.getValue();
+        int yearMax = txtYearMax.getValue();
         vBox.getChildren().clear();
         try {
             List<VehicleDto> result=model.search(new SearchDto(description,fuelType,priceMin,priceMax,yearMin,yearMax));
@@ -115,6 +105,10 @@ public class SearchFormController {
         } catch (IOException throwables) {
             throwables.printStackTrace();
         }
+    }
+    @FXML
+    void tglWebOnAction(ActionEvent event) {
+
     }
 
 }
