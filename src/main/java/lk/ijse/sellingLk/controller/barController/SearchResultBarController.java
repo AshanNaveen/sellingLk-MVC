@@ -21,7 +21,7 @@ public class SearchResultBarController {
     public void setData(VehicleDto vehicleDto){
         txtDescription.setText(vehicleDto.getBrand()+ " "+vehicleDto.getModel());
         txtYear.setText(String.valueOf(vehicleDto.getYear()));
-        txtPrice.setText(vehicleDto.getPrice());
-        txtMileage.setText(vehicleDto.getMileage());
+        txtPrice.setText(String.valueOf(vehicleDto.getPrice()));
+        txtMileage.setText(String.valueOf(vehicleDto.getMileage()));
     }
 }

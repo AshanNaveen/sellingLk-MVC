@@ -9,10 +9,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 public class SearchDto {
-    private String description;
+    private String brand;
+    private String model;
+    private String type;
     private String fuelType;
-    private String priceMin;
-    private String priceMax;
+    private int priceMin;
+    private int priceMax;
     private int yearMin;
     private int yearMax;
 

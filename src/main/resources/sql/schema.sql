@@ -13,7 +13,7 @@ create table user
     email    varchar(30) not null,
     password varchar(30) not null,
     username varchar(30) not null,
-    name varchar(30) not null
+    name     varchar(30) not null
 );
 
 create table staff
@@ -60,9 +60,9 @@ create table loyalId
 create table buyer
 (
     id      varchar(10) primary key,
-    name   varchar(25) not null,
+    name    varchar(25) not null,
     email   varchar(20) not null,
-    address text       not null,
+    address text        not null,
     phone   varchar(15) not null,
     uId     varchar(10) not null,
     loyalId varchar(10) not null,
@@ -87,8 +87,8 @@ create table payment
     id       varchar(10) primary key,
     amount   double(10, 2) not null,
     date     date          not null,
-    sellerId varchar(10)   ,
-    buyerId  varchar(10)   ,
+    sellerId varchar(10),
+    buyerId  varchar(10),
     uId      varchar(10)   not null,
     constraint foreign key (sellerId) references seller (id)
         on delete cascade on update cascade,
@@ -100,16 +100,16 @@ create table payment
 
 create table vehicle
 (
-    id          varchar(10) primary key,
-    description text not null,
-    brand varchar(50) not null,
-    model varchar(50) not null,
-    year int(4) not null,
-    fuelType varchar(20) not null,
-    engineCapacity varchar(10) not null,
-    mileage varchar(20) not null,
-    price decimal not null,
-    status varchar(30)
+    id             varchar(10) primary key,
+    type           varchar(50) not null,
+    brand          varchar(50) not null,
+    model          varchar(50) not null,
+    year           int(4)      not null,
+    fuelType       varchar(20) not null,
+    engineCapacity int         not null,
+    mileage        int         not null,
+    price          int         not null,
+    status         varchar(30)
 );
 
 create table sellOrder
@@ -122,10 +122,10 @@ create table sellOrder
 
 create table sellOrderDetail
 (
-    date    date        not null,
-    qty     int         not null,
-    orderId varchar(10) not null,
-    vehicleId  varchar(10) not null,
+    date      date        not null,
+    qty       int         not null,
+    orderId   varchar(10) not null,
+    vehicleId varchar(10) not null,
     constraint foreign key (orderId) references sellOrder (id)
         on update cascade on delete cascade,
     constraint foreign key (vehicleId) references vehicle (id)
@@ -142,12 +142,26 @@ create table buyOrder
 
 create table buyOrderDetail
 (
-    date    date        not null,
-    qty     int         not null,
-    orderId varchar(10) not null,
-    vehicleId  varchar(10) not null,
+    date      date        not null,
+    qty       int         not null,
+    orderId   varchar(10) not null,
+    vehicleId varchar(10) not null,
     constraint foreign key (orderId) references buyOrder (id)
         on update cascade on delete cascade,
     constraint foreign key (vehicleId) references vehicle (id)
         on update cascade on delete cascade
 );
+
+create table tempData
+(
+    title          varchar(80),
+    brand          varchar(80),
+    model          varchar(80),
+    contact        varchar(20),
+    year           int,
+    price          int,
+    fuelType       varchar(50),
+    engineCapacity int,
+    mileage        int,
+    city           varchar(50)
+)
