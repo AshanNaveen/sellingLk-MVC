@@ -10,9 +10,10 @@ import java.util.List;
 
 public class SellerModel {
     public boolean saveSeller(final SellerDto dto) throws SQLException {
-        return CrudUtil.crudUtil("INSERT into seller(id,name,email,address,phone,uId) VALUES (?,?,?,?,?,?)",
+        return CrudUtil.crudUtil("INSERT into seller(id,name,nic,email,address,phone,uId) VALUES (?,?,?,?,?,?)",
                 dto.getId(),
                 dto.getName(),
+                dto.getNic(),
                 dto.getEmail(),
                 dto.getAddress(),
                 dto.getPhone(),
@@ -20,8 +21,9 @@ public class SellerModel {
     }
 
     public boolean updateSeller(final SellerDto dto) throws SQLException {
-        return CrudUtil.crudUtil("UPDATE seller SET name=? , email=? , address=? , phone=? , uId=?  WHERE id=?",
+        return CrudUtil.crudUtil("UPDATE seller SET name=? ,nic=?, email=? , address=? , phone=? , uId=?  WHERE id=?",
                 dto.getName(),
+                dto.getNic(),
                 dto.getEmail(),
                 dto.getAddress(),
                 dto.getPhone(),
@@ -46,7 +48,8 @@ public class SellerModel {
                     resultSet.getString(3),
                     resultSet.getString(4),
                     resultSet.getString(5),
-                    resultSet.getString(6)
+                    resultSet.getString(6),
+                    resultSet.getString(7)
             ));
         }
         return dtoList;
@@ -80,6 +83,18 @@ public class SellerModel {
     public String getSellerName(String value) throws SQLException {
         ResultSet resultSet = CrudUtil.crudUtil("SELECT * FROM seller WHERE id=?", value);
         if (resultSet.next())return resultSet.getString(2);
+        return null;
+    }
+
+    public SellerDto getSellerInfo(String contact) throws SQLException {
+        ResultSet resultSet = CrudUtil.crudUtil("SELECT * FROM seller WHERE phone=?",contact);
+        if (resultSet.next())return new SellerDto(resultSet.getString(1),
+                resultSet.getString(2),
+                resultSet.getString(3),
+                resultSet.getString(4),
+                resultSet.getString(5),
+                resultSet.getString(6),
+                resultSet.getString(7));
         return null;
     }
 }

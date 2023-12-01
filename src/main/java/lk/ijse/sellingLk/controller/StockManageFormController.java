@@ -1,7 +1,10 @@
 package lk.ijse.sellingLk.controller;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,14 +21,12 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class StockManageFormController {
+
     @FXML
     private JFXTextField txtModel;
 
     @FXML
     private JFXTextField txtYear;
-
-    @FXML
-    private JFXTextField txtFuelType;
 
     @FXML
     private JFXTextField txtBrand;
@@ -36,33 +37,50 @@ public class StockManageFormController {
     @FXML
     private JFXTextField txtPrice;
 
-
     @FXML
     private JFXTextField txtEngineCapacity;
 
     @FXML
-    private JFXTextArea txtDescription;
-
-    @FXML
     private VBox vBox;
 
+    @FXML
+    private JFXComboBox<String> cmbType;
+
+    @FXML
+    private JFXComboBox<String> cmbFuelType;
+
     private VehicleModel model = new VehicleModel();
+    private String[] types={"Car","Van","SUV/Jeep","Motor Cycle","Crew Cab","Pickup / Double Cab","Bus","Lorry","Three Wheel","Other"};
+    private String[] fuelTypes={"Petrol","Diesel","Hybrid","Electric"};
 
     public void initialize() {
         loadData();
+        loadTypes();
+        loadFuelTypes();
+    }
+
+    private void loadFuelTypes() {
+        ObservableList<String> list= FXCollections.observableArrayList();
+        for (String data : fuelTypes)list.add(data);
+        cmbFuelType.setItems(list);
+    }
+
+    private void loadTypes() {
+        ObservableList<String> list= FXCollections.observableArrayList();
+        for (String data : types)list.add(data);
+        cmbType.setItems(list);
     }
 
     private void loadData() {
         vBox.getChildren().clear();
         try {
             List<VehicleDto> list = model.getAllVehile();
-            for (int i = 0; i < list.size(); i++) {
-                setData(list.get(i));
-            }
+            for (int i = 0; i < list.size(); i++) setData(list.get(i));
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     public void setData(VehicleDto dto) {
         try {
             FXMLLoader loader = new FXMLLoader(VehicleBarController.class.getResource("/bar/vehicleBar.fxml"));
@@ -77,22 +95,19 @@ public class StockManageFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-
-
         try {
             String id = model.getNextVehicleId();
-
-            String vehicleModel = txtModel.getText();
-            int year = Integer.parseInt(txtYear.getText());
-            String fuelType = txtFuelType.getText();
             String brand = txtBrand.getText();
-            String mileage = txtMileage.getText();
-            String price = txtPrice.getText();
-            String engineCapacity = txtEngineCapacity.getText();
-            String description = txtDescription.getText();
+            String vehicleModel = txtModel.getText();
+            String type=cmbType.getValue();
+            int year = Integer.parseInt(txtYear.getText());
+            String fuelType = cmbFuelType.getValue();
+            int engineCapacity = Integer.parseInt(txtEngineCapacity.getText());
+            int mileage = Integer.parseInt(txtMileage.getText());
+            int price = Integer.parseInt(txtPrice.getText());
             String status = "On Hand";
 
-            VehicleDto vehicle = new VehicleDto(id,description,brand,vehicleModel,year,fuelType,engineCapacity,mileage,price,status);
+            VehicleDto vehicle = new VehicleDto(id,brand,vehicleModel,type,year,fuelType,engineCapacity,mileage,price,status);
 
             boolean isSaved=model.saveVehicle(vehicle);
             if (isSaved) {

@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -17,29 +18,40 @@
 <AnchorPane fx:id="mainPane" prefHeight="567.03" prefWidth="1228.0" style="-fx-background-color: #262626; -fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.BuyOrderFormController">
    <children>
       <Label layoutX="49.0" layoutY="8.0" styleClass="title" text="Buy Order" />
-      <JFXTextField fx:id="txtCount" focusColor="#b1f041" labelFloat="true" layoutX="600.0" layoutY="203.0" onAction="#txtCountOnAction" prefHeight="44.0" prefWidth="181.0" promptText="Count" styleClass="textBoxInManage" unFocusColor="WHITE">
+      <JFXButton layoutX="282.0" layoutY="40.0" onAction="#btnSellOrderOnAction" prefHeight="31.0" prefWidth="130.0" style="-fx-text-fill: #B1F041;" text="Sell Order" />
+      <Text fx:id="lblTime" layoutX="1018.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #B1F041;" text="12:15 AM">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
-      </JFXTextField>
-      <JFXComboBox fx:id="cmbItemId" editable="true" focusColor="#b1f041" labelFloat="true" layoutX="70.0" layoutY="203.0" onAction="#btnItemIdOnAction" prefHeight="44.0" prefWidth="130.0" promptText="Vehicle Id" styleClass="textBoxInManage" unFocusColor="WHITE" />
-      <Pane layoutX="41.0" layoutY="282.0" prefHeight="272.0" prefWidth="1152.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
+      </Text>
+      <Text fx:id="txtTotalPrice" layoutX="1146.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #D7D8DC;" styleClass="textBoxInManage" wrappingWidth="42.0" />
+      <Text fx:id="lblDate" layoutX="1105.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #B1F041;" text="14/11/2023">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="728.0" layoutY="93.0" onAction="#btnPlaceOrderOnAction" prefHeight="62.0" prefWidth="462.0" style="-fx-font-size: 24;" styleClass="loginbtn" text="    Place Order" textFill="#b1f041">
+         <graphic>
+            <ImageView fx:id="imgPlaceOrder" fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/icons8-return-purchase-96.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Pane layoutX="38.0" layoutY="272.0" prefHeight="272.0" prefWidth="1152.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
          <children>
             <Text fill="#534d59" layoutX="23.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Vehicle Id" wrappingWidth="109.50004425844395" />
-            <Text fill="#534d59" layoutX="393.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Count" wrappingWidth="53.50004327297211" />
-            <Text fill="#534d59" layoutX="810.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Total" wrappingWidth="109.5000432729721" />
-            <Text fill="#534d59" layoutX="592.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Unit Price" wrappingWidth="109.5000432729721" />
-            <Text fill="#534d59" layoutX="140.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Vehicle" wrappingWidth="109.50004425844395" />
+            <Text fill="#534d59" layoutX="810.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Unit Price" wrappingWidth="109.5000432729721" />
+            <Text fill="#534d59" layoutX="238.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Vehicle" wrappingWidth="109.50004425844395" />
             <ScrollPane layoutX="10.0" layoutY="53.0" prefHeight="211.0" prefWidth="1134.0">
                <content>
                   <VBox fx:id="vBox" prefHeight="210.0" prefWidth="1134.0" style="-fx-background-color: #ffff;">
                      <children>
-                        <Pane prefHeight="56.0" prefWidth="1377.0" styleClass="bar">
+                        <Pane prefHeight="56.0" prefWidth="1101.0" styleClass="bar">
                            <children>
                               <Text fill="#545454" layoutX="31.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="V001" wrappingWidth="53.50004327297211" />
-                              <Text fill="#545454" layoutX="385.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="1" wrappingWidth="71.00000172108412" />
-                              <Text fill="#545454" layoutX="580.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Rs. 14 564 245" wrappingWidth="205.50004328228533" />
-                              <Text fill="#545454" layoutX="800.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Rs. 14 564 245" wrappingWidth="101.00000628702765" />
+                              <Text fill="#545454" layoutX="800.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="0764004056" wrappingWidth="101.00000628702765" />
                               <JFXButton layoutX="1060.0" layoutY="10.0" minWidth="46.0" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
                                  <graphic>
                                     <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
@@ -49,15 +61,13 @@
                                     </ImageView>
                                  </graphic>
                               </JFXButton>
-                              <Text fill="#545454" layoutX="130.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Naveen Theekshana" wrappingWidth="154.5000432729721" />
+                              <Text fill="#545454" layoutX="227.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Naveen Theekshana" wrappingWidth="154.5000432729721" />
                            </children>
                         </Pane>
                         <Pane prefHeight="56.0" prefWidth="1094.0" styleClass="bar">
                            <children>
                               <Text fill="#545454" layoutX="31.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="V002" wrappingWidth="53.50004327297211" />
-                              <Text fill="#545454" layoutX="385.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="1" wrappingWidth="100.00000172108412" />
-                              <Text fill="#545454" layoutX="580.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Rs. 2 564 000" wrappingWidth="205.50004328228533" />
-                              <Text fill="#545454" layoutX="800.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Rs. 2 564 000" wrappingWidth="101.00000628702765" />
+                              <Text fill="#545454" layoutX="800.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="0764004056" wrappingWidth="101.00000628702765" />
                               <JFXButton layoutX="1060.0" layoutY="10.0" minWidth="46.0" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
                                  <graphic>
                                     <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
@@ -67,7 +77,7 @@
                                     </ImageView>
                                  </graphic>
                               </JFXButton>
-                              <Text fill="#545454" layoutX="130.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Naveen Theekshana" wrappingWidth="154.5000432729721" />
+                              <Text fill="#545454" layoutX="225.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Naveen Theekshana" wrappingWidth="154.5000432729721" />
                            </children>
                         </Pane>
                      </children>
@@ -80,48 +90,36 @@
             <URL value="@../css/Scrool.css" />
          </stylesheets>
       </Pane>
-      <JFXButton layoutX="282.0" layoutY="40.0" onAction="#btnSellOrderOnAction" prefHeight="31.0" prefWidth="130.0" style="-fx-text-fill: #B1F041;" text="Sell Order" />
-      <Text fx:id="lblTime" layoutX="1018.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #B1F041;" text="12:15 AM">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Text>
-      <JFXComboBox fx:id="cmbSellerId" editable="true" focusColor="#b1f041" labelFloat="true" layoutX="70.0" layoutY="114.0" onAction="#btnSellerIdOnAction" prefHeight="44.0" prefWidth="181.0" promptText="Seller Id" styleClass="textBoxInManage" unFocusColor="WHITE" />
-      <JFXButton layoutX="502.0" layoutY="121.0" onAction="#btnNewSellerOnAction" prefHeight="37.0" prefWidth="138.0" styleClass="loginbtn" text="New Seller" textFill="#b1f041" />
-      <Text fx:id="txtTotalPrice" layoutX="1146.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #D7D8DC;" styleClass="textBoxInManage" wrappingWidth="42.0" />
-      <Text fx:id="lblDate" layoutX="1105.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #B1F041;" text="14/11/2023">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Text>
-      <JFXTextField fx:id="txtSellerName" editable="false" focusColor="#b1f041" labelFloat="true" layoutX="293.0" layoutY="114.0" mouseTransparent="true" prefHeight="44.0" prefWidth="181.0" promptText="Seller Name" styleClass="textBoxInManage" unFocusColor="WHITE">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField fx:id="txtDescription" focusColor="#b1f041" labelFloat="true" layoutX="365.0" layoutY="203.0" mouseTransparent="true" prefHeight="44.0" prefWidth="207.0" promptText="Description" styleClass="textBoxInManage" unFocusColor="WHITE">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </JFXTextField>
-      <JFXButton layoutX="231.0" layoutY="213.0" onAction="#btnNewVehicleOnAction" prefHeight="37.0" prefWidth="93.0" style="-fx-font-size: 12;" styleClass="loginbtn" text="New Vehicle" textFill="#b1f041" />
-      <JFXButton layoutX="812.0" layoutY="213.0" onAction="#btnAddToCartOnAction" prefHeight="37.0" prefWidth="165.0" styleClass="loginbtn" text="  Add To Cart" textFill="#b1f041">
+      <JFXComboBox fx:id="cmbItemId" focusColor="#b1f041" labelFloat="true" layoutX="54.0" layoutY="200.0" onAction="#btnItemIdOnAction" prefHeight="44.0" prefWidth="181.0" promptText="Vehicle Id" styleClass="textBoxInManage" unFocusColor="WHITE" />
+      <JFXButton fx:id="btnAddToCart" layoutX="730.0" layoutY="210.0" onAction="#btnAddToCartOnAction" prefHeight="37.0" prefWidth="165.0" styleClass="loginbtn" text="  Add To Cart" textFill="#b1f041">
          <graphic>
-            <ImageView fx:id="imgCart" fitHeight="31.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgCart" fitHeight="22.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icons/icons8-car-100.png" />
                </image>
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton layoutX="884.0" layoutY="107.0" onAction="#btnPlaceOrderOnAction" prefHeight="62.0" prefWidth="303.0" style="-fx-font-size: 24;" styleClass="loginbtn" text="    Place Order" textFill="#b1f041">
-         <graphic>
-            <ImageView fx:id="imgPlaceOrder" fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/icons/icons8-return-purchase-96.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
+      <JFXButton layoutX="486.0" layoutY="118.0" onAction="#btnNewSellerOnAction" prefHeight="37.0" prefWidth="93.0" style="-fx-font-size: 12;" styleClass="loginbtn" text="New Seller" textFill="#b1f041" />
+      <Text fx:id="txtTotalPrice1" layoutX="966.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #D7D8DC; -fx-font-size: 25;" styleClass="textBoxInManage" text="Rs.0000" textAlignment="CENTER" wrappingWidth="206.91015625" />
+      <JFXTextField fx:id="txtSellerName" editable="false" focusColor="#b1f041" labelFloat="true" layoutX="277.0" layoutY="111.0" mouseTransparent="true" prefHeight="44.0" prefWidth="181.0" promptText="Seller Name" styleClass="textBoxInManage" unFocusColor="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtDescription" focusColor="#b1f041" labelFloat="true" layoutX="278.0" layoutY="200.0" prefHeight="44.0" prefWidth="283.0" promptText="Description" styleClass="textBoxInManage" unFocusColor="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXTextField>
+      <JFXButton layoutX="579.0" layoutY="211.0" onAction="#btnNewVehicleOnAction" prefHeight="37.0" prefWidth="93.0" style="-fx-font-size: 12;" styleClass="loginbtn" text="New Vehicle" textFill="#b1f041" />
+      <JFXTextField fx:id="txtSellerContact" focusColor="#b1f041" labelFloat="true" layoutX="54.0" layoutY="115.0" onKeyReleased="#txtSellerContactKeyPressed" prefHeight="44.0" prefWidth="181.0" promptText="Seller Contact" styleClass="textBoxInManage" unFocusColor="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXTextField>
    </children>
 </AnchorPane>

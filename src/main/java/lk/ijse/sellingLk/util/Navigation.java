@@ -50,13 +50,14 @@ public class Navigation {
         stage.show();
     }
 
-    public static void popupNavigation(String link) {
+    public static void popupNavigation(String link,String title){
         try {
             URL resource = Navigation.class.getResource("/view/" + link);
             Parent parent = FXMLLoader.load(resource);
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
             stage.setAlwaysOnTop(true);
+            stage.setTitle(title);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

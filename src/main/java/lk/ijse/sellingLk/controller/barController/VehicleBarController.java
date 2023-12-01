@@ -65,14 +65,14 @@ public class VehicleBarController {
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
         dto.setId(txtId.getText());
-        dto.setDescription(txtEDescription.getText());
+
         dto.setBrand(txtEBrand.getText());
         dto.setModel(txtEModel.getText());
         dto.setYear(Integer.parseInt(txtEYear.getText()));
         dto.setFuelType(txtEFuelType.getText());
-        dto.setEnginCapacity(txtEFEngineCapacity.getText());
-        dto.setMileage(txtEMileage.getText());
-        dto.setPrice(txtEPrice.getText());
+        dto.setEnginCapacity(Integer.parseInt(txtEFEngineCapacity.getText()));
+        dto.setMileage(Integer.parseInt(txtEMileage.getText()));
+        dto.setPrice(Integer.parseInt(txtEPrice.getText()));
 
         try {
             boolean isUpdated = new VehicleModel().saveVehicle(dto);
@@ -91,14 +91,13 @@ public class VehicleBarController {
         txtMileage.setVisible(false);
         txtEngineCapacity.setVisible(false);
 
-        txtEDescription.setText(dto.getDescription());
         txtEBrand.setText(dto.getBrand());
         txtEModel.setText(dto.getModel());
         txtEYear.setText(String.valueOf(dto.getYear()));
         txtEFuelType.setText(dto.getFuelType());
-        txtEFEngineCapacity.setText(dto.getEnginCapacity());
-        txtEMileage.setText(dto.getMileage());
-        txtEPrice.setText(dto.getPrice());
+        txtEFEngineCapacity.setText(String.valueOf(dto.getEnginCapacity()));
+        txtEMileage.setText(String.valueOf(dto.getMileage()));
+        txtEPrice.setText(String.valueOf(dto.getPrice()));
 
         txtEDescription.setVisible(true);
         txtEBrand.setVisible(true);
@@ -134,7 +133,7 @@ public class VehicleBarController {
         txtDescription.setText(this.dto.getBrand() + " " + this.dto.getModel() + " " + this.dto.getYear());
         txtFuelType.setText(this.dto.getFuelType());
         txtPrice.setText("Rs. " + this.dto.getPrice());
-        txtMileage.setText(this.dto.getMileage());
-        txtEngineCapacity.setText(this.dto.getEnginCapacity());
+        txtMileage.setText(String.valueOf(this.dto.getMileage()));
+        txtEngineCapacity.setText(String.valueOf(this.dto.getEnginCapacity()));
     }
 }

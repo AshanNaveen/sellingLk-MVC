@@ -80,7 +80,7 @@ public class SellOrderFormController {
     @FXML
     private JFXTextField txtDescription;
 
-    private ArrayList<String[]> cart = new ArrayList<>();
+    private List<String> cart = new ArrayList<>();
     private int netTotal = 0;
 
     VehicleDto dto;
@@ -172,10 +172,9 @@ public class SellOrderFormController {
         if (validateCount()) {
             String vehicleId = cmbItemId.getValue();
             int count = Integer.parseInt(txtCount.getText());
-            String[] data = {vehicleId, txtCount.getText()};
-            cart.add(data);
+            cart.add(vehicleId);
 
-            int total = (Integer.parseInt(dto.getPrice())) * count;
+            int total = (dto.getPrice()) * count;
             netTotal += total;
             String strPrice = String.valueOf(netTotal);
             String[] split = strPrice.split("(?<=\\G.{" + 1 + "})");
@@ -200,7 +199,7 @@ public class SellOrderFormController {
             FXMLLoader loader = new FXMLLoader(CartBarController.class.getResource("/bar/cartBar.fxml"));
             Parent root = loader.load();
             CartBarController controller = loader.getController();
-            controller.setData(dto, Integer.parseInt(txtCount.getText()));
+            controller.setData(dto);
             System.out.println("add");
             vBox.getChildren().add(root);
         } catch (IOException throwables) {

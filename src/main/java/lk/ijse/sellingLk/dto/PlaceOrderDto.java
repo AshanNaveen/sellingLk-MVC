@@ -8,6 +8,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 
 @NoArgsConstructor
@@ -17,7 +18,7 @@ import java.util.Timer;
 public class PlaceOrderDto {
     private String orderId;
     private String cusId;
-    private ArrayList<String[]> items;
+    private List<String> items;
     private int amount;
     private Date date;
     private Time time;

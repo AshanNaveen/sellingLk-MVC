@@ -18,22 +18,11 @@ public class CrudUtil {
             return (T) (Boolean) (statement.executeUpdate() > 0);
         }
     }
-    public static void setAutoCommit(boolean value) throws SQLException {
-        Connection connection=DbConnection.getInstance().getConnection();
-        connection.setAutoCommit(value);
-    }
 
     public static void commit() throws SQLException {
         Connection connection=DbConnection.getInstance().getConnection();
         connection.commit();
     }
 
-    public static void rollBack() {
-        try {
-            Connection connection=DbConnection.getInstance().getConnection();
-            connection.rollback();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
+
 }

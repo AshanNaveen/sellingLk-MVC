@@ -35,6 +35,8 @@ public class SellerManageFormController {
 
     @FXML
     private JFXTextField txtAddress;
+    @FXML
+    private JFXTextField txtNic;
 
     @FXML
     private JFXTextField txtPhone;
@@ -76,6 +78,7 @@ public class SellerManageFormController {
         String name = txtName.getText();
         String address = txtAddress.getText();
         String email = txtEmail.getText();
+        String nic = txtNic.getText();
         String phone = txtPhone.getText();
 
         try {
@@ -85,6 +88,7 @@ public class SellerManageFormController {
             if (model.saveSeller(new SellerDto(
                     id,
                     name,
+                    nic,
                     email,
                     address,
                     phone,

@@ -30,14 +30,10 @@ public class CartBarController {
 
     }
 
-    public void setData(VehicleDto dto,int count){
-        txtCount.setText(String.valueOf(count));
+    public void setData(VehicleDto dto){
         txtDescription.setText(dto.getBrand()+" "+dto.getModel()+" "+dto.getYear());
         txtVehicleId.setText(dto.getId());
-        txtPrice.setText("Rs. "+numberToString(Integer.parseInt(dto.getPrice())));
-        int total = (Integer.parseInt(dto.getPrice()))*count;
-        txtTotal.setText("Rs. "+numberToString(total));
-
+        txtPrice.setText("Rs. "+numberToString(dto.getPrice()));
     }
 
     public String numberToString(int num){
