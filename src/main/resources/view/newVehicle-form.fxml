@@ -8,44 +8,43 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="531.0" prefWidth="475.0" style="-fx-background-color: #262626;" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.NewVehicleFormController">
    <children>
       <Pane layoutX="14.0" layoutY="84.0">
          <children>
-            <JFXTextField fx:id="txtBrand" focusColor="#b1f041" labelFloat="true" mouseTransparent="true" onKeyPressed="#txtBrandKeyPressed" prefHeight="44.0" prefWidth="205.0" promptText="Brand" styleClass="textBoxInManage" unFocusColor="WHITE">
+            <JFXTextField fx:id="txtBrand" focusColor="#b1f041" labelFloat="true" onKeyPressed="#txtBrandKeyPressed" prefHeight="44.0" prefWidth="205.0" promptText="Brand" styleClass="textBoxInManage" unFocusColor="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtModel" focusColor="#b1f041" labelFloat="true" layoutX="238.0" mouseTransparent="true" onKeyPressed="#txtModelKeyPressed" prefHeight="44.0" prefWidth="205.0" promptText="Model" styleClass="textBoxInManage" unFocusColor="WHITE">
+            <JFXTextField fx:id="txtModel" focusColor="#b1f041" labelFloat="true" layoutX="238.0" onKeyPressed="#txtModelKeyPressed" prefHeight="44.0" prefWidth="205.0" promptText="Model" styleClass="textBoxInManage" unFocusColor="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtMileage" focusColor="#b1f041" labelFloat="true" layoutY="154.0" mouseTransparent="true" onKeyPressed="#txtMileageKeyPressed" prefHeight="44.0" prefWidth="205.0" promptText="Mileage" styleClass="textBoxInManage" unFocusColor="WHITE">
+            <JFXTextField fx:id="txtMileage" focusColor="#b1f041" labelFloat="true" layoutY="154.0" onKeyPressed="#txtMileageKeyPressed" prefHeight="44.0" prefWidth="205.0" promptText="Mileage" styleClass="textBoxInManage" unFocusColor="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtEngineCapacity" focusColor="#b1f041" labelFloat="true" layoutX="238.0" layoutY="155.0" mouseTransparent="true" onKeyPressed="#txtEngineCapacityKeyPressed" prefHeight="44.0" prefWidth="205.0" promptText="Engine Capacity" styleClass="textBoxInManage" unFocusColor="WHITE">
+            <JFXTextField fx:id="txtEngineCapacity" focusColor="#b1f041" labelFloat="true" layoutX="238.0" layoutY="155.0" onKeyPressed="#txtEngineCapacityKeyPressed" prefHeight="44.0" prefWidth="205.0" promptText="Engine Capacity" styleClass="textBoxInManage" unFocusColor="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtYear" focusColor="#b1f041" labelFloat="true" layoutY="233.0" mouseTransparent="true" onKeyPressed="#txtYearKeyPressed" prefHeight="44.0" prefWidth="205.0" promptText="Year" styleClass="textBoxInManage" unFocusColor="WHITE">
+            <JFXTextField fx:id="txtYear" focusColor="#b1f041" labelFloat="true" layoutY="233.0" onKeyPressed="#txtYearKeyPressed" prefHeight="44.0" prefWidth="205.0" promptText="Year" styleClass="textBoxInManage" unFocusColor="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtNumber" focusColor="#b1f041" labelFloat="true" layoutX="238.0" layoutY="233.0" mouseTransparent="true" onKeyPressed="#txtNumberKeyPressed" prefHeight="44.0" prefWidth="205.0" promptText="Number" styleClass="textBoxInManage" unFocusColor="WHITE">
+            <JFXTextField fx:id="txtNumber" focusColor="#b1f041" labelFloat="true" layoutX="238.0" layoutY="233.0" onKeyPressed="#txtNumberKeyPressed" prefHeight="44.0" prefWidth="205.0" promptText="Vehicle Number" styleClass="textBoxInManage" unFocusColor="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
             </JFXTextField>
             <JFXComboBox fx:id="cmbType" focusColor="#b1f041" layoutY="78.0" prefHeight="44.0" prefWidth="205.0" promptText="Type" styleClass="textBoxInManage" unFocusColor="WHITE" />
             <JFXComboBox fx:id="cmbFuelType" focusColor="#b1f041" layoutX="238.0" layoutY="78.0" prefHeight="44.0" prefWidth="205.0" promptText="Fuel Type" styleClass="textBoxInManage" unFocusColor="WHITE" />
-            <JFXTextField fx:id="txtPrice" focusColor="#b1f041" labelFloat="true" layoutX="1.0" layoutY="303.0" mouseTransparent="true" prefHeight="44.0" prefWidth="449.0" promptText="Price" styleClass="textBoxInManage" unFocusColor="WHITE">
+            <JFXTextField fx:id="txtPrice" focusColor="#b1f041" labelFloat="true" layoutX="1.0" layoutY="303.0" prefHeight="44.0" prefWidth="449.0" promptText="Price" styleClass="textBoxInManage" unFocusColor="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
@@ -53,6 +52,11 @@
          </children>
       </Pane>
       <Label layoutX="164.0" layoutY="28.0" style="-fx-font-size: 25;" styleClass="title" text="Vehicle Detail" />
-      <JFXButton layoutX="156.0" layoutY="467.0" onAction="#btnNewSellerOnAction" prefHeight="37.0" prefWidth="180.0" styleClass="loginbtn" text="Save New Vehicle" textFill="#b1f041" />
+      <JFXButton layoutX="156.0" layoutY="475.0" onAction="#btnNewVehicleOnAction" prefHeight="37.0" prefWidth="180.0" styleClass="loginbtn" text="Save New Vehicle" textFill="#b1f041" />
+      <Label fx:id="lblSaved" alignment="CENTER" layoutX="147.0" layoutY="442.0" prefHeight="21.0" prefWidth="197.0" text="Seller Saved !" textFill="#b1f041" visible="false">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

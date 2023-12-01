@@ -3,6 +3,7 @@ package lk.ijse.sellingLk.util;
 import com.jfoenix.controls.JFXTextField;
 import javafx.scene.layout.Pane;
 
+import java.time.LocalDate;
 import java.util.regex.Pattern;
 
 public  class ValidateUtil {
@@ -16,12 +17,84 @@ public  class ValidateUtil {
         }
     }
     //validate phone number
-    public static boolean validatePhone(String phone, JFXTextField pane) {
+    public static boolean validatePhone(String phone, JFXTextField field) {
         if (Pattern.matches("^07\\d{8}$",phone)){
-            pane.setStyle("-fx-text-fill:  #B1F041 ");
+            field.setStyle("-fx-text-fill:  #B1F041 ");
             return true;
         }else {
-            pane.setStyle("-fx-text-fill: #FA5252");
+            field.setStyle("-fx-text-fill: #FA5252");
+            return false;
+        }
+    }
+    public static boolean validateMail(String mail, JFXTextField field) {
+        if (Pattern.matches("\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b",mail)){
+            field.setStyle("-fx-text-fill:  #B1F041 ");
+            return true;
+        }else {
+            field.setStyle("-fx-text-fill: #FA5252");
+            return false;
+        }
+    }
+    public static boolean validateNic(String text, JFXTextField field) {
+        if (Pattern.matches("^\\d{12}$|^\\d{10}[Vv]$",text)){
+            field.setStyle("-fx-text-fill:  #B1F041 ");
+            return true;
+        }else {
+            field.setStyle("-fx-text-fill: #FA5252");
+            return false;
+        }
+    }
+    public static boolean validateAddress(String text, JFXTextField field) {
+        if (Pattern.matches("^\\b(?![!@#$%&*?])[\\w,/]+\\b$",text)){
+            field.setStyle("-fx-text-fill:  #B1F041 ");
+            return true;
+        }else {
+            field.setStyle("-fx-text-fill: #FA5252");
+            return false;
+        }
+    }
+    public static boolean validateVehicleNumber(String text, JFXTextField field) {
+        if (Pattern.matches("^[A-Z]{2,3}\\d{4}$",text)){
+            field.setStyle("-fx-text-fill:  #B1F041 ");
+            return true;
+        }else {
+            field.setStyle("-fx-text-fill: #FA5252");
+            return false;
+        }
+    }
+    public static boolean validateYear(int year, JFXTextField field) {
+        if (LocalDate.now().getYear()>=year){
+            field.setStyle("-fx-text-fill:  #B1F041 ");
+            return true;
+        }else {
+            field.setStyle("-fx-text-fill: #FA5252");
+            return false;
+        }
+    }
+    public static boolean validatePrice(String price, JFXTextField field) {
+        if (Pattern.matches("^\\d{4,}$",price)){
+            field.setStyle("-fx-text-fill:  #B1F041 ");
+            return true;
+        }else {
+            field.setStyle("-fx-text-fill: #FA5252");
+            return false;
+        }
+    }
+    public static boolean validateEngineCapacity(String text, JFXTextField field) {
+        if (Pattern.matches("^\\d{3,}$",text)){
+            field.setStyle("-fx-text-fill:  #B1F041 ");
+            return true;
+        }else {
+            field.setStyle("-fx-text-fill: #FA5252");
+            return false;
+        }
+    }
+    public static boolean validateMileage(String text, JFXTextField field) {
+        if (Pattern.matches("^\\d{3,}$",text)){
+            field.setStyle("-fx-text-fill:  #B1F041 ");
+            return true;
+        }else {
+            field.setStyle("-fx-text-fill: #FA5252");
             return false;
         }
     }

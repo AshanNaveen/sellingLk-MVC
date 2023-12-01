@@ -14,7 +14,7 @@ import java.util.List;
 public class VehicleModel {
     public boolean saveVehicle(final VehicleDto dto) throws SQLException {
         return CrudUtil.crudUtil("INSERT into vehicle(" +
-                        "id,brand,model,type,year,fuelType,engineCapacity,mileage,price,status) VALUES (?,?,?,?,?,?,?,?,?,?)",
+                        "id,brand,model,type,year,fuelType,engineCapacity,mileage,vehicleNumber,price,status) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
                 dto.getId(),
                 dto.getBrand(),
                 dto.getModel(),
@@ -23,13 +23,14 @@ public class VehicleModel {
                 dto.getFuelType(),
                 dto.getEnginCapacity(),
                 dto.getMileage(),
+                dto.getVehicleNumber(),
                 dto.getPrice(),
                 dto.getStatus());
     }
 
     public boolean updateVehicle(final VehicleDto dto) throws SQLException {
         return CrudUtil.crudUtil("UPDATE vehicle SET " +
-                        "brand=?,model=?,type=?,year=?,fuelType=?,engineCapacity=?,mileage=?,price=?,status=? WHERE id=?",
+                        "brand=?,model=?,type=?,year=?,fuelType=?,engineCapacity=?,mileage=?,vehicleNumber=?,price=?,status=? WHERE id=?",
                 dto.getBrand(),
                 dto.getModel(),
                 dto.getType(),
@@ -37,6 +38,7 @@ public class VehicleModel {
                 dto.getFuelType(),
                 dto.getEnginCapacity(),
                 dto.getMileage(),
+                dto.getVehicleNumber(),
                 dto.getPrice(),
                 dto.getStatus());
     }
@@ -74,8 +76,9 @@ public class VehicleModel {
                     resultSet.getString(6),
                     resultSet.getInt(7),
                     resultSet.getInt(8),
-                    resultSet.getInt(9),
-                    resultSet.getString(10)
+                    resultSet.getString(9),
+                    resultSet.getInt(10),
+                    resultSet.getString(11)
             ));
         }
         return dtoList;
@@ -140,8 +143,9 @@ public class VehicleModel {
                         resultSet.getString(6),
                         resultSet.getInt(7),
                         resultSet.getInt(8),
-                        resultSet.getInt(9),
-                        resultSet.getString(10)
+                        resultSet.getString(9),
+                        resultSet.getInt(10),
+                        resultSet.getString(11)
                 ));
             }
         }
@@ -169,8 +173,9 @@ public class VehicleModel {
                         resultSet.getString(6),
                         resultSet.getInt(7),
                         resultSet.getInt(8),
-                        resultSet.getInt(9),
-                        resultSet.getString(10)
+                        resultSet.getString(9),
+                        resultSet.getInt(10),
+                        resultSet.getString(11)
                 ));
             }
         }
@@ -190,8 +195,9 @@ public class VehicleModel {
                     resultSet.getString(6),
                     resultSet.getInt(7),
                     resultSet.getInt(8),
-                    resultSet.getInt(9),
-                    resultSet.getString(10)
+                    resultSet.getString(9),
+                    resultSet.getInt(10),
+                    resultSet.getString(11)
             );
         }
         return null;
@@ -199,7 +205,7 @@ public class VehicleModel {
 
     public List<String> getNotGetVehicle() throws SQLException {
         List<String> list = new ArrayList<>();
-        ResultSet resultSet = CrudUtil.crudUtil("select id from vehicle where id not in (select vehicleId from sellorderdetail)");
+        ResultSet resultSet = CrudUtil.crudUtil("SELECT id FROM vehicle WHERE id NOT IN (SELECT vehicleId FROM buyorderdetail)");
         while (resultSet.next()) {
             list.add(resultSet.getString(1));
         }

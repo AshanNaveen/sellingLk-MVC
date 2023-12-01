@@ -10,13 +10,14 @@ import lombok.NoArgsConstructor;
 
 public class VehicleDto {
     private String id;
+    private String type;
     private String brand;
     private String model;
-    private String type;
     private int year;
     private String fuelType;
     private int enginCapacity;
     private int mileage;
+    private String vehicleNumber;
     private int price;
     private String status;
 }
