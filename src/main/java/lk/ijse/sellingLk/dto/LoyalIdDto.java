@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 
 public class LoyalIdDto {
     private String id;
-    private String discount;
+    private int discount;
 }
