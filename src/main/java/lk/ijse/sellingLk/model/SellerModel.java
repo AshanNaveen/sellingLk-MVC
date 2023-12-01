@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SellerModel {
     public boolean saveSeller(final SellerDto dto) throws SQLException {
-        return CrudUtil.crudUtil("INSERT into seller(id,name,nic,email,address,phone,uId) VALUES (?,?,?,?,?,?)",
+        return CrudUtil.crudUtil("INSERT into seller(id,name,nic,email,address,phone,uId) VALUES (?,?,?,?,?,?,?)",
                 dto.getId(),
                 dto.getName(),
                 dto.getNic(),

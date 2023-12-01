@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -50,6 +51,9 @@ public class BuyOrderFormController {
 
     @FXML
     private AnchorPane mainPane;
+
+    @FXML
+    private Label lblWarning;
 
     @FXML
     private JFXButton btnAddToCart;
@@ -91,7 +95,6 @@ public class BuyOrderFormController {
         loadVehicleIds();
         vBox.getChildren().clear();
         time();
-        vehicleSection();
     }
 
     private void vehicleSection() {
@@ -174,7 +177,8 @@ public class BuyOrderFormController {
 
             txtTotalPrice.setText("Rs. " + txt + ".00");
             addRow();
-
+            cmbItemId.requestFocus();
+            txtDescription.clear();
     }
 
     private void calculateTotal() {
@@ -237,7 +241,14 @@ public class BuyOrderFormController {
                 if (isSaved) {
                     generateReport(pdto);
                     String email = new BuyerModel().getEmail(pdto.getCusId());
-                    sendMail("Thank you for choosing our service !", " ", email);
+                    //sendMail("Thank you for choosing our service !", " ", email);
+                    cart.clear();
+                    vBox.getChildren().clear();
+                    loadVehicleIds();
+                    txtSellerContact.requestFocus();
+                    txtSellerContact.clear();
+                    txtDescription.clear();
+                    txtTotalPrice.setText("");
                 }
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
@@ -276,5 +287,25 @@ public class BuyOrderFormController {
     @FXML
     void txtSellerContactKeyPressed(KeyEvent event) {
         ValidateUtil.validatePhone(txtSellerContact.getText(),txtSellerContact);
+        if (lblWarning.isVisible()  && txtSellerContact.getText().length()<9){
+            lblWarning.setVisible(false);
+        }
     }
+
+    @FXML
+    void txtSellerContactOnAction(ActionEvent event) {
+        try {
+            SellerDto info = new SellerModel().getSellerInfo(txtSellerContact.getText());
+            if (info != null) {
+                txtSellerName.setText(info.getName());
+                cmbItemId.requestFocus();
+                lblWarning.setVisible(false);
+            } else {
+                lblWarning.setVisible(true);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
