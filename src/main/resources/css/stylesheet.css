@@ -88,6 +88,12 @@
     -fx-font-style: Normal;
     -fx-font-weight: 600;
 }
+.cmbInManage{
+    -fx-font-family: Kanit;
+    -fx-font-size: 20;
+    -fx-font-style: Normal;
+    -fx-font-weight: 600;
+}
 
 .toggle-btn{
     -fx-background-radius: 10;
