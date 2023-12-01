@@ -97,17 +97,6 @@ public class BuyOrderFormController {
         time();
     }
 
-    private void vehicleSection() {
-        if(vehicleSectionIsEnable) {
-            cmbItemId.setDisable(true);
-            txtDescription.setDisable(true);
-            btnAddToCart.setDisable(true);
-        }else {
-            cmbItemId.setDisable(false);
-            txtDescription.setDisable(false);
-            btnAddToCart.setDisable(false);
-        }
-    }
 
     private void time() {
 //        lblDate.setText(LocalDate.now().toString());
@@ -240,7 +229,7 @@ public class BuyOrderFormController {
                 boolean isSaved = placeOrderModel.saveBuyOrder(pdto);
                 if (isSaved) {
                     generateReport(pdto);
-                    String email = new BuyerModel().getEmail(pdto.getCusId());
+                    String email = new SellerModel().getEmail(pdto.getCusId());
                     //sendMail("Thank you for choosing our service !", " ", email);
                     cart.clear();
                     vBox.getChildren().clear();
@@ -251,7 +240,7 @@ public class BuyOrderFormController {
                     txtTotalPrice.setText("");
                 }
             } catch (SQLException e) {
-                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
         }
     }

@@ -13,11 +13,11 @@
    <children>
       <Pane prefHeight="56.0" prefWidth="1150.0" styleClass="bar">
          <children>
-            <Text fx:id="txtId" fill="#545454" layoutX="30.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="B001" wrappingWidth="53.50004327297211" />
-            <Text fx:id="txtEmail" fill="#545454" layoutX="300.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="ashannvn@gmail.com" wrappingWidth="191.00000172108412" />
-            <Text fx:id="txtAddress" fill="#545454" layoutX="498.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="199/D,Yakkalamulla,Galle" wrappingWidth="205.50004328228533" />
-            <Text fx:id="txtPhone" fill="#545454" layoutX="710.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="0764004056" wrappingWidth="101.00000628702765" />
-            <JFXButton layoutX="999.0" layoutY="10.0" minWidth="46.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../css/button.css" text=" ">
+            <Text fx:id="txtId" fill="#545454" layoutX="11.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="B001" wrappingWidth="53.50004327297211" />
+            <Text fx:id="txtEmail" fill="#545454" layoutX="270.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="ashannvn@gmail.com" wrappingWidth="191.00000172108412" />
+            <Text fx:id="txtAddress" fill="#545454" layoutX="450.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="199/D,Yakkalamulla,Galle" wrappingWidth="205.50004328228533" />
+            <Text fx:id="txtPhone" fill="#545454" layoutX="650.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="0764004056" wrappingWidth="101.00000628702765" />
+            <JFXButton fx:id="btnUpdate" layoutX="999.0" layoutY="10.0" minWidth="46.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../css/button.css" text=" ">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -35,13 +35,14 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <Text fx:id="txtName" fill="#545454" layoutX="130.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Naveen Theekshana" wrappingWidth="154.0" />
-            <Text fx:id="txtLoyalId" fill="#545454" layoutX="854.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Golden " wrappingWidth="101.00000628702765" />
-            <JFXTextField fx:id="txtEName" layoutX="119.0" layoutY="11.0" prefHeight="31.0" prefWidth="154.0" unFocusColor="#4d4d4d00" visible="false" />
-            <JFXTextField fx:id="txtEEmail" layoutX="297.0" layoutY="11.0" prefHeight="31.0" prefWidth="154.0" unFocusColor="#4d4d4d00" visible="false" />
-            <JFXTextField fx:id="txtEAddress" layoutX="491.0" layoutY="11.0" prefHeight="31.0" prefWidth="191.0" unFocusColor="#4d4d4d00" visible="false" />
-            <JFXTextField fx:id="txtEPhone" layoutX="701.0" layoutY="11.0" prefHeight="31.0" prefWidth="101.0" unFocusColor="#4d4d4d00" visible="false" />
-            <JFXButton fx:id="btnUpdateSave" layoutX="943.0" layoutY="10.0" minWidth="46.0" onAction="#btnUpdateSaveOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../css/button.css" visible="false">
+            <Text fx:id="txtName" fill="#545454" layoutX="100.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Naveen Theekshana" wrappingWidth="154.0" />
+            <Text fx:id="txtLoyalId" fill="#545454" layoutX="898.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Golden " wrappingWidth="83.00000628702765" />
+            <JFXTextField fx:id="txtEName" layoutX="95.0" layoutY="11.0" prefHeight="31.0" prefWidth="150.0" unFocusColor="#4d4d4d00" visible="false" />
+            <JFXTextField fx:id="txtEEmail" layoutX="265.0" layoutY="11.0" prefHeight="31.0" prefWidth="154.0" unFocusColor="#4d4d4d00" visible="false" />
+            <JFXTextField fx:id="txtEAddress" layoutX="450.0" layoutY="11.0" prefHeight="31.0" prefWidth="185.0" unFocusColor="#4d4d4d00" visible="false" />
+            <JFXTextField fx:id="txtEPhone" layoutX="650.0" layoutY="11.0" prefHeight="31.0" prefWidth="90.0" unFocusColor="#4d4d4d00" visible="false" />
+            <JFXTextField fx:id="txtENic" layoutX="765.0" layoutY="11.0" prefHeight="31.0" prefWidth="100.0" unFocusColor="#4d4d4d00" visible="false" />
+            <JFXButton fx:id="btnUpdateSave" layoutX="999.0" layoutY="10.0" minWidth="46.0" onAction="#btnUpdateSaveOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../css/button.css" visible="false">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -50,6 +51,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
+            <Text fx:id="txtNic" fill="#545454" layoutX="766.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="200316511610" wrappingWidth="101.00000628702765" />
          </children>
          <stylesheets>
             <URL value="@../css/text.css" />

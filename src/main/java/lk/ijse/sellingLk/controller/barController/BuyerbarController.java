@@ -49,7 +49,13 @@ public class BuyerbarController {
     private JFXTextField txtEPhone;
 
     @FXML
-    private JFXButton btnUpdateSave;
+    private JFXTextField txtENic;
+
+    @FXML
+    private JFXButton btnUpdateSave,btnUpdate;
+
+    @FXML
+    private Text txtNic;
 
     private BuyerModel model = new BuyerModel();
 
@@ -76,17 +82,21 @@ public class BuyerbarController {
         txtEEmail.setText(txtEmail.getText());
         txtEAddress.setText(txtAddress.getText());
         txtEPhone.setText(txtPhone.getText());
+        txtENic.setText(txtNic.getText());
 
         txtName.setVisible(false);
         txtEmail.setVisible(false);
         txtAddress.setVisible(false);
         txtPhone.setVisible(false);
+        txtNic.setVisible(false);
 
         txtEName.setVisible(true);
         txtEEmail.setVisible(true);
         txtEAddress.setVisible(true);
         txtEPhone.setVisible(true);
+        txtENic.setVisible(true);
         btnUpdateSave.setVisible(true);
+        btnUpdate.setVisible(false);
 
     }
     @FXML
@@ -96,22 +106,27 @@ public class BuyerbarController {
         txtEmail.setText(txtEEmail.getText());
         txtAddress.setText(txtEAddress.getText());
         txtPhone.setText(txtEPhone.getText());
+        txtNic.setText(txtENic.getText());
 
         txtName.setVisible(true);
         txtEmail.setVisible(true);
         txtAddress.setVisible(true);
         txtPhone.setVisible(true);
+        txtNic.setVisible(true);
 
         txtEName.setVisible(false);
         txtEEmail.setVisible(false);
         txtEAddress.setVisible(false);
         txtEPhone.setVisible(false);
-
+        txtENic.setVisible(false);
+        btnUpdate.setVisible(true);
+        btnUpdateSave.setVisible(false);
 
         try {
             if(model.updateBuyer(new BuyerDto(
                     txtId.getText(),
                     txtName.getText(),
+                    txtNic.getText(),
                     txtEmail.getText(),
                     txtAddress.getText(),
                     txtPhone.getText(),
@@ -127,6 +142,7 @@ public class BuyerbarController {
     public void setData(BuyerDto dto) {
         txtId.setText(dto.getId());
         txtName.setText(dto.getName());
+        txtNic.setText(dto.getNic());
         txtEmail.setText(dto.getEmail());
         txtAddress.setText(dto.getAddress());
         txtPhone.setText(dto.getPhone());
