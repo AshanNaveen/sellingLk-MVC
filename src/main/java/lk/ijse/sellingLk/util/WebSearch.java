@@ -46,41 +46,61 @@ public class WebSearch {
 
         List<WebVehicleDto> list = new ArrayList<>();
         try {
-            driver.findElement(By.xpath("//*[@id=\"wrapper\"]/div[4]/div/div/div/form/div[2]/input")).sendKeys("civic");
-            driver.findElement(By.xpath("//*[@id=\"wrapper\"]/div[4]/div/div/div/form/div[9]/input")).click();
-            List<WebElement> pages = driver.findElements(By.xpath("//*[@id=\"content\"]/ul/li/h2/a"));
-            System.out.println(pages.size());
-            int j = pages.size();
-            System.out.println(pages);
-            for (int i = 0; i < j; i++) {
-                pages.get(i).click();
-                var Wdto = new WebVehicleDto();
+            //driver.findElement(By.xpath("//*[@id=\"wrapper\"]/div[4]/div/div/div/form/div[2]/input")).sendKeys("civic");
+            //driver.findElement(By.xpath("//*[@id=\"wrapper\"]/div[4]/div/div/div/form/div[9]/input")).click();
+            if (!driver.findElements(By.xpath("//*[@id=\"content\"]/ul/li/h2/a")).isEmpty()) {
+                List<WebElement> pages = driver.findElements(By.xpath("//*[@id=\"content\"]/ul/li/h2/a"));
+                System.out.println(pages.size());
+                int j = pages.size();
+                System.out.println(pages);
+                for (int i = 0; i < j; i++) {
+                    pages.get(i).click();
+                    String title = null;
+                    String brand = null;
+                    String model = null;
+                    String contact = null;
+                    String year = null;
+                    String price = null;
+                    String fuelType = null;
+                    String engineCapacity = null;
+                    String mileage = null;
+                    String city = null;
+                    String temp = null;
+                    try {
 
-                String temp = driver.findElement(By.xpath("//*[@id=\"content\"]/h2")).getText();
-                String[] cityAr = temp.split(", ");
+                        temp = driver.findElement(By.xpath("//*[@id=\"content\"]/h2")).getText();
+                        String[] cityAr = temp.split(", ");
+                        city = cityAr[1];
 
-                String title = driver.findElement(By.xpath("//*[@id=\"content\"]/h1")).getText();
-                String brand = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[5]/td[2]")).getText();
-                String model = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[5]/td[4]")).getText();
-                String contact = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[3]/td[2]/span")).getText();
-                String year = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[6]/td[2]")).getText();
-                String price = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[3]/td[4]/span")).getText();
+                        title = driver.findElement(By.xpath("//*[@id=\"content\"]/h1")).getText();
+                        brand = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[5]/td[2]")).getText();
+                        model = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[5]/td[4]")).getText();
+                        contact = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[3]/td[2]/span")).getText();
+                        year = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[6]/td[2]")).getText();
+                        price = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[3]/td[4]/span")).getText();
 
-                String fuelType = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[7]/td[4]")).getText();
-                String engineCapacity = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[8]/td[4]")).getText();
-                String mileage = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[6]/td[4]")).getText();
-                String city = cityAr[1];
+                        fuelType = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[7]/td[4]")).getText();
+                        engineCapacity = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[8]/td[4]")).getText();
+                        mileage = driver.findElement(By.xpath("//*[@id=\"content\"]/table/tbody/tr[6]/td[4]")).getText();
 
 
-                list.add(Wdto);
-                System.out.print(i + "  : ");
-                System.out.println(dto);
+                        /*if (ValidateUtil.validatePhone(contact) && ValidateUtil.validateYear(Integer.parseInt(year)) && ValidateUtil.validatePrice(price))
+                        {*/
+                            System.out.println("web");
+                            list.add(new WebVehicleDto(title, brand, model, contact, year, price, fuelType, engineCapacity, mileage, city));
+                            System.out.print(i + "  : ");
+                            System.out.println(dto);
+                        //}else System.out.println("else");
+                        if (list.size()==25)break;
 
-                driver.navigate().back();
-                pages = driver.findElements(By.xpath("//*[@id=\"content\"]/ul/li/h2/a"));
-                //Thread.sleep(1000);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    driver.navigate().back();
+                    pages = driver.findElements(By.xpath("//*[@id=\"content\"]/ul/li/h2/a"));
+                    //Thread.sleep(1000);
+                }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

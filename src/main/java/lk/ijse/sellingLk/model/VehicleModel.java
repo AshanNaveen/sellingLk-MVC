@@ -211,4 +211,13 @@ public class VehicleModel {
         }
         return list;
     }
+
+    public List<String> getNotSoldVehicle() throws SQLException {
+        List<String> list = new ArrayList<>();
+        ResultSet resultSet = CrudUtil.crudUtil("SELECT id FROM vehicle WHERE id NOT IN (SELECT vehicleId FROM sellorderdetail)");
+        while (resultSet.next()) {
+            list.add(resultSet.getString(1));
+        }
+        return list;
+    }
 }

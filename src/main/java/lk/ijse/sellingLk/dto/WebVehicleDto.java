@@ -12,10 +12,10 @@ public class WebVehicleDto {
     private String brand;
     private String model;
     private String contact;
-    private int year;
-    private int price;
+    private String year;
+    private String price;
     private String fuelType;
-    private int engineCapacity;
-    private int mileage;
+    private String engineCapacity;
+    private String mileage;
     private String city;
 }
