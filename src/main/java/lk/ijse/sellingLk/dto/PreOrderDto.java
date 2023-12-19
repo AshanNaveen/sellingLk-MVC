@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 public class PreOrderDto {
     private String id;
     private String description;
+    private int year;
     private String date;
+    private int Status;
     private String buyerId;
 }
