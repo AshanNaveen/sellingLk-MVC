@@ -97,4 +97,10 @@ public class SellerModel {
                 resultSet.getString(7));
         return null;
     }
+
+    public String getEmail(String cusId) throws SQLException {
+        ResultSet resultSet = CrudUtil.crudUtil("SELECT email FROM seller WHERE id=?", cusId);
+        if (resultSet.next())return resultSet.getString(1);
+        return null;
+    }
 }

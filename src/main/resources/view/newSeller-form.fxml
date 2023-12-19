@@ -7,39 +7,43 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="406.0" prefWidth="487.0" style="-fx-background-color: #262626;" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.NewSellerFormController">
    <children>
       <Pane fx:id="sellerDetailPane" layoutX="14.0" layoutY="101.0">
          <children>
-            <JFXTextField fx:id="txtSellerName" focusColor="#b1f041" labelFloat="true" mouseTransparent="true" prefHeight="44.0" prefWidth="205.0" promptText="Seller Name" styleClass="textBoxInManage" unFocusColor="WHITE">
+            <JFXTextField fx:id="txtSellerName" focusColor="#b1f041" labelFloat="true" onAction="#txtSellerNameOnAction" prefHeight="44.0" prefWidth="205.0" promptText="Seller Name" styleClass="textBoxInManage" unFocusColor="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtSellerContact" focusColor="#b1f041" labelFloat="true" layoutX="253.0" mouseTransparent="true" prefHeight="44.0" prefWidth="205.0" promptText="Seller Contact" styleClass="textBoxInManage" unFocusColor="WHITE">
+            <JFXTextField fx:id="txtSellerContact" focusColor="#b1f041" labelFloat="true" layoutX="253.0" onAction="#txtSellerContactOnAction" prefHeight="44.0" prefWidth="205.0" promptText="Seller Contact" styleClass="textBoxInManage" unFocusColor="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtSellerEmail" focusColor="#b1f041" labelFloat="true" layoutY="81.0" mouseTransparent="true" prefHeight="44.0" prefWidth="205.0" promptText="Seller Email" styleClass="textBoxInManage" unFocusColor="WHITE">
+            <JFXTextField fx:id="txtSellerEmail" focusColor="#b1f041" labelFloat="true" layoutY="81.0" onAction="#txtSellerEmailOnAction" prefHeight="44.0" prefWidth="205.0" promptText="Seller Email" styleClass="textBoxInManage" unFocusColor="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtSellerAddress" focusColor="#b1f041" labelFloat="true" layoutY="160.0" mouseTransparent="true" prefHeight="44.0" prefWidth="462.0" promptText="Seller Address" styleClass="textBoxInManage" unFocusColor="WHITE">
+            <JFXTextField fx:id="txtSellerAddress" focusColor="#b1f041" labelFloat="true" layoutY="160.0" onAction="#txtSellerAddressOnAction" prefHeight="44.0" prefWidth="462.0" promptText="Seller Address" styleClass="textBoxInManage" unFocusColor="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtSellerNic" focusColor="#b1f041" labelFloat="true" layoutX="253.0" layoutY="81.0" mouseTransparent="true" prefHeight="44.0" prefWidth="205.0" promptText="Seller NIC" styleClass="textBoxInManage" unFocusColor="WHITE">
+            <JFXTextField fx:id="txtSellerNic" focusColor="#b1f041" labelFloat="true" layoutX="253.0" layoutY="81.0" onAction="#txtSellerNicOnAction" prefHeight="44.0" prefWidth="205.0" promptText="Seller NIC" styleClass="textBoxInManage" unFocusColor="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
             </JFXTextField>
          </children>
       </Pane>
-      <JFXButton layoutX="169.0" layoutY="338.0" onAction="#btnNewSellerOnAction" prefHeight="37.0" prefWidth="138.0" styleClass="loginbtn" text="Save Seller" textFill="#b1f041" />
+      <JFXButton layoutX="169.0" layoutY="350.0" onAction="#btnNewSellerOnAction" prefHeight="37.0" prefWidth="138.0" styleClass="loginbtn" text="Save Seller" textFill="#b1f041" />
       <Label layoutX="183.0" layoutY="34.0" style="-fx-font-size: 25;" styleClass="title" text="Seller Form" />
+      <Label fx:id="lblSaved" alignment="CENTER" layoutX="140.0" layoutY="319.0" prefHeight="21.0" prefWidth="197.0" text="Seller Saved !" textFill="#b1f041" visible="false">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

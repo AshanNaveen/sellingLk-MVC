@@ -18,7 +18,7 @@
    <children>
       <Label layoutX="46.0" layoutY="10.0" styleClass="title" text="Sell Order" />
       <JFXComboBox fx:id="cmbItemId" focusColor="#b1f041" labelFloat="true" layoutX="67.0" layoutY="205.0" onAction="#btnItemIdOnAction" prefHeight="44.0" prefWidth="181.0" promptText="Vehicle Id" styleClass="textBoxInManage" unFocusColor="WHITE" />
-      <JFXButton layoutX="743.0" layoutY="215.0" onAction="#btnAddToCartOnAction" prefHeight="37.0" prefWidth="165.0" styleClass="loginbtn" text="  Add To Cart" textFill="#b1f041">
+      <JFXButton layoutX="694.0" layoutY="213.0" onAction="#btnAddToCartOnAction" prefHeight="37.0" prefWidth="165.0" styleClass="loginbtn" text="  Add To Cart" textFill="#b1f041">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -83,9 +83,8 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <JFXComboBox fx:id="cmbBuyerId" editable="true" focusColor="#b1f041" labelFloat="true" layoutX="67.0" layoutY="116.0" onAction="#btnBuyerIdOnAction" prefHeight="44.0" prefWidth="181.0" promptText="Buyer Id" styleClass="textBoxInManage" unFocusColor="WHITE" />
-      <JFXButton layoutX="499.0" layoutY="123.0" onAction="#btnNewBuyerOnAction" prefHeight="37.0" prefWidth="93.0" style="-fx-font-size: 12;" styleClass="loginbtn" text="New Seller" textFill="#b1f041" />
-      <Text fx:id="txtTotalPrice" layoutX="979.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #D7D8DC; -fx-font-size: 25;" styleClass="textBoxInManage" text="Rs.0000" textAlignment="CENTER" wrappingWidth="206.91015625" />
+      <JFXButton layoutX="499.0" layoutY="123.0" onAction="#btnNewBuyerOnAction" prefHeight="37.0" prefWidth="93.0" style="-fx-font-size: 12;" styleClass="loginbtn" text="New Buyer" textFill="#b1f041" />
+      <Text fx:id="txtTotalPrice" layoutX="979.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #D7D8DC; -fx-font-size: 25;" styleClass="textBoxInManage" text="Rs.00 000 000.00" textAlignment="RIGHT" wrappingWidth="206.91015625" />
       <JFXButton layoutX="884.0" layoutY="107.0" onAction="#btnPlaceOrderOnAction" prefHeight="62.0" prefWidth="303.0" style="-fx-font-size: 24;" styleClass="loginbtn" text="    Place Order" textFill="#b1f041">
          <graphic>
             <ImageView fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
@@ -105,6 +104,21 @@
          </font>
       </JFXTextField>
       <JFXTextField fx:id="txtDescription" focusColor="#b1f041" labelFloat="true" layoutX="291.0" layoutY="205.0" mouseTransparent="true" prefHeight="44.0" prefWidth="283.0" promptText="Description" styleClass="textBoxInManage" unFocusColor="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="1148.0" layoutY="195.0" text="Total" textFill="#b1f041">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblWarning" layoutX="64.0" layoutY="162.0" prefHeight="21.0" prefWidth="407.0" text="This buyer not in a database you can add new seller using new Buyer button !" textFill="#ff4d4d" visible="false">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtBuyerContact" focusColor="#b1f041" labelFloat="true" layoutX="65.0" layoutY="116.0" onAction="#txtBuyerContactOnAction" onKeyReleased="#txtBuyerContactKeyPressed" prefHeight="44.0" prefWidth="181.0" promptText="Buyer Contact" styleClass="textBoxInManage" unFocusColor="WHITE">
          <font>
             <Font size="19.0" />
          </font>

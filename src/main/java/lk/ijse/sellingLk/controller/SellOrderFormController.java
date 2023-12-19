@@ -12,6 +12,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -22,10 +24,13 @@ import lk.ijse.sellingLk.controller.barController.CartBarController;
 import lk.ijse.sellingLk.db.DbConnection;
 import lk.ijse.sellingLk.dto.BuyerDto;
 import lk.ijse.sellingLk.dto.PlaceOrderDto;
+import lk.ijse.sellingLk.dto.SellerDto;
 import lk.ijse.sellingLk.dto.VehicleDto;
 import lk.ijse.sellingLk.model.*;
 import lk.ijse.sellingLk.util.DateTimeUtil;
 import lk.ijse.sellingLk.util.EmailUtil;
+import lk.ijse.sellingLk.util.Navigation;
+import lk.ijse.sellingLk.util.ValidateUtil;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
@@ -54,9 +59,6 @@ public class SellOrderFormController {
     private AnchorPane mainPane;
 
     @FXML
-    private JFXTextField txtCount;
-
-    @FXML
     private JFXComboBox<String> cmbItemId;
 
     @FXML
@@ -64,9 +66,6 @@ public class SellOrderFormController {
 
     @FXML
     private Text lblTime;
-
-    @FXML
-    private JFXComboBox<String> cmbBuyerId;
 
     @FXML
     private Text txtTotalPrice;
@@ -80,13 +79,19 @@ public class SellOrderFormController {
     @FXML
     private JFXTextField txtDescription;
 
+    @FXML
+    private Label lblWarning;
+
+    @FXML
+    private JFXTextField txtBuyerContact;
+
+
     private List<String> cart = new ArrayList<>();
     private int netTotal = 0;
 
     VehicleDto dto;
 
     public void initialize() {
-        loadCusIds();
         loadVehicleIds();
         vBox.getChildren().clear();
         //DateAndTime.setText(DateTimeUtil.timeNow());
@@ -107,55 +112,16 @@ public class SellOrderFormController {
     private void loadVehicleIds() {
         VehicleModel vehicleModel = new VehicleModel();
         try {
-            List<VehicleDto> allVehicle = vehicleModel.getAllVehile();
+            List<String> allVehicle = vehicleModel.getNotSoldVehicle();
             ObservableList<String> vehicleIds = FXCollections.observableArrayList();
-            for (VehicleDto vehicleDto : allVehicle) {
-                vehicleIds.add(vehicleDto.getId());
+            for (String id : allVehicle) {
+                vehicleIds.add(id);
             }
             cmbItemId.setItems(vehicleIds);
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
-
-    private void loadCusIds() {
-        BuyerModel buyerModel = new BuyerModel();
-        try {
-            List<BuyerDto> allBuyer = buyerModel.getAllBuyer();
-            ObservableList<String> buyerIds = FXCollections.observableArrayList();
-            for (BuyerDto buyerDto : allBuyer) {
-                buyerIds.add(buyerDto.getId());
-            }
-            cmbBuyerId.setItems(buyerIds);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    @FXML
-    void btnBuyerIdOnAction(ActionEvent event) {
-        try {
-            txtBuyerName.setText(new BuyerModel().getBuyerName(cmbBuyerId.getValue()));
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    @FXML
-    void txtCountOnAction(ActionEvent event) {
-        validateCount();
-    }
-
-    private boolean validateCount() {
-        if (!Pattern.matches("(?<=^|\\s)[0-9]+(?=$|\\s)", txtCount.getText())) {
-            txtCount.setStyle("-fx-border-color: #FA5252");
-            return false;
-        } else {
-            txtCount.setStyle("-fx-border-color: transparent");
-            return true;
-        }
-    }
-
 
     @FXML
     void btnItemIdOnAction(ActionEvent event) {
@@ -169,30 +135,40 @@ public class SellOrderFormController {
 
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
-        if (validateCount()) {
-            String vehicleId = cmbItemId.getValue();
-            int count = Integer.parseInt(txtCount.getText());
-            cart.add(vehicleId);
 
-            int total = (dto.getPrice()) * count;
-            netTotal += total;
-            String strPrice = String.valueOf(netTotal);
-            String[] split = strPrice.split("(?<=\\G.{" + 1 + "})");
-            String txt = "";
-            int round = 0;
-            for (int i = split.length - 1; i > -1; i--) {
-                txt = split[i] + txt;
-                round += 1;
-                if (round == 3) {
-                    txt = " " + txt;
-                    round = 0;
-                }
+        String vehicleId = cmbItemId.getValue();
+        cart.add(vehicleId);
+
+        calculateTotal();
+        String strPrice = String.valueOf(netTotal);
+        String[] split = strPrice.split("(?<=\\G.{" + 1 + "})");
+        String txt = "";
+        int round = 0;
+        for (int i = split.length - 1; i > -1; i--) {
+            txt = split[i] + txt;
+            round += 1;
+            if (round == 3) {
+                txt = " " + txt;
+                round = 0;
             }
-            txtTotalPrice.setText("Rs. " + txt + ".00");
-            addRow();
         }
-
+        txtTotalPrice.setText("Rs. " + txt + ".00");
+        addRow();
+        cmbItemId.requestFocus();
+        txtDescription.clear();
     }
+
+    private void calculateTotal() {
+        cart.forEach(id -> {
+            try {
+                VehicleDto vehicleInfo = new VehicleModel().getVehicleInfo(id);
+                netTotal += vehicleInfo.getPrice();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
 
     private void addRow() {
         try {
@@ -200,7 +176,7 @@ public class SellOrderFormController {
             Parent root = loader.load();
             CartBarController controller = loader.getController();
             controller.setData(dto);
-            System.out.println("add");
+            System.out.println("added row to cart");
             vBox.getChildren().add(root);
         } catch (IOException throwables) {
             throwables.printStackTrace();
@@ -220,7 +196,7 @@ public class SellOrderFormController {
 
     @FXML
     void btnNewBuyerOnAction(ActionEvent event) {
-
+        Navigation.popupNavigation("newBuyer-form.fxml","Add New Seller");
     }
 
     @FXML
@@ -228,13 +204,15 @@ public class SellOrderFormController {
         String id = null;
         Date date = Date.valueOf(LocalDate.now());
         Time time = Time.valueOf(LocalTime.now());
+        String contact = txtBuyerContact.getText();
         try {
             id = new SellOrderModel().generateNextOrderId();
             System.out.println("Sell order ID : " + id);
+            BuyerDto buyerDto = new BuyerModel().getBuyerInfo(contact);
             var placeOrderModel = new PlaceOrderModel();
             var pdto = new PlaceOrderDto(
                     id,
-                    cmbBuyerId.getValue(),
+                    buyerDto.getId(),
                     cart,
                     netTotal,
                     date,
@@ -242,15 +220,19 @@ public class SellOrderFormController {
             );
             boolean isSaved = placeOrderModel.saveSellOrder(pdto);
             if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Order Placed Successfully");
-                cart.clear();
-                vBox.getChildren().clear();
                 generateReport(pdto);
                 String email = new BuyerModel().getEmail(pdto.getCusId());
-                //sendMail("Thank you for choosing our service !","Your Order Is Successfully .. ",email);
+                sendMail("Thank you for choosing our service !","Your Order Is Successfully .. ",email);
+                cart.clear();
+                vBox.getChildren().clear();
+                loadVehicleIds();
+                txtBuyerContact.requestFocus();
+                txtBuyerContact.clear();
+                txtDescription.clear();
+                txtTotalPrice.setText("");
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -288,4 +270,32 @@ public class SellOrderFormController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    void txtBuyerContactKeyPressed(KeyEvent event) {
+        ValidateUtil.validatePhone(txtBuyerContact.getText(), txtBuyerContact);
+        if (lblWarning.isVisible() && txtBuyerContact.getText().length() < 9) {
+            lblWarning.setVisible(false);
+        }
+    }
+
+    @FXML
+    void txtBuyerContactOnAction(ActionEvent event) {
+        try {
+            BuyerDto info = new BuyerModel().getBuyerInfo(txtBuyerContact.getText());
+            System.out.println(txtBuyerContact.getText());
+            System.out.println(info);
+            if (info != null) {
+                txtBuyerName.setText(info.getName());
+                cmbItemId.requestFocus();
+                lblWarning.setVisible(false);
+            } else {
+                lblWarning.setVisible(true);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
