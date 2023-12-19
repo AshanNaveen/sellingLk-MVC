@@ -104,10 +104,10 @@ public class BuyerModel {
     }
 
     public BuyerDto getBuyerInfo(String contact) throws SQLException {
-        List<BuyerDto> list = new ArrayList<>();
+        BuyerDto dto = null;
         ResultSet resultSet = CrudUtil.crudUtil("SELECT * FROM buyer WHERE phone=?", contact);
-        while (resultSet.next()) {
-            list.add(new BuyerDto(
+        if (resultSet.next()) {
+           dto= new BuyerDto(
                     resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getString(3),
@@ -116,9 +116,9 @@ public class BuyerModel {
                     resultSet.getString(6),
                     resultSet.getString(7),
                     resultSet.getString(8)
-            ));
+            );
         }
-        return null;
+        return dto;
     }
 
 
