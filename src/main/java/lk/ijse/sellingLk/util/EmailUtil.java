@@ -45,7 +45,7 @@ public class EmailUtil {
         // Load client secrets.
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(gsonFactory,
                 new InputStreamReader(EmailUtil.class.getResourceAsStream
-                        ("/api/client_secret_64060776410-9n8ghv33u8k8qdkmappg3cqanpa97s0r.apps.googleusercontent.com.json"))); // enter your credential
+                        ("/api/client_secret_64060776410-9i57idoitbnp4oq731spdgt65qvhgee7.apps.googleusercontent.com.json"))); // enter your credential
         // Build flow and trigger user authorization request.
         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
                 HTTP_TRANSPORT, gsonFactory, clientSecrets, Set.of(GmailScopes.GMAIL_SEND))

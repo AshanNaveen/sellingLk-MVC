@@ -31,4 +31,8 @@ public class DateTimeUtil {
         SimpleDateFormat dateFormat=new SimpleDateFormat("hh:mm aa");
                return dateFormat.format(new Date()) ;
     }
+    public static String timeNowForName() {
+        SimpleDateFormat dateFormat=new SimpleDateFormat("HH_mm");
+               return dateFormat.format(new Date()) ;
+    }
 }

@@ -74,7 +74,7 @@ public class ValidateUtil {
     }
 
     public static boolean validateYear(int year, JFXTextField field) {
-        if (LocalDate.now().getYear() >= year) {
+        if (LocalDate.now().getYear() >= year && String.valueOf(year).length()==4 ) {
             field.setStyle("-fx-text-fill:  #B1F041 ");
             return true;
         } else {
@@ -147,4 +147,15 @@ public class ValidateUtil {
             return false;
         }
     }
+    public static boolean validateVehicle(String text, JFXTextField field) {
+        if (Pattern.matches("^[A-Z]{2}\\d+$", text)) {
+            field.setStyle("-fx-text-fill:  #B1F041 ");
+            return true;
+        } else {
+            field.setStyle("-fx-text-fill: #FA5252");
+            return false;
+        }
+    }
+
+
 }

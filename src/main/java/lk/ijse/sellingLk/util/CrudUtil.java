@@ -18,11 +18,4 @@ public class CrudUtil {
             return (T) (Boolean) (statement.executeUpdate() > 0);
         }
     }
-
-    public static void commit() throws SQLException {
-        Connection connection=DbConnection.getInstance().getConnection();
-        connection.commit();
-    }
-
-
 }
