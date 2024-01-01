@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="567.03" prefWidth="1228.0" style="-fx-background-color: #262626; -fx-background-radius: 20;" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sellingLk.controller.StockManageFormController">
+   <children>
+      <Label layoutX="46.0" layoutY="8.0" styleClass="title" text="Vehicles" />
+      <JFXTextField fx:id="txtModel" focusColor="#b1f041" labelFloat="true" layoutX="228.0" layoutY="115.0" onAction="#txtModelOnAction" onKeyReleased="#txtModelKeyReleased" prefHeight="44.0" prefWidth="158.0" promptText="Model" styleClass="textBoxInManage" unFocusColor="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtYear" focusColor="#b1f041" labelFloat="true" layoutX="53.0" layoutY="184.0" onAction="#txtYearOnAction" onKeyReleased="#txtYearKeyReleased" prefHeight="44.0" prefWidth="158.0" promptText="Year" styleClass="textBoxInManage" unFocusColor="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton layoutX="52.0" layoutY="502.0" onAction="#btnSaveOnAction" prefHeight="37.0" prefWidth="334.0" styleClass="loginbtn" text="Save" textFill="#b1f041" />
+      <JFXTextField fx:id="txtBrand" focusColor="#b1f041" labelFloat="true" layoutX="53.0" layoutY="115.0" onAction="#txtBrandOnAction" onKeyReleased="#txtBrandKeyReleased" prefHeight="44.0" prefWidth="158.0" promptText="Brand" styleClass="textBoxInManage" unFocusColor="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtMileage" focusColor="#b1f041" labelFloat="true" layoutX="227.0" layoutY="251.0" onAction="#txtMileageOnAction" onKeyReleased="#txtMileageKeyReleased" prefHeight="44.0" prefWidth="158.0" promptText="Mileage" styleClass="textBoxInManage" unFocusColor="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtPrice" focusColor="#b1f041" labelFloat="true" layoutX="52.0" layoutY="392.0" onAction="#txtPriceOnAction" onKeyReleased="#txtPriceKeyReleased" prefHeight="44.0" prefWidth="334.0" promptText="Price" styleClass="textBoxInManage" unFocusColor="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtEngineCapacity" focusColor="#b1f041" labelFloat="true" layoutX="52.0" layoutY="251.0" onAction="#txtEngineCapacityOnAction" onKeyReleased="#txtEngineCapacityKeyReleased" prefHeight="44.0" prefWidth="158.0" promptText="Engine Capacity" styleClass="textBoxInManage" unFocusColor="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXTextField>
+      <Pane layoutX="414.0" layoutY="45.0" prefHeight="491.0" prefWidth="789.0" style="-fx-background-color: #ffff; -fx-background-radius: 20;">
+         <children>
+            <Text fill="#534d59" layoutX="27.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="ID" wrappingWidth="65.50004425844395" />
+            <ScrollPane layoutX="10.0" layoutY="53.0" prefHeight="421.0" prefWidth="769.0">
+               <content>
+                  <VBox fx:id="vBox" prefHeight="414.0" prefWidth="769.0" style="-fx-background-color: #ffff;">
+                     <children>
+                        <Pane prefHeight="56.0" prefWidth="778.0" styleClass="bar">
+                           <children>
+                              <Text fill="#545454" layoutX="17.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="V0001" wrappingWidth="53.50004327297211" />
+                              <JFXButton layoutX="704.0" layoutY="11.0" minWidth="46.0" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../GoGreen/src/view/img/icons8-remove-24%20(1).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <Text fill="#545454" layoutX="86.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="BMW I8 2020" wrappingWidth="138.5000432729721" />
+                              <Text fill="#545454" layoutX="238.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Petrol" wrappingWidth="89.50004126876593" />
+                              <Text fill="#545454" layoutX="342.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Rs.25,845,785" wrappingWidth="102.5000432729721" />
+                              <Text fill="#545454" layoutX="461.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="25000km" wrappingWidth="95.5000432729721" />
+                              <Text fill="#545454" layoutX="557.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="10000cc" wrappingWidth="95.5000432729721" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="56.0" prefWidth="778.0" styleClass="bar">
+                           <children>
+                              <Text fill="#545454" layoutX="17.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="V0001" wrappingWidth="53.50004327297211" />
+                              <JFXButton layoutX="704.0" layoutY="11.0" minWidth="46.0" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../GoGreen/src/view/img/icons8-remove-24%20(1).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <Text fill="#545454" layoutX="86.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="BMW I8 2020" wrappingWidth="138.5000432729721" />
+                              <Text fill="#545454" layoutX="238.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Petrol" wrappingWidth="89.50004126876593" />
+                              <Text fill="#545454" layoutX="342.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Rs.25,845,785" wrappingWidth="102.5000432729721" />
+                              <Text fill="#545454" layoutX="461.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="25000km" wrappingWidth="95.5000432729721" />
+                              <Text fill="#545454" layoutX="557.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="10000cc" wrappingWidth="95.5000432729721" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="56.0" prefWidth="778.0" styleClass="bar">
+                           <children>
+                              <Text fill="#545454" layoutX="17.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="V0001" wrappingWidth="53.50004327297211" />
+                              <JFXButton layoutX="704.0" layoutY="11.0" minWidth="46.0" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../GoGreen/src/view/img/icons8-remove-24%20(1).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <Text fill="#545454" layoutX="86.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="BMW I8 2020" wrappingWidth="138.5000432729721" />
+                              <Text fill="#545454" layoutX="238.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Petrol" wrappingWidth="89.50004126876593" />
+                              <Text fill="#545454" layoutX="342.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Rs.25,845,785" wrappingWidth="102.5000432729721" />
+                              <Text fill="#545454" layoutX="461.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="25000km" wrappingWidth="95.5000432729721" />
+                              <Text fill="#545454" layoutX="557.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="10000cc" wrappingWidth="95.5000432729721" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="56.0" prefWidth="778.0" styleClass="bar">
+                           <children>
+                              <Text fill="#545454" layoutX="17.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="V0001" wrappingWidth="53.50004327297211" />
+                              <JFXButton layoutX="704.0" layoutY="11.0" minWidth="46.0" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../GoGreen/src/view/img/icons8-remove-24%20(1).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <Text fill="#545454" layoutX="86.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="BMW I8 2020" wrappingWidth="138.5000432729721" />
+                              <Text fill="#545454" layoutX="238.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Petrol" wrappingWidth="89.50004126876593" />
+                              <Text fill="#545454" layoutX="342.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Rs.25,845,785" wrappingWidth="102.5000432729721" />
+                              <Text fill="#545454" layoutX="461.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="25000km" wrappingWidth="95.5000432729721" />
+                              <Text fill="#545454" layoutX="557.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="10000cc" wrappingWidth="95.5000432729721" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="56.0" prefWidth="778.0" styleClass="bar">
+                           <children>
+                              <Text fill="#545454" layoutX="17.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="V0001" wrappingWidth="53.50004327297211" />
+                              <JFXButton layoutX="704.0" layoutY="11.0" minWidth="46.0" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../GoGreen/src/view/img/icons8-remove-24%20(1).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <Text fill="#545454" layoutX="86.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="BMW I8 2020" wrappingWidth="138.5000432729721" />
+                              <Text fill="#545454" layoutX="238.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Petrol" wrappingWidth="89.50004126876593" />
+                              <Text fill="#545454" layoutX="342.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Rs.25,845,785" wrappingWidth="102.5000432729721" />
+                              <Text fill="#545454" layoutX="461.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="25000km" wrappingWidth="95.5000432729721" />
+                              <Text fill="#545454" layoutX="557.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="10000cc" wrappingWidth="95.5000432729721" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="56.0" prefWidth="778.0" styleClass="bar">
+                           <children>
+                              <Text fill="#545454" layoutX="17.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="V0001" wrappingWidth="53.50004327297211" />
+                              <JFXButton layoutX="704.0" layoutY="11.0" minWidth="46.0" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../GoGreen/src/view/img/icons8-remove-24%20(1).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <Text fill="#545454" layoutX="86.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="BMW I8 2020" wrappingWidth="138.5000432729721" />
+                              <Text fill="#545454" layoutX="238.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Petrol" wrappingWidth="89.50004126876593" />
+                              <Text fill="#545454" layoutX="342.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Rs.25,845,785" wrappingWidth="102.5000432729721" />
+                              <Text fill="#545454" layoutX="461.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="25000km" wrappingWidth="95.5000432729721" />
+                              <Text fill="#545454" layoutX="557.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="10000cc" wrappingWidth="95.5000432729721" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="56.0" prefWidth="778.0" styleClass="bar">
+                           <children>
+                              <Text fill="#545454" layoutX="17.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="V0001" wrappingWidth="53.50004327297211" />
+                              <JFXButton layoutX="704.0" layoutY="11.0" minWidth="46.0" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../../../GoGreen/src/view/img/icons8-remove-24%20(1).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <Text fill="#545454" layoutX="86.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="BMW I8 2020" wrappingWidth="138.5000432729721" />
+                              <Text fill="#545454" layoutX="238.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Petrol" wrappingWidth="89.50004126876593" />
+                              <Text fill="#545454" layoutX="342.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Rs.25,845,785" wrappingWidth="102.5000432729721" />
+                              <Text fill="#545454" layoutX="461.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="25000km" wrappingWidth="95.5000432729721" />
+                              <Text fill="#545454" layoutX="557.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="10000cc" wrappingWidth="95.5000432729721" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <Text fill="#534d59" layoutX="248.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Fuel Type" wrappingWidth="81.5000432729721" />
+            <Text fill="#534d59" layoutX="98.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Vehicle" wrappingWidth="109.50004425844395" />
+            <Text fill="#534d59" layoutX="353.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Price" wrappingWidth="53.50004327297211" />
+            <Text fill="#534d59" layoutX="472.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Mileage" wrappingWidth="81.50004424154758" />
+            <Text fill="#534d59" layoutX="568.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Engine " wrappingWidth="81.50004424154758" />
+         </children>
+         <stylesheets>
+            <URL value="@../css/text.css" />
+            <URL value="@../css/Scrool.css" />
+         </stylesheets>
+      </Pane>
+      <JFXComboBox fx:id="cmbType" focusColor="#b1f041" labelFloat="true" layoutX="52.0" layoutY="323.0" onAction="#cmbTypeOnAction" prefHeight="44.0" prefWidth="158.0" promptText="Type" styleClass="textBoxInManage" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="cmbFuelType" focusColor="#b1f041" labelFloat="true" layoutX="227.0" layoutY="184.0" onAction="#cmbFuelTypeOnAction" prefHeight="31.0" prefWidth="158.0" promptText="Fuel Type" styleClass="textBoxInManage" unFocusColor="WHITE" />
+      <JFXTextField fx:id="txtNumber" focusColor="#b1f041" labelFloat="true" layoutX="228.0" layoutY="323.0" onAction="#txtNumberOnAction" onKeyReleased="#txtVehicleNumberReleased" prefHeight="44.0" prefWidth="158.0" promptText="Vehicle Number" styleClass="textBoxInManage" unFocusColor="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </JFXTextField>
+   </children>
+</AnchorPane>
