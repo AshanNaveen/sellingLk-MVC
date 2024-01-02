@@ -1,74 +1,84 @@
 package lk.ijse.sellingLk.controller.barController;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.DatePicker;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import lk.ijse.sellingLk.controller.SignInFormController;
 import lk.ijse.sellingLk.dto.BuyerDto;
 import lk.ijse.sellingLk.dto.PreOrderDto;
 import lk.ijse.sellingLk.model.BuyerModel;
 import lk.ijse.sellingLk.model.PreOrderModel;
-import lk.ijse.sellingLk.model.UserModel;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class PreOrderbarController {
     @FXML
-    private Text txtPreOrderId ,txtEYear;
+    private Text txtId;
 
     @FXML
     private Text txtYear;
 
     @FXML
-    private Text txtBuyerId;
+    private Text txtBuyerName;
 
     @FXML
     private JFXButton btnEdit;
 
     @FXML
-    private Text txtDescription;
+    private JFXButton btnDelete;
 
     @FXML
-    private ImageView imgTick;
+    private Text txtBrand;
+
+    @FXML
+    private JFXTextField txtEBrand;
+
+    @FXML
+    private JFXTextField txtEModel;
+
+    @FXML
+    private JFXTextField txtEYear;
+
+    @FXML
+    private JFXTextField txtEContact;
+
+    @FXML
+    private ImageView imgIsCompleted;
 
     @FXML
     private Text txtDate;
 
     @FXML
+    private Text txtModel;
+
+    @FXML
+    private JFXDatePicker EdatePicker;
+
+    @FXML
     private JFXButton btnUpdate;
 
-    @FXML
-    private DatePicker txtEDate;
+    private int status = 0;
 
-    @FXML
-    private JFXTextField txtEBuyerId;
-
-    @FXML
-    private JFXTextField txtEDescription;
-
-    @FXML
-    private JFXComboBox<?> cmbEYear;
-
-    private int status=0;
-
-    private PreOrderModel model = new PreOrderModel();
+    private PreOrderModel preOrderModel = new PreOrderModel();
+    private BuyerModel buyerModel = new BuyerModel();
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
         try {
-            Alert alert=new Alert(Alert.AlertType.CONFIRMATION, "Are Your Sure ? ", ButtonType.OK,ButtonType.NO);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are Your Sure ? ", ButtonType.OK, ButtonType.NO);
             alert.showAndWait();
-            if (alert.getResult()==ButtonType.YES){
-                if (model.deletePreOrder(txtPreOrderId.getText())){
-                    new Alert(Alert.AlertType.CONFIRMATION,"ok").show();
+            if (alert.getResult() == ButtonType.YES) {
+                if (preOrderModel.deletePreOrder(txtId.getText())) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "ok").show();
                 }
             }
         } catch (SQLException e) {
@@ -78,66 +88,137 @@ public class PreOrderbarController {
 
     @FXML
     void btnEditOnAction(ActionEvent event) {
-        txtEDescription.setText(txtDescription.getText());
+        String phone = null;
+        try {
+            phone = buyerModel.getBuyerInfo(txtBuyerName.getText()).getPhone();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        txtEBrand.setText(txtBrand.getText());
+        txtEModel.setText(txtModel.getText());
         txtEYear.setText(txtYear.getText());
-        txtEBuyerId.setText(txtBuyerId.getText());
+        txtEContact.setText(phone);
+        EdatePicker.setValue(LocalDate.parse(txtDate.getText()));
 
-        txtDescription.setVisible(false);
-        txtBuyerId.setVisible(false);
+        txtBrand.setVisible(false);
+        txtModel.setVisible(false);
         txtDate.setVisible(false);
+        txtBuyerName.setVisible(false);
         txtYear.setVisible(false);
+        imgIsCompleted.setMouseTransparent(false);
 
-        txtEDescription.setVisible(true);
-        txtEBuyerId.setVisible(true);
-        txtEDate.setVisible(true);
+        txtEBrand.setVisible(true);
+        txtEModel.setVisible(true);
         txtEYear.setVisible(true);
+        txtEContact.setVisible(true);
+        EdatePicker.setVisible(true);
         btnEdit.setVisible(false);
         btnUpdate.setVisible(true);
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-        txtDescription.setText(txtEDescription.getText());
+        String name = null;
+        try {
+            name = buyerModel.getBuyerInfo(txtEContact.getText()).getName();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        txtBrand.setText(txtEBrand.getText());
+        txtModel.setText(txtEModel.getText());
         txtYear.setText(txtEYear.getText());
-        txtBuyerId.setText(txtEBuyerId.getText());
-        txtDate.setText(String.valueOf(txtEDate.getValue()));
+        txtBuyerName.setText(name);
+        txtDate.setText(String.valueOf(EdatePicker.getValue()));
 
-        txtDescription.setVisible(true);
-        txtBuyerId.setVisible(true);
-        txtDate.setVisible(true);
-
+        txtBrand.setVisible(true);
+        txtModel.setVisible(true);
         txtYear.setVisible(true);
+        txtBuyerName.setVisible(true);
+        txtDate.setVisible(true);
+        imgIsCompleted.setMouseTransparent(true);
 
-        txtEDescription.setVisible(false);
-        txtEBuyerId.setVisible(false);
-        txtEDate.setVisible(false);
+        txtEBrand.setVisible(false);
+        txtEModel.setVisible(false);
         txtEYear.setVisible(false);
+        txtEContact.setVisible(false);
+        EdatePicker.setVisible(false);
         btnEdit.setVisible(true);
         btnUpdate.setVisible(false);
-
-        /*try {
-            if(model.updatePreOrder(new PreOrderDto(
-                    txtPreOrderId.getText(),
-                    txtDescription.getText(),
-                    txtYear.getText(),
-                    txtDate.getText(),
-                    (status==0)
-            ))) new Alert(Alert.AlertType.CONFIRMATION,"Updated").show();
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }*/
     }
 
-    public void setData(PreOrderDto dto){
-        txtPreOrderId.setText(dto.getId());
-        txtDescription.setText(dto.getDescription());
+    @FXML
+    void imgIsCompletedOnMouseClicked(MouseEvent event) {
+        if (status==0){
+            imgIsCompleted.setImage(new Image("/assets/icons/icons8-correct-96.png"));
+            status=1;
+        }else {
+            imgIsCompleted.setImage(new Image("/assets/icons/icons8-close-96.png"));
+            status=0;
+        }
+    }
+
+    @FXML
+    void txtEBrandKeyReleased(KeyEvent event) {
+
+    }
+
+    @FXML
+    void txtEBrandOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void txtEContactKeyReleased(KeyEvent event) {
+
+    }
+
+    @FXML
+    void txtEContactOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void txtEModelKeyReleased(KeyEvent event) {
+
+    }
+
+    @FXML
+    void txtEModelOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void txtEYearKeyReleased(KeyEvent event) {
+
+    }
+
+    @FXML
+    void txtEYearOnAction(ActionEvent event) {
+
+    }
+
+    public void setData(PreOrderDto dto) {
+        String name = null;
+        try {
+            name = buyerModel.getBuyerInfo(dto.getBuyerId()).getName();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        txtId.setText(dto.getId());
+        txtBrand.setText(dto.getBrand());
+        txtModel.setText(dto.getModel());
         txtYear.setText(String.valueOf(dto.getYear()));
         txtDate.setText(dto.getDate());
-        txtBuyerId.setText(dto.getBuyerId());
+        txtBuyerName.setText(name);
 
-        if(dto.getStatus()==0){
-            imgTick.setImage(new Image("/assets/icons/icons8-close-96.png"));
-        }else imgTick.setImage(new Image("/assets/icons/icons8-correct-96.png"));
+        if (dto.getStatus() == 0) {
+            imgIsCompleted.setImage(new Image("/assets/icons/icons8-close-96.png"));
+            status=0;
+        } else {
+            imgIsCompleted.setImage(new Image("/assets/icons/icons8-correct-96.png"));
+            status=1;
+        }
     }
 }
