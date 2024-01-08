@@ -94,7 +94,6 @@ public class SellOrderFormController {
     public void initialize() {
         loadVehicleIds();
         vBox.getChildren().clear();
-        //DateAndTime.setText(DateTimeUtil.timeNow());
         time();
     }
 
@@ -196,7 +195,7 @@ public class SellOrderFormController {
 
     @FXML
     void btnNewBuyerOnAction(ActionEvent event) {
-        Navigation.popupNavigation("newBuyer-form.fxml","Add New Seller");
+        Navigation.popupNavigation("newBuyer-form.fxml","Add New Buyer");
     }
 
     @FXML

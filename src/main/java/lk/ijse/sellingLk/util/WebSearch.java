@@ -91,7 +91,7 @@ public class WebSearch {
                             System.out.print(i + "  : ");
                             System.out.println(dto);
                         //}else System.out.println("else");
-                        if (list.size()==25)break;
+                        if (list.size()==5)break;
 
                     } catch (Exception e) {
                         e.printStackTrace();
