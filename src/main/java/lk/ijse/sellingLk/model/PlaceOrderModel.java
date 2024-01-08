@@ -43,7 +43,7 @@ public class PlaceOrderModel {
                 if (isPaid) {
                     boolean isOrderDetailSaved = buyOrderDetailModel.saveOrderDetail(placeOrderDto.getOrderId(), placeOrderDto.getItems(), placeOrderDto.getDate());
                     if (isOrderDetailSaved) {
-                        CrudUtil.commit();
+                        connection.commit();
                         System.out.println("Hureee");
                         //generateReport(placeOrderDto);
                         result = true;
@@ -77,7 +77,7 @@ public class PlaceOrderModel {
                     if (isPaid) {
                         boolean isOrderDetailSaved = sellOrderDetailModel.saveOrderDetail(placeOrderDto.getOrderId(), placeOrderDto.getItems(), placeOrderDto.getDate());
                         if (isOrderDetailSaved) {
-                            CrudUtil.commit();
+                            connection.commit();
                             System.out.println("Hureee");
                             //generateReport(placeOrderDto);
                             result = true;
