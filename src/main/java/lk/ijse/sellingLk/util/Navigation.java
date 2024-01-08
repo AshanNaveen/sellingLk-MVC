@@ -1,5 +1,6 @@
 package lk.ijse.sellingLk.util;
 
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -8,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,6 +23,10 @@ public class Navigation {
             FXMLLoader loader = new FXMLLoader(Navigation.class.getResource("/view/" + link));
             Parent root = loader.load();
             pane.getChildren().add(root);
+            FadeTransition fadeIn = new FadeTransition(Duration.millis(1500), pane);
+            fadeIn.setFromValue(0.0);
+            fadeIn.setToValue(1.0);
+            fadeIn.play();
         } catch (IOException e) {
             e.printStackTrace();
         }
