@@ -6,8 +6,6 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -44,39 +42,7 @@
             <Text fill="#534d59" layoutX="17.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Buyer ID" wrappingWidth="109.50004425844395" />
             <ScrollPane layoutX="10.0" layoutY="53.0" prefHeight="223.0" prefWidth="1134.0">
                <content>
-                  <VBox fx:id="vBox" prefHeight="221.0" prefWidth="1134.0" style="-fx-background-color: #ffff;">
-                     <children>
-                        <Pane prefHeight="56.0" prefWidth="1377.0" styleClass="bar">
-                           <children>
-                              <Text fill="#545454" layoutX="11.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="B001" wrappingWidth="53.50004327297211" />
-                              <Text fill="#545454" layoutX="270.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="ashannvn@gmail.com" wrappingWidth="162.99998784065247" />
-                              <Text fill="#545454" layoutX="450.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="199/D,Yakkalamulla,Galle" wrappingWidth="188.50004328228533" />
-                              <Text fill="#545454" layoutX="650.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="0764004056" wrappingWidth="101.00000628702765" />
-                              <JFXButton layoutX="1010.0" layoutY="10.0" minWidth="46.0" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
-                                 <graphic>
-                                    <ImageView fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../../../GoGreen/src/view/img/icons8-edit-64.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </JFXButton>
-                              <JFXButton layoutX="1060.0" layoutY="10.0" minWidth="46.0" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
-                                 <graphic>
-                                    <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../../../../GoGreen/src/view/img/icons8-remove-24%20(1).png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                              </JFXButton>
-                              <Text fill="#545454" layoutX="100.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Naveen Theekshana" wrappingWidth="154.5000432729721" />
-                              <Text fill="#545454" layoutX="900.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Golden " wrappingWidth="101.00000628702765" />
-                              <Text fill="#545454" layoutX="766.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="200316511610" wrappingWidth="101.00000628702765" />
-                           </children>
-                        </Pane>
-                     </children>
-                  </VBox>
+                  <VBox fx:id="vBox" prefHeight="221.0" prefWidth="1134.0" style="-fx-background-color: #ffff;" />
                </content>
             </ScrollPane>
             <Text fill="#534d59" layoutX="280.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins" text="Email" wrappingWidth="53.50004327297211" />

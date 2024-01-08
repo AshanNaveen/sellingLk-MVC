@@ -103,9 +103,9 @@ public class BuyerModel {
         return null;
     }
 
-    public BuyerDto getBuyerInfo(String contact) throws SQLException {
+    public BuyerDto getBuyerInfo(String contactOrIdOrName) throws SQLException {
         BuyerDto dto = null;
-        ResultSet resultSet = CrudUtil.crudUtil("SELECT * FROM buyer WHERE phone=?", contact);
+        ResultSet resultSet = CrudUtil.crudUtil("SELECT * FROM buyer WHERE phone=? OR id=? OR name=?", contactOrIdOrName,contactOrIdOrName,contactOrIdOrName);
         if (resultSet.next()) {
            dto= new BuyerDto(
                     resultSet.getString(1),
