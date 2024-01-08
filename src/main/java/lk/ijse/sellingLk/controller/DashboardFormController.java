@@ -1,20 +1,27 @@
 package lk.ijse.sellingLk.controller;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import lk.ijse.sellingLk.util.Navigation;
 
 import java.io.IOException;
 
 public class DashboardFormController {
+    @FXML
+    private AnchorPane root;
 
     @FXML
     private Pane loadingPane;
@@ -78,7 +85,13 @@ public class DashboardFormController {
 
     private int position=0;
 
-
+    public void initialize() throws IOException {
+        Navigation.onTheTopNavigation(loadingPane, "overview-form.fxml");
+        FadeTransition fadeIn = new FadeTransition(Duration.millis(1000), root);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        fadeIn.play();
+    }
 
     @FXML
     void btnBAndSOnMouseIn(MouseEvent event) {
@@ -87,6 +100,7 @@ public class DashboardFormController {
             imgCustomers.setImage(new Image("/assets/icons/ashan-light.png"));
         }
     }
+
 
     @FXML
     void btnBAndSOnMouseOut(MouseEvent event) {
@@ -103,7 +117,6 @@ public class DashboardFormController {
             imgEmployees.setImage(new Image("/assets/icons/icons8-employees-light.png"));
         }
     }
-
     @FXML
     void btnEmployeeOnMouseOut(MouseEvent event) {
         if (position!=5) {
@@ -176,9 +189,7 @@ public class DashboardFormController {
         }
     }
 
-    public void initialize() throws IOException {
-        Navigation.onTheTopNavigation(loadingPane, "overview-form.fxml");
-    }
+
 
     @FXML
     void btnBAndSOnMouseClicked(MouseEvent event) throws IOException {
@@ -306,6 +317,7 @@ public class DashboardFormController {
         if (lblSearch.isVisible())lblSearch.setVisible(false);
         if (lblPayment.isVisible())lblPayment.setVisible(false);
         if (lblSeller.isVisible())lblSeller.setVisible(false);
+
     }
 
     @FXML
