@@ -147,7 +147,7 @@ public class ValidateUtil {
             return false;
         }
     }
-    public static boolean validateVehicle(String text, JFXTextField field) {
+    public static boolean validateVehicleNum(String text, JFXTextField field) {
         if (Pattern.matches("^[A-Z]{2}\\d+$", text)) {
             field.setStyle("-fx-text-fill:  #B1F041 ");
             return true;
@@ -158,4 +158,13 @@ public class ValidateUtil {
     }
 
 
+    public static boolean validateBrandAndModel(String text, JFXTextField textField) {
+        if (Pattern.matches("^[a-zA-Z0-9\\s\\-_&@#!$%^*()+={}\\[\\]:;<>,.?~\\\\/]*$", text)) {
+            textField.setStyle("-fx-text-fill:  #B1F041 ");
+            return true;
+        } else {
+            textField.setStyle("-fx-text-fill: #FA5252");
+            return false;
+        }
+    }
 }
