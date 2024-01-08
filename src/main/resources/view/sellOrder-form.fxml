@@ -39,11 +39,11 @@
                            <children>
                               <Text fill="#545454" layoutX="31.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="V001" wrappingWidth="53.50004327297211" />
                               <Text fill="#545454" layoutX="800.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="0764004056" wrappingWidth="101.00000628702765" />
-                              <JFXButton layoutX="1060.0" layoutY="10.0" minWidth="46.0" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
+                              <JFXButton layoutX="1060.0" layoutY="10.0" minWidth="46.0" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../css/button.css" text=" ">
                                  <graphic>
                                     <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../../../GoGreen/src/view/img/icons8-remove-24%20(1).png" />
+                                          <Image url="@../assets/icons/icons8-remove-24%20(1).png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -55,11 +55,11 @@
                            <children>
                               <Text fill="#545454" layoutX="31.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="V002" wrappingWidth="53.50004327297211" />
                               <Text fill="#545454" layoutX="800.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="0764004056" wrappingWidth="101.00000628702765" />
-                              <JFXButton layoutX="1060.0" layoutY="10.0" minWidth="46.0" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
+                              <JFXButton layoutX="1060.0" layoutY="10.0" minWidth="46.0" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../css/button.css" text=" ">
                                  <graphic>
                                     <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../../../GoGreen/src/view/img/icons8-remove-24%20(1).png" />
+                                          <Image url="@../assets/icons/icons8-remove-24%20(1).png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
