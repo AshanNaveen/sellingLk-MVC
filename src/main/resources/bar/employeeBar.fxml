@@ -17,7 +17,7 @@
             <Text fx:id="txtEmail" fill="#545454" layoutX="300.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="ashannvn@gmail.com" wrappingWidth="191.00000172108412" />
             <Text fx:id="txtAddress" fill="#545454" layoutX="498.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="199/D,Yakkalamulla,Galle" wrappingWidth="205.50004328228533" />
             <Text fx:id="txtPhone" fill="#545454" layoutX="710.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="0764004056" wrappingWidth="101.00000628702765" />
-            <JFXButton layoutX="1010.0" layoutY="10.0" minWidth="46.0" onAction="#btnEditOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
+            <JFXButton layoutX="1010.0" layoutY="10.0" minWidth="46.0" onAction="#btnEditOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../css/button.css" text=" ">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -26,7 +26,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton layoutX="1060.0" layoutY="10.0" minWidth="46.0" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" ">
+            <JFXButton layoutX="1060.0" layoutY="10.0" minWidth="46.0" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../css/button.css" text=" ">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -42,7 +42,7 @@
             <JFXTextField fx:id="txtEAddress" layoutX="490.0" layoutY="13.0" prefHeight="31.0" prefWidth="180.0" unFocusColor="#575757" visible="false" />
             <JFXTextField fx:id="txtEPhone" layoutX="700.0" layoutY="13.0" prefHeight="31.0" prefWidth="101.0" unFocusColor="#575757" visible="false" />
             <JFXComboBox fx:id="cmbERole" editable="true" layoutX="844.0" layoutY="13.0" prefHeight="31.0" prefWidth="91.0" visible="false" />
-            <JFXButton fx:id="btnUpdate" layoutX="954.0" layoutY="9.0" minWidth="46.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../../../../../../GoGreen/src/view/css/button.css" text=" " visible="false">
+            <JFXButton fx:id="btnUpdate" layoutX="954.0" layoutY="9.0" minWidth="46.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../css/button.css" text=" " visible="false">
                <graphic>
                   <ImageView fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
