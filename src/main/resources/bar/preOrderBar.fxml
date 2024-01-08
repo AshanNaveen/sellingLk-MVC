@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -35,10 +35,10 @@
                </graphic>
             </JFXButton>
             <Text fx:id="txtBrand" fill="#545454" layoutX="147.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Honda" wrappingWidth="95.00002479553223" />
-            <JFXTextField fx:id="txtEBrand" layoutX="135.0" layoutY="10.0" onAction="#txtEBrandOnAction" onKeyReleased="#txtEBrandKeyReleased" prefHeight="31.0" prefWidth="95.0" unFocusColor="#4d4d4d00" visible="false" />
-            <JFXTextField fx:id="txtEModel" layoutX="255.0" layoutY="10.0" onAction="#txtEModelOnAction" onKeyReleased="#txtEModelKeyReleased" prefHeight="31.0" prefWidth="95.0" unFocusColor="#4d4d4d00" visible="false" />
-            <JFXTextField fx:id="txtEYear" layoutX="390.0" layoutY="10.0" onAction="#txtEYearOnAction" onKeyReleased="#txtEYearKeyReleased" prefHeight="31.0" prefWidth="83.0" unFocusColor="#4d4d4d00" visible="false" />
-            <JFXTextField fx:id="txtEContact" layoutX="520.0" layoutY="10.0" onAction="#txtEContactOnAction" onKeyReleased="#txtEContactKeyReleased" prefHeight="31.0" prefWidth="139.0" unFocusColor="#4d4d4d00" visible="false" />
+            <JFXTextField fx:id="txtEBrand" layoutX="135.0" layoutY="10.0" onAction="#txtOnAction" onKeyReleased="#txtKeyReleased" prefHeight="31.0" prefWidth="95.0" unFocusColor="#4d4d4d00" visible="false" />
+            <JFXTextField fx:id="txtEModel" layoutX="255.0" layoutY="10.0" onAction="#txtOnAction" onKeyReleased="#txtKeyReleased" prefHeight="31.0" prefWidth="95.0" unFocusColor="#4d4d4d00" visible="false" />
+            <JFXTextField fx:id="txtEYear" layoutX="390.0" layoutY="10.0" onAction="#txtOnAction" onKeyReleased="#txtKeyReleased" prefHeight="31.0" prefWidth="83.0" unFocusColor="#4d4d4d00" visible="false" />
+            <JFXTextField fx:id="txtEContact" layoutX="520.0" layoutY="10.0" onAction="#txtOnAction" onKeyReleased="#txtKeyReleased" prefHeight="31.0" prefWidth="139.0" unFocusColor="#4d4d4d00" visible="false" />
             <ImageView fx:id="imgIsCompleted" fitHeight="30.0" fitWidth="30.0" layoutX="896.0" layoutY="13.0" mouseTransparent="true" onMouseClicked="#imgIsCompletedOnMouseClicked" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icons/icons8-close-96.png" />
@@ -46,7 +46,7 @@
             </ImageView>
             <Text fx:id="txtDate" fill="#545454" layoutX="700.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="2023/12/05" textAlignment="CENTER" wrappingWidth="109.50002068281174" />
             <Text fx:id="txtModel" fill="#545454" layoutX="272.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Poppins-14" text="Prius" wrappingWidth="95.00002479553223" />
-            <JFXDatePicker fx:id="EdatePicker" defaultColor="#4059a9" layoutX="700.0" layoutY="10.0" prefHeight="31.0" prefWidth="130.0" visible="false" />
+            <DatePicker fx:id="EdatePicker" layoutX="694.0" layoutY="11.0" prefHeight="31.0" prefWidth="139.0" visible="false" />
          </children>
       </Pane>
       <JFXButton fx:id="btnUpdate" layoutX="1010.0" layoutY="10.0" minWidth="46.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="46.0" styleClass="round-btn" stylesheets="@../css/button.css" visible="false">

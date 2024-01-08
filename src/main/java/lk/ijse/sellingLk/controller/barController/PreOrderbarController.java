@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DatePicker;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -16,6 +17,7 @@ import lk.ijse.sellingLk.dto.BuyerDto;
 import lk.ijse.sellingLk.dto.PreOrderDto;
 import lk.ijse.sellingLk.model.BuyerModel;
 import lk.ijse.sellingLk.model.PreOrderModel;
+import lk.ijse.sellingLk.util.ValidateUtil;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -61,7 +63,7 @@ public class PreOrderbarController {
     private Text txtModel;
 
     @FXML
-    private JFXDatePicker EdatePicker;
+    private DatePicker EdatePicker;
 
     @FXML
     private JFXButton btnUpdate;
@@ -149,53 +151,57 @@ public class PreOrderbarController {
 
     @FXML
     void imgIsCompletedOnMouseClicked(MouseEvent event) {
-        if (status==0){
+        if (status == 0) {
             imgIsCompleted.setImage(new Image("/assets/icons/icons8-correct-96.png"));
-            status=1;
-        }else {
+            status = 1;
+        } else {
             imgIsCompleted.setImage(new Image("/assets/icons/icons8-close-96.png"));
-            status=0;
+            status = 0;
         }
     }
 
     @FXML
-    void txtEBrandKeyReleased(KeyEvent event) {
+    void txtKeyReleased(KeyEvent event) {
+        if (event.getSource() instanceof JFXTextField) {
+            JFXTextField textField = (JFXTextField) event.getSource();
 
+            switch (textField.getId()) {
+                case "txtEBrand":
+                    ValidateUtil.validateBrandAndModel(textField.getText(), textField);
+                    break;
+                case "txtEContact":
+                    ValidateUtil.validatePhone(txtEContact.getText(), txtEContact);
+                    break;
+                case "txtEModel":
+                    ValidateUtil.validateBrandAndModel(txtEModel.getText(), txtEBrand);
+                    break;
+                case "txtEYear":
+                    ValidateUtil.validateYear(Integer.parseInt(txtEYear.getText()), txtEYear);
+                    break;
+            }
+        }
     }
 
     @FXML
-    void txtEBrandOnAction(ActionEvent event) {
+    void txtOnAction(ActionEvent event) {
+        if (event.getSource() instanceof JFXTextField) {
+            JFXTextField textField = (JFXTextField) event.getSource();
 
-    }
-
-    @FXML
-    void txtEContactKeyReleased(KeyEvent event) {
-
-    }
-
-    @FXML
-    void txtEContactOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void txtEModelKeyReleased(KeyEvent event) {
-
-    }
-
-    @FXML
-    void txtEModelOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void txtEYearKeyReleased(KeyEvent event) {
-
-    }
-
-    @FXML
-    void txtEYearOnAction(ActionEvent event) {
-
+            switch (textField.getId()) {
+                case "txtEBrand":
+                    txtEModel.requestFocus();
+                    break;
+                case "txtEContact":
+                    EdatePicker.requestFocus();
+                    break;
+                case "txtEModel":
+                    txtEYear.requestFocus();
+                    break;
+                case "txtEYear":
+                    txtEContact.requestFocus();
+                    break;
+            }
+        }
     }
 
     public void setData(PreOrderDto dto) {
@@ -215,10 +221,10 @@ public class PreOrderbarController {
 
         if (dto.getStatus() == 0) {
             imgIsCompleted.setImage(new Image("/assets/icons/icons8-close-96.png"));
-            status=0;
+            status = 0;
         } else {
             imgIsCompleted.setImage(new Image("/assets/icons/icons8-correct-96.png"));
-            status=1;
+            status = 1;
         }
     }
 }

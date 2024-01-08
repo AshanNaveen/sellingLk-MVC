@@ -14,6 +14,7 @@ import lk.ijse.sellingLk.dto.BuyerDto;
 import lk.ijse.sellingLk.dto.PreOrderDto;
 import lk.ijse.sellingLk.model.BuyerModel;
 import lk.ijse.sellingLk.model.PreOrderModel;
+import lk.ijse.sellingLk.util.Navigation;
 import lk.ijse.sellingLk.util.ValidateUtil;
 
 import javax.validation.Valid;
@@ -148,7 +149,7 @@ public class PreOrderFormController {
     }
     @FXML
     void btnNewBuyerOnAction(ActionEvent event) {
-
+        Navigation.popupNavigation("newBuyer-form.fxml","Add New Buyer");
     }
 
 }
