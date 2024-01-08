@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXSpinner?>
-<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -33,7 +32,7 @@
                         </Pane>
                         <Pane prefHeight="45.0" prefWidth="608.0" styleClass="bar">
                            <children>
-                              <Label layoutX="26.0" layoutY="10.0" prefHeight="21.0" prefWidth="170.0" style="-fx-text-fill: #262626; -fx-font-weight: 700;" styleClass="Kanit-16" text="Toyota Prius 2008" />
+                              <Label layoutX="26.0" layoutY="10.0" prefHeight="21.0" prefWidth="170.0" style="-fx-text-fill: #262626; -fx-font-weight: 700;" styleClass="Kanit-16" text="Honda Civic 2010" />
                               <Label alignment="CENTER_RIGHT" layoutX="393.0" layoutY="10.0" prefHeight="21.0" prefWidth="170.0" style="-fx-text-fill: #262626; -fx-font-weight: 700;" styleClass="Kanit-16" text="2023/11/25">
                                  <stylesheets>
                                     <URL value="@../css/tbl.css" />
@@ -44,8 +43,8 @@
                         </Pane>
                         <Pane prefHeight="45.0" prefWidth="608.0" styleClass="bar">
                            <children>
-                              <Label layoutX="26.0" layoutY="10.0" prefHeight="21.0" prefWidth="170.0" style="-fx-text-fill: #262626; -fx-font-weight: 700;" styleClass="Kanit-16" text="Toyota Prius 2008" />
-                              <Label alignment="CENTER_RIGHT" layoutX="393.0" layoutY="10.0" prefHeight="21.0" prefWidth="170.0" style="-fx-text-fill: #262626; -fx-font-weight: 700;" styleClass="Kanit-16" text="2023/11/25">
+                              <Label layoutX="26.0" layoutY="10.0" prefHeight="21.0" prefWidth="170.0" style="-fx-text-fill: #262626; -fx-font-weight: 700;" styleClass="Kanit-16" text="Toyota Axio 2008" />
+                              <Label alignment="CENTER_RIGHT" layoutX="393.0" layoutY="10.0" prefHeight="21.0" prefWidth="170.0" style="-fx-text-fill: #262626; -fx-font-weight: 700;" styleClass="Kanit-16" text="2023/11/20">
                                  <stylesheets>
                                     <URL value="@../css/tbl.css" />
                                     <URL value="@../css/text.css" />
@@ -70,65 +69,39 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </LineChart>
+            <Label alignment="CENTER" layoutX="3.0" layoutY="131.0" prefHeight="31.0" prefWidth="503.0" style="-fx-font-size: 20;" styleClass="bold" text="Sales Of The Year" />
          </children>
       </Pane>
       <Pane layoutX="693.0" layoutY="318.0" prefHeight="216.6" prefWidth="238.6" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #B1F041; -fx-border-width: 4;">
          <children>
-            <JFXSpinner fx:id="loader" layoutX="20.0" layoutY="12.0" prefHeight="193.0" prefWidth="199.0" progress="0.62" />
-            <Label alignment="CENTER" layoutX="60.0" layoutY="50.0" prefHeight="45.0" prefWidth="118.0" style="-fx-background-color: #E2E3E7;" styleClass="bold" text="To Do" />
-            <Label alignment="CENTER" layoutX="60.0" layoutY="86.0" prefHeight="45.0" prefWidth="118.0" style="-fx-background-color: #E2E3E7;" styleClass="bold" text="Orders" />
-            <Label alignment="CENTER" layoutX="61.0" layoutY="123.0" prefHeight="45.0" prefWidth="118.0" style="-fx-background-color: #E2E3E7;" styleClass="bold" text="90%" />
+            <JFXSpinner fx:id="loader" layoutX="20.0" layoutY="12.0" prefHeight="193.0" prefWidth="199.0" progress="1.0" />
+            <Label alignment="CENTER" layoutX="60.0" layoutY="50.0" prefHeight="45.0" prefWidth="125.0" style="-fx-background-color: #E2E3E7;" styleClass="bold" text="To Do" />
+            <Label alignment="CENTER" layoutX="36.0" layoutY="86.0" prefHeight="45.0" prefWidth="168.0" style="-fx-background-color: #E2E3E7;" styleClass="bold" text="Orders" />
+            <Label fx:id="lblPercentage" alignment="CENTER" layoutX="62.0" layoutY="123.0" prefHeight="45.0" prefWidth="125.0" style="-fx-background-color: #E2E3E7;" styleClass="bold" text="90%" />
          </children>
       </Pane>
       <Pane layoutX="957.0" layoutY="318.0" prefHeight="216.6" prefWidth="238.6" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #B1F041; -fx-border-width: 4;">
          <children>
-            <Label alignment="CENTER" layoutY="48.0" prefHeight="45.0" prefWidth="239.0" text="Total Vehicals">
-               <styleClass>
-                  <String fx:value="iconTags" />
-                  <String fx:value="bold" />
-               </styleClass></Label>
-            <Label alignment="CENTER" layoutY="80.0" prefHeight="45.0" prefWidth="239.0" text="In Stock">
-               <styleClass>
-                  <String fx:value="iconTags" />
-                  <String fx:value="bold" />
-               </styleClass></Label>
-            <Label fx:id="lblCount" alignment="CENTER" layoutY="118.0" prefHeight="45.0" prefWidth="239.0" style="-fx-font-size: 50;" styleClass="bold" text="96" />
+            <Label alignment="CENTER" layoutY="48.0" prefHeight="45.0" prefWidth="239.0" styleClass="bold" text="Total Vehicals" />
+            <Label alignment="CENTER" layoutY="80.0" prefHeight="45.0" prefWidth="239.0" styleClass="bold" text="In Stock" />
+            <Label fx:id="lblVehicleCount" alignment="CENTER" layoutY="118.0" prefHeight="45.0" prefWidth="239.0" style="-fx-font-size: 50;" styleClass="bold" text="96" />
          </children>
       </Pane>
       <Label layoutX="27.0" styleClass="title" text="Dashboard" />
-      <Pane layoutX="32.0" layoutY="110.0" prefHeight="169.0" prefWidth="195.0" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 4; -fx-border-color: #8371fd;">
+      <Pane layoutX="32.0" layoutY="118.0" prefHeight="169.0" prefWidth="303.0" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 4; -fx-border-color: #B1F041;">
          <children>
-            <Label alignment="CENTER" layoutX="3.0" layoutY="20.0" prefHeight="45.0" prefWidth="188.0" text="Total ">
-               <styleClass>
-                  <String fx:value="iconTags" />
-                  <String fx:value="bold" />
-               </styleClass>
-            </Label>
-            <Label alignment="CENTER" layoutX="3.0" layoutY="50.0" prefHeight="45.0" prefWidth="188.0" text="Buyers">
-               <styleClass>
-                  <String fx:value="iconTags" />
-                  <String fx:value="bold" />
-               </styleClass>
-            </Label>
+            <Label alignment="CENTER" layoutX="59.0" layoutY="16.0" prefHeight="45.0" prefWidth="188.0" styleClass="bold" text="Total " />
+            <Label alignment="CENTER" layoutX="59.0" layoutY="46.0" prefHeight="45.0" prefWidth="188.0" styleClass="bold" text="Buyers" />
+            <Label fx:id="lblBuyerCount" alignment="CENTER" layoutX="32.0" layoutY="82.0" prefHeight="45.0" prefWidth="239.0" style="-fx-font-size: 50;" styleClass="bold" text="96" />
          </children>
       </Pane>
-      <Pane layoutX="249.0" layoutY="110.0" prefHeight="169.0" prefWidth="195.0" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 4; -fx-border-color: #0dddb3;">
+      <Pane layoutX="377.0" layoutY="115.0" prefHeight="169.0" prefWidth="283.0" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 4; -fx-border-color: #B1F041;">
          <children>
-            <Label alignment="CENTER" layoutX="4.0" layoutY="21.0" prefHeight="45.0" prefWidth="188.0" text="Total ">
-               <styleClass>
-                  <String fx:value="iconTags" />
-                  <String fx:value="bold" />
-               </styleClass>
-            </Label>
-            <Label alignment="CENTER" layoutX="4.0" layoutY="52.0" prefHeight="45.0" prefWidth="188.0" text="Sellers">
-               <styleClass>
-                  <String fx:value="iconTags" />
-                  <String fx:value="bold" />
-               </styleClass>
-            </Label>
+            <Label alignment="CENTER" layoutX="50.0" layoutY="16.0" prefHeight="45.0" prefWidth="188.0" styleClass="bold" text="Total " />
+            <Label alignment="CENTER" layoutX="50.0" layoutY="47.0" prefHeight="45.0" prefWidth="188.0" styleClass="bold" text="Sellers" />
+            <Label fx:id="lblSellerCount" alignment="CENTER" layoutX="22.0" layoutY="80.0" prefHeight="45.0" prefWidth="239.0" style="-fx-font-size: 50;" styleClass="bold" text="96" />
          </children>
       </Pane>
-      <Pane layoutX="465.0" layoutY="110.0" prefHeight="169.0" prefWidth="195.0" style="-fx-background-color: #E2E3E7; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #B1F041; -fx-border-width: 4;" />
    </children>
    <stylesheets>
       <URL value="@../css/stylesheet.css" />
